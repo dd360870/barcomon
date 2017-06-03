@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_battle_scene"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/battlescenebackground"
+    tools:context="com.example.boan.firebasep.BattleScene">
+
+    <ImageView
+        android:id="@+id/battleSceneEnemyMonsterBackground"
+        android:layout_width="150dip"
+        android:layout_height="225dip"
+        android:src="@drawable/monstercardbackground_blue"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+
+    <ImageView
+        android:id="@+id/battleSceneEnemyMonsterScreen"
+        android:layout_width="110dip"
+        android:layout_height="100dip"
+        android:src="@drawable/monstercardscreen"
+        android:layout_below="@+id/battleSceneEnemyMonsterTopBar"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/battleSceneEnemyMonsterTopBar"
+        android:layout_width="120dip"
+        android:layout_height="35dip"
+        android:src="@drawable/monstercardtopbar"
+        android:layout_marginTop="13dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/battleSceneEnemyMonsterImageView"
+        android:layout_width="80dip"
+        android:layout_height="80dip"
+        android:src="@drawable/can"
+        android:layout_alignBottom="@+id/battleSceneEnemyMonsterScreen"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/battleSceneEnemyMonsterTopBar" />
+
+    <ImageView
+        android:id="@+id/battleSceneEnemyMonsterAttackImageView"
+        android:layout_width="70dip"
+        android:layout_height="35dip"
+        android:src="@drawable/gameboy_attack"
+        android:layout_below="@+id/battleSceneEnemyMonsterScreen"
+        android:layout_alignLeft="@+id/battleSceneEnemyMonsterBackground"
+        android:layout_alignStart="@+id/battleSceneEnemyMonsterBackground" />
+
+    <ImageView
+        android:id="@+id/battleSceneEnemyMonsterDefenseImageView"
+        android:layout_width="70dip"
+        android:layout_height="35dip"
+        android:src="@drawable/gameboy_defense"
+        android:layout_below="@+id/battleSceneEnemyMonsterScreen"
+        android:layout_alignRight="@+id/battleSceneEnemyMonsterBackground"
+        android:layout_alignEnd="@+id/battleSceneEnemyMonsterBackground" />
+
+    <ImageView
+        android:id="@+id/battleSceneEnemyMonsterLoveLevelImageView"
+        android:layout_width="70dip"
+        android:layout_height="35dip"
+        android:src="@drawable/gameboy_lovelevel"
+        android:layout_below="@+id/battleSceneEnemyMonsterAttackImageView"
+        android:layout_alignLeft="@+id/battleSceneEnemyMonsterBackground"
+        android:layout_alignStart="@+id/battleSceneEnemyMonsterBackground" />
+
+    <ImageView
+        android:id="@+id/battleSceneEnemyMonsterStrengthImageView"
+        android:layout_width="70dip"
+        android:layout_height="35dip"
+        android:src="@drawable/gameboy_strength"
+        android:layout_below="@+id/battleSceneEnemyMonsterDefenseImageView"
+        android:layout_alignRight="@+id/battleSceneEnemyMonsterBackground"
+        android:layout_alignEnd="@+id/battleSceneEnemyMonsterBackground" />
+
+    <ImageView
+        android:id="@+id/battleSceneEnemyMonsterLevelImageView"
+        android:layout_width="40dip"
+        android:layout_height="40dip"
+        android:src="@drawable/monstercardlevel"
+        android:layout_above="@+id/battleSceneEnemyMonsterScreen"
+        android:layout_alignLeft="@+id/battleSceneEnemyMonsterBackground"
+        android:layout_alignStart="@+id/battleSceneEnemyMonsterBackground" />
+
+    <TextView
+        android:id="@+id/battleSceneEnemyMonsterlevelTextView"
+        android:layout_width="30dip"
+        android:layout_height="30dip"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="99"
+        android:layout_above="@+id/battleSceneEnemyMonsterScreen"
+        android:layout_alignRight="@+id/battleSceneEnemyMonsterLevelImageView"
+        android:layout_alignEnd="@+id/battleSceneEnemyMonsterLevelImageView" />
+
+    <TextView
+        android:id="@+id/battleSceneEnemyMonsterAttackTextView"
+        android:layout_width="50dip"
+        android:layout_height="25dip"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="9999"
+        android:layout_above="@+id/battleSceneEnemyMonsterLoveLevelImageView"
+        android:layout_toLeftOf="@+id/battleSceneEnemyMonsterDefenseImageView"
+        android:layout_toStartOf="@+id/battleSceneEnemyMonsterDefenseImageView"
+        android:layout_below="@+id/battleSceneEnemyMonsterScreen" />
+
+    <TextView
+        android:id="@+id/battleSceneEnemyMonsterDefenseTextView"
+        android:layout_width="50dip"
+        android:layout_height="25dip"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="9999"
+        android:layout_alignBottom="@+id/battleSceneEnemyMonsterAttackTextView"
+        android:layout_alignRight="@+id/battleSceneEnemyMonsterBackground"
+        android:layout_alignEnd="@+id/battleSceneEnemyMonsterBackground"
+        android:layout_below="@+id/battleSceneEnemyMonsterScreen" />
+
+    <TextView
+        android:id="@+id/battleSceneEnemyMonsterLoveLevelTextView"
+        android:layout_width="50dip"
+        android:layout_height="35dip"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="9999"
+        android:layout_below="@+id/battleSceneEnemyMonsterAttackImageView"
+        android:layout_alignLeft="@+id/battleSceneEnemyMonsterAttackTextView"
+        android:layout_alignStart="@+id/battleSceneEnemyMonsterAttackTextView" />
+
+    <TextView
+        android:id="@+id/battleSceneEnemyMonsterStrengthTextView"
+        android:layout_width="50dip"
+        android:layout_height="35dip"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="9999"
+        android:layout_below="@+id/battleSceneEnemyMonsterDefenseImageView"
+        android:layout_alignLeft="@+id/battleSceneEnemyMonsterDefenseTextView"
+        android:layout_alignStart="@+id/battleSceneEnemyMonsterDefenseTextView" />
+
+
+    <ImageView
+        android:id="@+id/battleSceneEnemyMonsterEquipmentCard1"
+        android:layout_width="50dip"
+        android:layout_height="70dip"
+        android:src="@drawable/cardback"
+        android:layout_alignTop="@+id/battleSceneEnemyMonsterLevelImageView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="31dp"
+        android:layout_marginStart="31dp" />
+
+    <ImageView
+        android:id="@+id/battleSceneEnemyMonsterEquipmentCard2"
+        android:layout_width="50dip"
+        android:layout_height="70dip"
+        android:src="@drawable/cardback"
+        android:layout_below="@+id/battleSceneEnemyMonsterEquipmentCard1"
+        android:layout_alignLeft="@+id/battleSceneEnemyMonsterEquipmentCard1"
+        android:layout_alignStart="@+id/battleSceneEnemyMonsterEquipmentCard1" />
+
+    <ImageView
+        android:id="@+id/battleSceneEnemyMonsterSkillCard1"
+        android:layout_width="50dip"
+        android:layout_height="70dip"
+        android:src="@drawable/cardback"
+        android:layout_alignTop="@+id/battleSceneEnemyMonsterLevelImageView"
+        android:layout_toRightOf="@+id/battleSceneEnemyMonsterBackground"
+        android:layout_toEndOf="@+id/battleSceneEnemyMonsterBackground"
+        android:layout_marginLeft="33dp"
+        android:layout_marginStart="33dp" />
+
+    <ImageView
+        android:id="@+id/battleSceneEnemyMonsterSkillCard2"
+        android:layout_width="50dip"
+        android:layout_height="70dip"
+        android:src="@drawable/cardback"
+        android:layout_below="@+id/battleSceneEnemyMonsterSkillCard1"
+        android:layout_alignLeft="@+id/battleSceneEnemyMonsterSkillCard1"
+        android:layout_alignStart="@+id/battleSceneEnemyMonsterSkillCard1" />
+
+    <ImageView
+        android:id="@+id/battleSceneEnemyMonsterEquipmentCard3"
+        android:layout_width="50dip"
+        android:layout_height="70dip"
+        android:src="@drawable/cardback"
+        android:layout_below="@+id/battleSceneEnemyMonsterEquipmentCard2"
+        android:layout_alignLeft="@+id/battleSceneEnemyMonsterEquipmentCard2"
+        android:layout_alignStart="@+id/battleSceneEnemyMonsterEquipmentCard2" />
+
+    <ImageView
+        android:id="@+id/battleSceneEnemyMonsterSkillCard3"
+        android:layout_width="50dip"
+        android:layout_height="70dip"
+        android:src="@drawable/cardback"
+        android:layout_below="@+id/battleSceneEnemyMonsterSkillCard2"
+        android:layout_alignLeft="@+id/battleSceneEnemyMonsterSkillCard2"
+        android:layout_alignStart="@+id/battleSceneEnemyMonsterSkillCard2" />
+
+
+    <ImageView
+        android:id="@+id/battleSceneMyMonsterBackground"
+        android:layout_width="150dip"
+        android:layout_height="220dip"
+        android:src="@drawable/monstercardbackground_blue"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/battleSceneEnemyMonsterBackground"
+        android:layout_alignStart="@+id/battleSceneEnemyMonsterBackground" />
+
+    <ImageView
+        android:id="@+id/battleSceneMyMonsterTopBar"
+        android:layout_width="120dip"
+        android:layout_height="35dip"
+        android:src="@drawable/monstercardtopbar"
+        android:layout_marginTop="13dp"
+        android:layout_alignTop="@+id/battleSceneMyMonsterBackground"
+        android:layout_alignLeft="@+id/battleSceneEnemyMonsterTopBar"
+        android:layout_alignStart="@+id/battleSceneEnemyMonsterTopBar" />
+
+    <ImageView
+        android:id="@+id/battleSceneMyMonsterScreen"
+        android:layout_width="110dip"
+        android:layout_height="100dip"
+        android:src="@drawable/monstercardscreen"
+        android:layout_below="@+id/battleSceneMyMonsterTopBar"
+        android:layout_alignLeft="@+id/battleSceneEnemyMonsterScreen"
+        android:layout_alignStart="@+id/battleSceneEnemyMonsterScreen" />
+
+    <ImageView
+        android:id="@+id/battleSceneMyMonsterImageView"
+        android:layout_width="80dip"
+        android:layout_height="80dip"
+        android:src="@drawable/cupfairy"
+        android:layout_alignBottom="@+id/battleSceneMyMonsterScreen"
+        android:layout_alignLeft="@+id/battleSceneEnemyMonsterImageView"
+        android:layout_alignStart="@+id/battleSceneEnemyMonsterImageView"
+        android:layout_below="@+id/battleSceneMyMonsterTopBar" />
+
+    <ImageView
+        android:id="@+id/battleSceneMyMonsterAttackImageView"
+        android:layout_width="70dip"
+        android:layout_height="35dip"
+        android:src="@drawable/gameboy_attack"
+        android:layout_below="@+id/battleSceneMyMonsterScreen"
+        android:layout_alignLeft="@+id/battleSceneMyMonsterBackground"
+        android:layout_alignStart="@+id/battleSceneMyMonsterBackground" />
+
+    <ImageView
+        android:id="@+id/battleSceneMyMonsterDefenseImageView"
+        android:layout_width="70dip"
+        android:layout_height="35dip"
+        android:src="@drawable/gameboy_defense"
+        android:layout_below="@+id/battleSceneMyMonsterScreen"
+        android:layout_alignRight="@+id/battleSceneMyMonsterBackground"
+        android:layout_alignEnd="@+id/battleSceneMyMonsterBackground" />
+
+    <ImageView
+        android:id="@+id/battleSceneMyMonsterLoveLevelImageView"
+        android:layout_width="70dip"
+        android:layout_height="35dip"
+        android:src="@drawable/gameboy_lovelevel"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/battleSceneMyMonsterBackground"
+        android:layout_alignStart="@+id/battleSceneMyMonsterBackground" />
+
+    <ImageView
+        android:id="@+id/battleSceneMyMonsterStrengthImageView"
+        android:layout_width="70dip"
+        android:layout_height="35dip"
+        android:src="@drawable/gameboy_strength"
+        android:layout_below="@+id/battleSceneMyMonsterDefenseImageView"
+        android:layout_alignLeft="@+id/battleSceneMyMonsterDefenseImageView"
+        android:layout_alignStart="@+id/battleSceneMyMonsterDefenseImageView" />
+
+
+    <ImageView
+        android:id="@+id/battleSceneMyMonsterLevelImageView"
+        android:layout_width="40dip"
+        android:layout_height="40dip"
+        android:src="@drawable/monstercardlevel"
+        android:layout_above="@+id/battleSceneMyMonsterScreen"
+        android:layout_alignLeft="@+id/battleSceneMyMonsterBackground"
+        android:layout_alignStart="@+id/battleSceneMyMonsterBackground" />
+
+
+    <TextView
+        android:id="@+id/battleSceneMyMonsterAttackTextView"
+        android:layout_width="50dip"
+        android:layout_height="25dip"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="9999"
+        android:layout_below="@+id/battleSceneMyMonsterScreen"
+        android:layout_toLeftOf="@+id/battleSceneMyMonsterDefenseImageView"
+        android:layout_toStartOf="@+id/battleSceneMyMonsterDefenseImageView"
+        android:layout_above="@+id/battleSceneMyMonsterStrengthImageView" />
+
+    <TextView
+        android:id="@+id/battleSceneMyMonsterDefenseTextView"
+        android:layout_width="50dip"
+        android:layout_height="25dip"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="9999"
+        android:layout_above="@+id/battleSceneMyMonsterStrengthImageView"
+        android:layout_alignRight="@+id/battleSceneMyMonsterBackground"
+        android:layout_alignEnd="@+id/battleSceneMyMonsterBackground"
+        android:layout_below="@+id/battleSceneMyMonsterScreen" />
+
+    <TextView
+        android:id="@+id/battleSceneMyMonsterLoveLevelTextView"
+        android:layout_width="50dip"
+        android:layout_height="25dip"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="9999"
+        android:layout_alignBottom="@+id/battleSceneMyMonsterStrengthImageView"
+        android:layout_toLeftOf="@+id/battleSceneMyMonsterStrengthImageView"
+        android:layout_toStartOf="@+id/battleSceneMyMonsterStrengthImageView"
+        android:layout_alignTop="@+id/battleSceneMyMonsterLoveLevelImageView" />
+
+    <TextView
+        android:id="@+id/battleSceneMyMonsterStrengthTextView"
+        android:layout_width="50dip"
+        android:layout_height="25dip"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="9999"
+        android:layout_alignBottom="@+id/battleSceneMyMonsterLoveLevelTextView"
+        android:layout_alignRight="@+id/battleSceneMyMonsterBackground"
+        android:layout_alignEnd="@+id/battleSceneMyMonsterBackground"
+        android:layout_alignTop="@+id/battleSceneMyMonsterLoveLevelTextView" />
+
+    <TextView
+        android:id="@+id/battleSceneMyMonsterLevelTextView"
+        android:layout_width="30dip"
+        android:layout_height="30dip"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="99"
+        android:layout_above="@+id/battleSceneMyMonsterScreen"
+        android:layout_alignRight="@+id/battleSceneMyMonsterLevelImageView"
+        android:layout_alignEnd="@+id/battleSceneMyMonsterLevelImageView" />
+
+    <ImageView
+        android:id="@+id/battleSceneMyMonsterEquipmentCard1"
+        android:layout_width="50dip"
+        android:layout_height="70dip"
+        android:src="@drawable/capsule"
+        android:layout_alignTop="@+id/battleSceneMyMonsterTopBar"
+        android:layout_alignLeft="@+id/battleSceneEnemyMonsterEquipmentCard3"
+        android:layout_alignStart="@+id/battleSceneEnemyMonsterEquipmentCard3" />
+
+    <ImageView
+        android:id="@+id/battleSceneMyMonsterEquipmentCard2"
+        android:layout_width="50dip"
+        android:layout_height="70dip"
+        android:src="@drawable/capsule"
+        android:layout_below="@+id/battleSceneMyMonsterEquipmentCard1"
+        android:layout_alignLeft="@+id/battleSceneMyMonsterEquipmentCard1"
+        android:layout_alignStart="@+id/battleSceneMyMonsterEquipmentCard1" />
+
+    <ImageView
+        android:id="@+id/battleSceneMyMonsterEquipmentCard3"
+        android:layout_width="50dip"
+        android:layout_height="70dip"
+        android:src="@drawable/capsule"
+        android:layout_below="@+id/battleSceneMyMonsterEquipmentCard2"
+        android:layout_alignLeft="@+id/battleSceneMyMonsterEquipmentCard2"
+        android:layout_alignStart="@+id/battleSceneMyMonsterEquipmentCard2" />
+
+    <ImageView
+        android:id="@+id/battleSceneMyMonsterSkillCard1"
+        android:layout_width="50dip"
+        android:layout_height="70dip"
+        android:src="@drawable/capsule"
+        android:layout_alignTop="@+id/battleSceneMyMonsterTopBar"
+        android:layout_alignLeft="@+id/battleSceneEnemyMonsterSkillCard3"
+        android:layout_alignStart="@+id/battleSceneEnemyMonsterSkillCard3" />
+
+    <ImageView
+        android:id="@+id/battleSceneMyMonsterSkillCard2"
+        android:layout_width="50dip"
+        android:layout_height="70dip"
+        android:src="@drawable/capsule"
+        android:layout_below="@+id/battleSceneMyMonsterSkillCard1"
+        android:layout_alignLeft="@+id/battleSceneMyMonsterSkillCard1"
+        android:layout_alignStart="@+id/battleSceneMyMonsterSkillCard1" />
+
+    <ImageView
+        android:id="@+id/battleSceneMyMonsterSkillCard3"
+        android:layout_width="50dip"
+        android:layout_height="70dip"
+        android:src="@drawable/capsule"
+        android:layout_alignTop="@+id/battleSceneMyMonsterDefenseImageView"
+        android:layout_alignLeft="@+id/battleSceneMyMonsterSkillCard2"
+        android:layout_alignStart="@+id/battleSceneMyMonsterSkillCard2" />
+
+    <ImageView
+        android:id="@+id/battleSceneAttackButton"
+        android:layout_width="50dip"
+        android:layout_height="50dip"
+        android:src="@drawable/battlesceneattackbutton"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/battleSceneEnemyMonsterEquipmentCard3"
+        android:layout_alignStart="@+id/battleSceneEnemyMonsterEquipmentCard3" />
+
+    <ImageView
+        android:id="@+id/battleSceneEnemyDialog"
+        android:layout_width="200dip"
+        android:layout_height="30dip"
+        android:src="@drawable/gameboy_dialog"
+        android:layout_alignTop="@+id/battleSceneAttackButton"
+        android:layout_alignLeft="@+id/battleSceneMyDialog"
+        android:layout_alignStart="@+id/battleSceneMyDialog" />
+
+    <ImageView
+        android:id="@+id/battleSceneMyDialog"
+        android:layout_width="200dip"
+        android:layout_height="30dip"
+        android:src="@drawable/gameboy_dialog"
+        android:layout_alignBottom="@+id/battleSceneAttackButton"
+        android:layout_toLeftOf="@+id/battleSceneMyMonsterSkillCard1"
+        android:layout_toStartOf="@+id/battleSceneMyMonsterSkillCard1" />
+
+    <TextView
+        android:id="@+id/battleSceneMyDialogTextView"
+        android:layout_width="200dip"
+        android:layout_height="25dip"
+        android:textStyle="bold"
+        android:gravity="bottom"
+        android:text="Duel"
+        android:layout_alignLeft="@+id/battleSceneEnemyDialog"
+        android:layout_alignStart="@+id/battleSceneEnemyDialog"
+        android:layout_alignTop="@+id/battleSceneMyDialog" />
+
+    <TextView
+        android:id="@+id/battleSceneEnemyDialogTextView"
+        android:layout_width="200dip"
+        android:layout_height="25dip"
+        android:textStyle="bold"
+        android:gravity="bottom"
+        android:text="Duel"
+        android:layout_alignTop="@+id/battleSceneEnemyDialog"
+        android:layout_alignLeft="@+id/battleSceneEnemyDialog"
+        android:layout_alignStart="@+id/battleSceneEnemyDialog" />
+
+</RelativeLayout>

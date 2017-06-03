@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_bar_co_mon_game_console"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gameboy_background"
+    tools:context="com.example.boan.firebasep.BarCoMonGameConsole">
+
+
+
+    <ImageView
+        android:layout_width="300dip"
+        android:layout_height="40dip"
+        android:id="@+id/gameboyDialogImageView"
+        android:src="@drawable/gameboy_dialog"
+        android:layout_toRightOf="@+id/barcoEnergyImageView"
+        android:layout_toEndOf="@+id/barcoEnergyImageView"
+        android:layout_below="@+id/gameboyScreenImageView" />
+
+    <ImageView
+        android:layout_width="80dip"
+        android:layout_height="35dip"
+        android:id="@+id/gameboyDefenseImageView"
+        android:src="@drawable/gameboy_defense"
+        android:layout_below="@+id/gameboyDialogImageView"
+        android:layout_toRightOf="@+id/gameboyAttackImageView"
+        android:layout_toEndOf="@+id/gameboyAttackImageView" />
+
+    <ImageView
+        android:layout_width="80dip"
+        android:layout_height="35dip"
+        android:id="@+id/gameboyLoveLevelImageView"
+        android:src="@drawable/gameboy_lovelevel"
+        android:layout_below="@+id/gameboyDialogImageView"
+        android:layout_toRightOf="@+id/gameboyDefenseImageView"
+        android:layout_toEndOf="@+id/gameboyDefenseImageView" />
+
+    <ImageView
+        android:layout_width="80dip"
+        android:layout_height="35dip"
+        android:id="@+id/gameboyStrengthImageView"
+        android:src="@drawable/gameboy_strength"
+        android:layout_below="@+id/gameboyDialogImageView"
+        android:layout_toRightOf="@+id/gameboyLoveLevelImageView"
+        android:layout_toEndOf="@+id/gameboyLoveLevelImageView" />
+
+
+    <ImageView
+        android:layout_width="300dip"
+        android:layout_height="200dip"
+        android:id="@+id/gameboyScreenImageView"
+        android:src="@drawable/gameboy_screen"
+        android:layout_marginTop="35dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:layout_width="30dip"
+        android:layout_height="200dip"
+        android:id="@+id/barcoEnergyImageView"
+        android:src="@drawable/barcoenergy1"
+        android:layout_alignTop="@+id/gameboyScreenImageView"
+        android:layout_toLeftOf="@+id/gameboyScreenImageView"
+        android:layout_toStartOf="@+id/gameboyScreenImageView" />
+
+    <ImageView
+        android:layout_width="50dip"
+        android:layout_height="50dip"
+        android:id="@+id/gameboyBattle"
+        android:src="@drawable/gameboy_battlebutton"
+        android:layout_below="@+id/gameboyFeed"
+        android:layout_toRightOf="@+id/gameboyUpgradeAttack"
+        android:layout_toEndOf="@+id/gameboyUpgradeAttack" />
+
+    <ImageView
+        android:layout_width="50dip"
+        android:layout_height="50dip"
+        android:id="@+id/gameboyBattleSet"
+        android:src="@drawable/gameboy_battleset"
+        android:layout_above="@+id/gameboyUpgradeAttack"
+        android:layout_toLeftOf="@+id/gameboyUpgradeDefense"
+        android:layout_toStartOf="@+id/gameboyUpgradeDefense" />
+
+    <ImageView
+        android:layout_width="80dip"
+        android:layout_height="35dip"
+        android:id="@+id/gameboyAttackImageView"
+        android:src="@drawable/gameboy_attack"
+        android:layout_below="@+id/gameboyDialogImageView"
+        android:layout_alignLeft="@+id/barcoEnergyImageView"
+        android:layout_alignStart="@+id/barcoEnergyImageView"
+        android:layout_marginLeft="18dp"
+        android:layout_marginStart="18dp" />
+
+    <ImageView
+        android:layout_width="50dip"
+        android:layout_height="50dip"
+        android:id="@+id/gameboyUpgradeDefense"
+        android:src="@drawable/gameboy_defensebutton"
+        android:layout_above="@+id/gameboyBattle"
+        android:layout_alignRight="@+id/gameboyDialogImageView"
+        android:layout_alignEnd="@+id/gameboyDialogImageView" />
+
+    <ImageView
+        android:layout_width="50dip"
+        android:layout_height="50dip"
+        android:id="@+id/gameboyUpgradeAttack"
+        android:src="@drawable/gameboy_attackbutton"
+        android:layout_above="@+id/gameboyBattle"
+        android:layout_toLeftOf="@+id/gameboyBattleSet"
+        android:layout_toStartOf="@+id/gameboyBattleSet" />
+
+    <ImageView
+        android:layout_width="70dip"
+        android:layout_height="50dip"
+        android:id="@+id/gameboyChat"
+        android:src="@drawable/gameboy_chatbutton"
+        android:layout_alignTop="@+id/gameboyFeed"
+        android:layout_alignLeft="@+id/barcoEnergyImageView"
+        android:layout_alignStart="@+id/barcoEnergyImageView" />
+
+    <ImageView
+        android:layout_width="70dip"
+        android:layout_height="50dip"
+        android:id="@+id/gameboyFeed"
+        android:src="@drawable/gameboy_feedbutton"
+        android:layout_below="@+id/gameboyPlay"
+        android:layout_toRightOf="@+id/gameboyAttackImageView"
+        android:layout_toEndOf="@+id/gameboyAttackImageView" />
+
+    <ImageView
+        android:layout_width="50dip"
+        android:layout_height="70dip"
+        android:id="@+id/gameboySleep"
+        android:src="@drawable/gameboy_sleepbutton"
+        android:layout_below="@+id/gameboyChat"
+        android:layout_alignLeft="@+id/gameboyDialogImageView"
+        android:layout_alignStart="@+id/gameboyDialogImageView"
+        android:layout_marginLeft="29dp"
+        android:layout_marginStart="29dp" />
+
+    <ImageView
+        android:layout_width="50dip"
+        android:layout_height="70dip"
+        android:id="@+id/gameboyPlay"
+        android:src="@drawable/gameboy_playbutton"
+        android:layout_below="@+id/gameboyDefenseImageView"
+        android:layout_alignLeft="@+id/gameboySleep"
+        android:layout_alignStart="@+id/gameboySleep" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="35dip"
+        android:gravity="center"
+        android:id="@+id/gameboyAttackTextView"
+        android:textStyle="bold"
+        android:text="----"
+        android:layout_above="@+id/gameboyPlay"
+        android:layout_toLeftOf="@+id/gameboyDefenseImageView"
+        android:layout_toStartOf="@+id/gameboyDefenseImageView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="35dip"
+        android:id="@+id/gameboyLoveLevelTextView"
+        android:text="----"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_below="@+id/gameboyDialogImageView"
+        android:layout_toLeftOf="@+id/gameboyStrengthImageView"
+        android:layout_toStartOf="@+id/gameboyStrengthImageView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="35dip"
+        android:id="@+id/gameboyStrengthTextView"
+        android:text="----"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_below="@+id/gameboyDialogImageView"
+        android:layout_alignRight="@+id/gameboyStrengthImageView"
+        android:layout_alignEnd="@+id/gameboyStrengthImageView" />
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="35dip"
+        android:gravity="center"
+        android:id="@+id/gameboyDefenseTextView"
+        android:textStyle="bold"
+        android:text="----"
+        android:layout_below="@+id/gameboyDialogImageView"
+        android:layout_toLeftOf="@+id/gameboyLoveLevelImageView"
+        android:layout_toStartOf="@+id/gameboyLoveLevelImageView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="35dip"
+        android:id="@+id/gameboyDialogTextView"
+        android:text="安安"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_above="@+id/gameboyAttackImageView"
+        android:layout_alignLeft="@+id/gameboyDialogImageView"
+        android:layout_alignStart="@+id/gameboyDialogImageView" />
+
+    <TextView
+        android:layout_width="30dip"
+        android:layout_height="wrap_content"
+        android:id="@+id/gameboyEnergyTextView"
+        android:text="-"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_alignBottom="@+id/barcoEnergyImageView"
+        android:layout_toLeftOf="@+id/gameboyScreenImageView"
+        android:layout_toStartOf="@+id/gameboyScreenImageView"
+        android:layout_marginBottom="21dp" />
+
+    <ImageView
+        android:layout_width="30dip"
+        android:layout_height="30dip"
+        android:id="@+id/gameboyInfoImageView"
+        android:src="@drawable/gameboy_monsterbox"
+        android:layout_alignTop="@+id/gameboyScreenImageView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ImageView
+        android:layout_width="200dip"
+        android:layout_height="200dip"
+        android:id="@+id/gameboy_monsterOnScreen"
+        android:layout_alignTop="@+id/gameboyScreenImageView"
+        android:layout_alignRight="@+id/gameboyBattleSet"
+        android:layout_alignEnd="@+id/gameboyBattleSet" />
+</RelativeLayout>

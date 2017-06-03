@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_card_store"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    android:background="@android:color/darker_gray"
+    tools:context="com.example.barcomon.CardStore">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/cardStoreCapsule"
+                    android:layout_width="150dip"
+                    android:layout_height="200dip"
+                    android:src="@drawable/capsule" />
+
+                <ImageView
+                    android:id="@+id/cardStoreBottleLogo"
+                    android:layout_width="150dip"
+                    android:layout_height="200dip"
+                    android:src="@drawable/bottlelogo" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/cardStoreBookmark"
+                    android:layout_width="150dip"
+                    android:layout_height="200dip"
+                    android:src="@drawable/bookmark" />
+
+                <ImageView
+                    android:id="@+id/cardStoreBookclothing"
+                    android:layout_width="150dip"
+                    android:layout_height="200dip"
+                    android:src="@drawable/bookclothing" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/cardStoreCupset"
+                    android:layout_width="150dip"
+                    android:layout_height="200dip"
+                    android:src="@drawable/cupset" />
+
+                <ImageView
+                    android:id="@+id/cardStorePullring"
+                    android:layout_width="150dip"
+                    android:layout_height="200dip"
+                    android:src="@drawable/pullring" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/cardStoreChopsticks"
+                    android:layout_width="150dip"
+                    android:layout_height="200dip"
+                    android:src="@drawable/chopsticks" />
+
+                <ImageView
+                    android:id="@+id/cardStoreChickenlegs"
+                    android:layout_width="150dip"
+                    android:layout_height="200dip"
+                    android:src="@drawable/chickenlegs" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/cardStoreCoaster"
+                    android:layout_width="150dip"
+                    android:layout_height="200dip"
+                    android:src="@drawable/coaster" />
+
+                <ImageView
+                    android:id="@+id/cardStoreInstantdrink"
+                    android:layout_width="150dip"
+                    android:layout_height="200dip"
+                    android:src="@drawable/instantdrink" />
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+
+
+
+    </ScrollView>
+
+
+</LinearLayout>

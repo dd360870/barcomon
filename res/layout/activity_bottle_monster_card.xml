@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_bottle_monster_card"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/monstercardbackground"
+    >
+
+    <ImageView
+        android:id="@+id/bottleMonsterCardTopBar"
+        android:layout_width="300dip"
+        android:layout_height="75dip"
+        android:src="@drawable/monstercardtopbar"
+        android:layout_marginTop="24dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/bottleMonsterCardBlueBackground"
+        android:layout_width="275dip"
+        android:layout_height="375dip"
+        android:src="@drawable/monstercardbackground_blue"
+        android:layout_marginTop="11dp"
+        android:layout_below="@+id/bottleMonsterCardTopBar"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/bottleMonsterCardDetail"
+        android:layout_width="250dip"
+        android:layout_height="75dip"
+        android:src="@drawable/monstercardbottledetail"
+        android:layout_below="@+id/bottleMonsterCardScreen"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/bottleMonsterCardScreen"
+        android:layout_width="220dip"
+        android:layout_height="200dip"
+        android:src="@drawable/monstercardscreen"
+        android:layout_marginTop="11dp"
+        android:layout_alignTop="@+id/bottleMonsterCardBlueBackground"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/bottleMonsterCardAttackImageView"
+        android:layout_width="80dip"
+        android:layout_height="35dip"
+        android:src="@drawable/gameboy_attack"
+        android:layout_marginTop="11dp"
+        android:layout_below="@+id/bottleMonsterCardDetail"
+        android:layout_alignLeft="@+id/bottleMonsterCardScreen"
+        android:layout_alignStart="@+id/bottleMonsterCardScreen" />
+
+    <ImageView
+        android:id="@+id/bottleMonsterCardDefenseImageView"
+        android:layout_width="80dip"
+        android:layout_height="35dip"
+        android:src="@drawable/gameboy_defense"
+        android:layout_alignTop="@+id/bottleMonsterCardAttackImageView"
+        android:layout_alignRight="@+id/bottleMonsterCardScreen"
+        android:layout_alignEnd="@+id/bottleMonsterCardScreen" />
+
+    <ImageView
+        android:id="@+id/bottleMonsterCardLoveLevelImageView"
+        android:layout_width="80dip"
+        android:layout_height="35dip"
+        android:src="@drawable/gameboy_lovelevel"
+        android:layout_alignBottom="@+id/bottleMonsterCardBlueBackground"
+        android:layout_alignLeft="@+id/bottleMonsterCardAttackImageView"
+        android:layout_alignStart="@+id/bottleMonsterCardAttackImageView" />
+
+    <ImageView
+        android:id="@+id/bottleMonsterCardStrengthImageView"
+        android:layout_width="80dip"
+        android:layout_height="35dip"
+        android:src="@drawable/gameboy_strength"
+        android:layout_alignBottom="@+id/bottleMonsterCardBlueBackground"
+        android:layout_alignLeft="@+id/bottleMonsterCardDefenseImageView"
+        android:layout_alignStart="@+id/bottleMonsterCardDefenseImageView" />
+
+    <ImageView
+        android:id="@+id/bottleMonsterCardLevelImageView"
+        android:layout_width="60dip"
+        android:layout_height="60dip"
+        android:src="@drawable/monstercardlevel"
+        android:layout_alignBottom="@+id/bottleMonsterCardTopBar"
+        android:layout_alignLeft="@+id/bottleMonsterCardTopBar"
+        android:layout_alignStart="@+id/bottleMonsterCardTopBar" />
+
+    <TextView
+        android:id="@+id/bottleMonsterCardLevelTextView"
+        android:layout_width="50dip"
+        android:layout_height="50dip"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="99"
+        android:layout_alignBottom="@+id/bottleMonsterCardTopBar"
+        android:layout_alignRight="@+id/bottleMonsterCardLevelImageView"
+        android:layout_alignEnd="@+id/bottleMonsterCardLevelImageView" />
+
+    <TextView
+        android:id="@+id/bottleMonsterCardAttackTextView"
+        android:layout_width="75dip"
+        android:layout_height="35dip"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="9999"
+        android:layout_alignTop="@+id/bottleMonsterCardAttackImageView"
+        android:layout_toRightOf="@+id/bottleMonsterCardLevelImageView"
+        android:layout_toEndOf="@+id/bottleMonsterCardLevelImageView" />
+
+
+    <TextView
+        android:id="@+id/bottleMonsterCardDefenseTextView"
+        android:layout_width="75dip"
+        android:layout_height="35dip"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="9999"
+        android:layout_alignTop="@+id/bottleMonsterCardDefenseImageView"
+        android:layout_alignRight="@+id/bottleMonsterCardDetail"
+        android:layout_alignEnd="@+id/bottleMonsterCardDetail" />
+
+    <TextView
+        android:id="@+id/bottleMonsterCardLoveLevelTextView"
+        android:layout_width="75dip"
+        android:layout_height="35dip"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="9999"
+        android:layout_alignTop="@+id/bottleMonsterCardLoveLevelImageView"
+        android:layout_alignLeft="@+id/bottleMonsterCardAttackTextView"
+        android:layout_alignStart="@+id/bottleMonsterCardAttackTextView" />
+
+    <TextView
+        android:id="@+id/bottleMonsterCardStrength"
+        android:layout_width="75dip"
+        android:layout_height="35dip"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="9999"
+        android:layout_alignTop="@+id/bottleMonsterCardStrengthImageView"
+        android:layout_alignLeft="@+id/bottleMonsterCardDefenseTextView"
+        android:layout_alignStart="@+id/bottleMonsterCardDefenseTextView" />
+
+    <ImageView
+        android:id="@+id/bottleMonsterCardImageView"
+        android:layout_width="200dip"
+        android:layout_height="200dip"
+        android:src="@drawable/bottle"
+        android:layout_alignTop="@+id/bottleMonsterCardScreen"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="11dp" />
+
+
+</RelativeLayout>

@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin">
+                <ImageView
+                    android:id="@+id/trapCard1"
+                    android:layout_width="100dip"
+                    android:layout_height="150dip"
+                    android:maxHeight="50dp"
+                    android:maxWidth="50dp"
+                    android:layout_gravity="center"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/cardback"
+                    />
+                <ImageView
+                    android:id="@+id/trapCard2"
+                    android:layout_width="100dip"
+                    android:layout_height="150dip"
+                    android:maxHeight="50dp"
+                    android:maxWidth="50dp"
+                    android:src="@drawable/cardback"
+                    />
+                <ImageView
+                    android:id="@+id/trapCard3"
+                    android:layout_width="100dip"
+                    android:layout_height="150dip"
+                    android:maxHeight="50dp"
+                    android:maxWidth="50dp"
+                    android:src="@drawable/cardback"/>
+
+            </LinearLayout>
+
+
+
+
+            <LinearLayout
+                android:id="@+id/trapPageBrokenHeartLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/black"
+                >
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="75dip"
+                        android:layout_height="100dip"
+                        android:src="@drawable/brokenheart"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:textColor="@android:color/white"
+                        android:text="@string/brokenHeartName"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:textColor="@android:color/white"
+                        android:text="@string/brokenHeartEffect"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:textColor="@android:color/white"
+                        android:text="@string/brokenHeartSuitable"/>
+
+                    <TextView
+                        android:id="@+id/trapPageBrokenHeartQuantity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:textColor="@color/white"
+                        android:text="數量:"/>
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+
+
+
+            <LinearLayout
+                android:id="@+id/trapPageProtectingShieldLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/black"
+                >
+                <LinearLayout
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="75dip"
+                        android:layout_height="100dip"
+                        android:src="@drawable/protectingshield"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:textColor="@android:color/white"
+                        android:text="@string/protectingShieldName"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:textColor="@android:color/white"
+                        android:text="@string/protectingShieldEffect"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:textColor="@android:color/white"
+                        android:text="@string/protectingShieldSuitable"/>
+
+                    <TextView
+                        android:id="@+id/trapPageProtectingShieldQuantity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:textColor="@color/white"
+                        android:text="數量:"/>
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="100dip"
+                    android:layout_height="150dip"
+                    android:maxHeight="50dp"
+                    android:maxWidth="50dp"
+                    android:src="@drawable/cardback"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="100dip"
+                    android:layout_height="150dip"
+                    android:maxHeight="50dp"
+                    android:maxWidth="50dp"
+                    android:src="@drawable/cardback"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="100dip"
+                    android:layout_height="150dip"
+                    android:maxHeight="50dp"
+                    android:maxWidth="50dp"
+                    android:src="@drawable/cardback"/>
+            </LinearLayout>
+
+
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

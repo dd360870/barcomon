@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_bar_co_mon_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@color/bg_barcomonmain"
+    tools:context="com.example.boan.firebasep.BarCoMonMain">
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/BarCoMonImage"
+            android:layout_width="150dip"
+            android:layout_height="150dip"
+            android:maxHeight="50dp"
+            android:maxWidth="50dp"
+            android:layout_gravity="center_horizontal"
+           />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/bg_barcomonAllLayout"
+            >
+
+            <Button
+                android:id="@+id/playButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/bg_barcomonAllButton"
+                android:textColor="@color/white"
+                android:text="@string/play_button" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="Attack:"
+                />
+
+            <TextView
+                android:id="@+id/AttackTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="@string/Attack_view" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bg_barcomonAllLayout"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/chatButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/bg_barcomonAllButton"
+                android:textColor="@color/white"
+                android:text="@string/chat_button" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="Defense:"
+                />
+            <TextView
+                android:id="@+id/DefenseTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="@string/Defense_view" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bg_barcomonAllLayout"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/traningAttackButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/bg_barcomonAllButton"
+                android:textColor="@color/white"
+                android:text="@string/traningAttack_button" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="親密度:"/>
+            <TextView
+                android:id="@+id/LoveLevelView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="@string/LoveLevel_view" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bg_barcomonAllLayout"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/traningDefenseButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/bg_barcomonAllButton"
+                android:textColor="@color/white"
+                android:text="@string/traningDefense_button" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="體力:"
+                />
+            <TextView
+                android:id="@+id/StrengthTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="@string/Strength_view" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bg_barcomonAllLayout"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/MonsterInfoButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/bg_barcomonAllButton"
+                android:textColor="@color/white"
+                android:text="@string/MonsterInformation_button" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="Level:"/>
+            <TextView
+                android:id="@+id/LevelTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="@string/Level_view" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bg_barcomonAllLayout"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/FeedindButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/bg_barcomonAllButton"
+                android:textColor="@color/white"
+                android:text="@string/Feeding_button" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="BarCo能量:"/>
+
+            <TextView
+                android:id="@+id/BarCoEnergyTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="@string/BarCoEnergy_view" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bg_barcomonAllLayout"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/SleepButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/bg_barcomonAllButton"
+                android:textColor="@color/white"
+                android:text="@string/Sleep_button" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="對話框:"/>
+
+            <TextView
+                android:id="@+id/DialogBoxTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="@string/DialogBox_view" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/test_bottom_buttons"
+        android:layout_width="fill_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Box"
+            android:id="@+id/SwitchToBarCoMonBoxButton"
+            android:layout_gravity="center_horizontal"
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>

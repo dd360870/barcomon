@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_mug_monster_card"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/monstercardbackground"
+    >
+
+
+    <ImageView
+        android:id="@+id/mugMonsterCardTopBar"
+        android:layout_width="300dip"
+        android:layout_height="75dip"
+        android:src="@drawable/monstercardtopbar"
+        android:layout_marginTop="24dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/mugMonsterCardBlueBackground"
+        android:layout_width="275dip"
+        android:layout_height="375dip"
+        android:src="@drawable/monstercardbackground_blue"
+        android:layout_marginTop="11dp"
+        android:layout_below="@+id/mugMonsterCardTopBar"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/mugMonsterCardDetail"
+        android:layout_width="250dip"
+        android:layout_height="75dip"
+        android:src="@drawable/monstercardmugdetail"
+        android:layout_below="@+id/mugMonsterCardScreen"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/mugMonsterCardScreen"
+        android:layout_width="220dip"
+        android:layout_height="200dip"
+        android:src="@drawable/monstercardscreen"
+        android:layout_marginTop="11dp"
+        android:layout_alignTop="@+id/mugMonsterCardBlueBackground"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/mugMonsterCardAttackImageView"
+        android:layout_width="80dip"
+        android:layout_height="35dip"
+        android:src="@drawable/gameboy_attack"
+        android:layout_marginTop="11dp"
+        android:layout_below="@+id/mugMonsterCardDetail"
+        android:layout_alignLeft="@+id/mugMonsterCardScreen"
+        android:layout_alignStart="@+id/mugMonsterCardScreen" />
+
+    <ImageView
+        android:id="@+id/mugMonsterCardDefenseImageView"
+        android:layout_width="80dip"
+        android:layout_height="35dip"
+        android:src="@drawable/gameboy_defense"
+        android:layout_alignTop="@+id/mugMonsterCardAttackImageView"
+        android:layout_alignRight="@+id/mugMonsterCardScreen"
+        android:layout_alignEnd="@+id/mugMonsterCardScreen" />
+
+    <ImageView
+        android:id="@+id/mugMonsterCardLoveLevelImageView"
+        android:layout_width="80dip"
+        android:layout_height="35dip"
+        android:src="@drawable/gameboy_lovelevel"
+        android:layout_alignBottom="@+id/mugMonsterCardBlueBackground"
+        android:layout_alignLeft="@+id/mugMonsterCardAttackImageView"
+        android:layout_alignStart="@+id/mugMonsterCardAttackImageView" />
+
+    <ImageView
+        android:id="@+id/mugMonsterCardStrengthImageView"
+        android:layout_width="80dip"
+        android:layout_height="35dip"
+        android:src="@drawable/gameboy_strength"
+        android:layout_alignBottom="@+id/mugMonsterCardBlueBackground"
+        android:layout_alignLeft="@+id/mugMonsterCardDefenseImageView"
+        android:layout_alignStart="@+id/mugMonsterCardDefenseImageView" />
+
+    <ImageView
+        android:id="@+id/mugMonsterCardLevelImageView"
+        android:layout_width="60dip"
+        android:layout_height="60dip"
+        android:src="@drawable/monstercardlevel"
+        android:layout_alignBottom="@+id/mugMonsterCardTopBar"
+        android:layout_alignLeft="@+id/mugMonsterCardTopBar"
+        android:layout_alignStart="@+id/mugMonsterCardTopBar" />
+
+    <TextView
+        android:id="@+id/mugMonsterCardLevelTextView"
+        android:layout_width="50dip"
+        android:layout_height="50dip"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="99"
+        android:layout_alignBottom="@+id/mugMonsterCardTopBar"
+        android:layout_alignRight="@+id/mugMonsterCardLevelImageView"
+        android:layout_alignEnd="@+id/mugMonsterCardLevelImageView" />
+
+    <TextView
+        android:id="@+id/mugMonsterCardAttackTextView"
+        android:layout_width="75dip"
+        android:layout_height="35dip"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="9999"
+        android:layout_alignTop="@+id/mugMonsterCardAttackImageView"
+        android:layout_toRightOf="@+id/mugMonsterCardLevelImageView"
+        android:layout_toEndOf="@+id/mugMonsterCardLevelImageView" />
+
+
+    <TextView
+        android:id="@+id/mugMonsterCardDefenseTextView"
+        android:layout_width="75dip"
+        android:layout_height="35dip"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="9999"
+        android:layout_alignTop="@+id/mugMonsterCardDefenseImageView"
+        android:layout_alignRight="@+id/mugMonsterCardDetail"
+        android:layout_alignEnd="@+id/mugMonsterCardDetail" />
+
+    <TextView
+        android:id="@+id/mugMonsterCardLoveLevelTextView"
+        android:layout_width="75dip"
+        android:layout_height="35dip"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="9999"
+        android:layout_alignTop="@+id/mugMonsterCardLoveLevelImageView"
+        android:layout_alignLeft="@+id/mugMonsterCardAttackTextView"
+        android:layout_alignStart="@+id/mugMonsterCardAttackTextView" />
+
+    <TextView
+        android:id="@+id/mugMonsterCardStrength"
+        android:layout_width="75dip"
+        android:layout_height="35dip"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="9999"
+        android:layout_alignTop="@+id/mugMonsterCardStrengthImageView"
+        android:layout_alignLeft="@+id/mugMonsterCardDefenseTextView"
+        android:layout_alignStart="@+id/mugMonsterCardDefenseTextView" />
+
+    <ImageView
+        android:id="@+id/mugMonsterCardImageView"
+        android:layout_width="180dip"
+        android:layout_height="180dip"
+        android:src="@drawable/cupfairy"
+        android:layout_alignTop="@+id/mugMonsterCardScreen"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="11dp" />
+
+
+
+</RelativeLayout>

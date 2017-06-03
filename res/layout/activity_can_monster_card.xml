@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_can_monster_card"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/monstercardbackground"
+    tools:context="com.example.boan.firebasep.CanMonsterCard">
+
+    <ImageView
+        android:id="@+id/CanMonsterCardTopBar"
+        android:layout_width="300dip"
+        android:layout_height="75dip"
+        android:src="@drawable/monstercardtopbar"
+        android:layout_marginTop="24dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/CanMonsterCardBlueBackground"
+        android:layout_width="275dip"
+        android:layout_height="375dip"
+        android:src="@drawable/monstercardbackground_blue"
+        android:layout_marginTop="11dp"
+        android:layout_below="@+id/CanMonsterCardTopBar"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/CanMonsterCardDetail"
+        android:layout_width="250dip"
+        android:layout_height="75dip"
+        android:src="@drawable/monstercardcandetail"
+        android:layout_below="@+id/CanMonsterCardScreen"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/CanMonsterCardScreen"
+        android:layout_width="220dip"
+        android:layout_height="200dip"
+        android:src="@drawable/monstercardscreen"
+        android:layout_marginTop="11dp"
+        android:layout_alignTop="@+id/CanMonsterCardBlueBackground"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/CanMonsterCardAttackImageView"
+        android:layout_width="80dip"
+        android:layout_height="35dip"
+        android:src="@drawable/gameboy_attack"
+        android:layout_marginTop="11dp"
+        android:layout_below="@+id/CanMonsterCardDetail"
+        android:layout_alignLeft="@+id/CanMonsterCardScreen"
+        android:layout_alignStart="@+id/CanMonsterCardScreen" />
+
+    <ImageView
+        android:id="@+id/CanMonsterCardDefenseImageView"
+        android:layout_width="80dip"
+        android:layout_height="35dip"
+        android:src="@drawable/gameboy_defense"
+        android:layout_alignTop="@+id/CanMonsterCardAttackImageView"
+        android:layout_alignRight="@+id/CanMonsterCardScreen"
+        android:layout_alignEnd="@+id/CanMonsterCardScreen" />
+
+    <ImageView
+        android:id="@+id/CanMonsterCardLoveLevelImageView"
+        android:layout_width="80dip"
+        android:layout_height="35dip"
+        android:src="@drawable/gameboy_lovelevel"
+        android:layout_alignBottom="@+id/CanMonsterCardBlueBackground"
+        android:layout_alignLeft="@+id/CanMonsterCardAttackImageView"
+        android:layout_alignStart="@+id/CanMonsterCardAttackImageView" />
+
+    <ImageView
+        android:id="@+id/CanMonsterCardStrengthImageView"
+        android:layout_width="80dip"
+        android:layout_height="35dip"
+        android:src="@drawable/gameboy_strength"
+        android:layout_alignBottom="@+id/CanMonsterCardBlueBackground"
+        android:layout_alignLeft="@+id/CanMonsterCardDefenseImageView"
+        android:layout_alignStart="@+id/CanMonsterCardDefenseImageView" />
+
+    <ImageView
+        android:id="@+id/CanMonsterCardLevelImageView"
+        android:layout_width="60dip"
+        android:layout_height="60dip"
+        android:src="@drawable/monstercardlevel"
+        android:layout_alignBottom="@+id/CanMonsterCardTopBar"
+        android:layout_alignLeft="@+id/CanMonsterCardTopBar"
+        android:layout_alignStart="@+id/CanMonsterCardTopBar" />
+
+    <TextView
+        android:id="@+id/CanMonsterCardLevelTextView"
+        android:layout_width="50dip"
+        android:layout_height="50dip"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="99"
+        android:layout_alignBottom="@+id/CanMonsterCardTopBar"
+        android:layout_alignRight="@+id/CanMonsterCardLevelImageView"
+        android:layout_alignEnd="@+id/CanMonsterCardLevelImageView" />
+
+    <TextView
+        android:id="@+id/CanMonsterCardAttackTextView"
+        android:layout_width="75dip"
+        android:layout_height="35dip"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="9999"
+        android:layout_alignTop="@+id/CanMonsterCardAttackImageView"
+        android:layout_toRightOf="@+id/CanMonsterCardLevelImageView"
+        android:layout_toEndOf="@+id/CanMonsterCardLevelImageView" />
+
+
+    <TextView
+        android:id="@+id/CanMonsterCardDefenseTextView"
+        android:layout_width="75dip"
+        android:layout_height="35dip"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="9999"
+        android:layout_alignTop="@+id/CanMonsterCardDefenseImageView"
+        android:layout_alignRight="@+id/CanMonsterCardDetail"
+        android:layout_alignEnd="@+id/CanMonsterCardDetail" />
+
+    <TextView
+        android:id="@+id/CanMonsterCardLoveLevelTextView"
+        android:layout_width="75dip"
+        android:layout_height="35dip"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="9999"
+        android:layout_alignTop="@+id/CanMonsterCardLoveLevelImageView"
+        android:layout_alignLeft="@+id/CanMonsterCardAttackTextView"
+        android:layout_alignStart="@+id/CanMonsterCardAttackTextView" />
+
+    <TextView
+        android:id="@+id/CanMonsterCardStrength"
+        android:layout_width="75dip"
+        android:layout_height="35dip"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="9999"
+        android:layout_alignTop="@+id/CanMonsterCardStrengthImageView"
+        android:layout_alignLeft="@+id/CanMonsterCardDefenseTextView"
+        android:layout_alignStart="@+id/CanMonsterCardDefenseTextView" />
+
+    <ImageView
+        android:id="@+id/CanMonsterCardImageView"
+        android:layout_width="200dip"
+        android:layout_height="200dip"
+        android:src="@drawable/can"
+        android:layout_alignTop="@+id/CanMonsterCardScreen"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>

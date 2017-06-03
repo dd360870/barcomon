@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_bar_co_mon_box"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+
+
+    android:background="@drawable/monsterbox_background"
+    tools:context="com.example.boan.firebasep.BarCoMonBox">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <ImageView
+            android:id="@+id/monsterBoxBottle"
+            android:paddingLeft="30dip"
+            android:layout_width="wrap_content"
+            android:layout_height="116dp"
+            android:src="@drawable/monsterbox_bottle"
+            />
+
+        <ImageView
+            android:paddingLeft="30dip"
+            android:id="@+id/monsterBoxCans"
+            android:layout_width="wrap_content"
+            android:layout_height="98dp"
+            android:src="@drawable/monsterbox_can"
+            />
+        <ImageView
+            android:id="@+id/monsterBoxMug"
+            android:layout_width="wrap_content"
+            android:layout_height="98dp"
+            android:paddingLeft="30dip"
+            android:src="@drawable/monsterbox_mug"/>
+
+        <ImageView
+            android:id="@+id/monsterBoxBento"
+            android:layout_width="wrap_content"
+            android:layout_height="98dp"
+            android:paddingLeft="30dip"
+            android:src="@drawable/monsterbox_bento"/>
+
+
+    </LinearLayout>
+</RelativeLayout>

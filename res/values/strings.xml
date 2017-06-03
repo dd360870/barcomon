@@ -1,0 +1,124 @@
+<resources>
+    <string name="app_name">FireBaseP</string>
+    <string name="review">Review</string>
+    <string name="search">怪獸戰鬥</string>>
+    <string name="barcomon">BarCoMon</string>>
+    <string name="review_submit">Submit</string>
+    <string name="play_button">Play</string>>
+    <string name="chat_button">Chat</string>
+    <string name="traningAttack_button">提升攻擊</string>
+    <string name="traningDefense_button">提升守備</string>
+    <string name="MonsterInformation_button">(info)</string>
+    <string name="Feeding_button">餵食</string>
+    <string name="Sleep_button">睡覺</string>
+    <string name="Attack_view">attack</string>
+    <string name="Defense_view">defense</string>
+    <string name="LoveLevel_view">親密度</string>
+    <string name="Strength_view">體力</string>
+    <string name="Level_view">Level</string>
+    <string name="BarCoEnergy_view">BarCoEnergy</string>
+    <string name="DialogBox_view">對話框...</string>
+
+    <string name="equipmentTab">裝備欄</string>
+    <string name="skillTab">技能欄</string>
+    <string name="trapTab">陷阱欄</string>
+
+    <string name="DrawMonster_button">抽怪獸</string>
+
+    <string name="capsuleName">瓶蓋</string>
+    <string name="capsuleEffect">效果:怪獸守備力提升800</string>
+    <string name="capsuleSuitable">適用:寶特瓶怪獸</string>
+
+    <string name="cartonName">紙箱</string>
+    <string name="cartonEffect">效果:怪獸守備提升500，遇到水屬性的怪獸則無效</string>
+    <string name="cartonSuitable">適用:所有怪獸</string>
+
+
+    <string name="strongWaterName">強力水柱</string>
+    <string name="strongWaterEffect">效果:大量的水使對手怪獸變為水屬性</string>
+    <string name="strongWaterSuitable">適用:寶特瓶怪獸</string>
+
+    <string name="paperPlaneName">紙飛機攻擊</string>
+    <string name="paperPlaneEffect">效果:使對手怪獸無法攻擊，轉為守備</string>
+    <string name="paperPlaneSuitable">適用:書怪</string>
+
+
+    <string name="brokenHeartName">挑撥離間</string>
+    <string name="brokenHeartEffect">效果:使對手有親密度加成的效果無效</string>
+    <string name="brokenHeartSuitable">適用:所有怪獸</string>
+
+    <string name="protectingShieldName">防護罩</string>
+    <string name="protectingShieldEffect">效果:此回合的攻擊傷害減半</string>
+    <string name="protectingShieldSuitable">適用:所有怪獸</string>
+
+    <string name="h2so4Name">硫酸水柱</string>
+    <string name="h2so4Effect">效果:降低百分之三十守備力，提升百分之二十攻擊力</string>
+    <string name="h2so4Suitable">適用:寶特瓶怪獸</string>
+
+    <string name="encyclopediaName">百科全書</string>
+    <string name="encyclopediaEffect">效果:降低對手怪獸百分之二十守備力</string>
+    <string name="encyclopediaSuitable">適用:書怪</string>
+
+    <string name="compressionName">自我壓縮</string>
+    <string name="compressionEffect">效果:躲避對手怪獸攻擊一次</string>
+    <string name="compressionSuitable">適用:鋁罐怪獸</string>
+
+    <string name="cansScrollName">滾動</string>
+    <string name="cansScrollEffect">效果:對手攻擊力降低百分之二十</string>
+    <string name="cansScrollSuitable">適用:鋁罐</string>
+
+    <string name="sweetsmellName">香氣四溢</string>
+    <string name="sweetsmellEffect">效果:對手怪獸攻擊力和守備力均降低百分之十</string>
+    <string name="sweetsmellSuitable">適用:便當怪獸</string>
+
+    <string name="rottenfoodName">臭酸</string>
+    <string name="rottenfoodEffect">效果:我方怪獸守備力降低百分之十，對手怪獸攻擊力降低百分之二十，守備力降低百分之十</string>
+    <string name="rottenfoodSuitable">適用:便當怪獸</string>
+
+    <string name="hotwaterName">沸水攻擊</string>
+    <string name="hotwaterEffect">效果:我方怪獸攻擊力提升百分之十，對手怪獸守備力降低百分之十</string>
+    <string name="hotwaterSuitable">適用:馬克杯怪獸</string>
+
+    <string name="coffeeName">咖啡醒腦</string>
+    <string name="coffeEffect">效果:我方怪獸永久提升攻擊力百分之十</string>
+    <string name="coffeeSuitable">適用:馬克杯怪獸</string>
+
+    <string name="bottleLogoName">寶特瓶LOGO</string>
+    <string name="bottleLogoEffect">效果:守備力提升300</string>
+    <string name="bottleLogoSuitable">適用:寶特瓶怪獸</string>
+
+    <string name="bookmarkName">書籤</string>
+    <string name="bookmarkEffect">效果:攻擊力提升300</string>
+    <string name="bookmarkSuitable">適用:書怪</string>
+
+    <string name="bookclothingName">書衣</string>
+    <string name="bookclothingEffect">效果:守備力提升500</string>
+    <string name="bookclothingSuitable">適用:書怪</string>
+
+    <string name="cupsetName">杯套</string>
+    <string name="cupsetEffect">效果:守備力提升400</string>
+    <string name="cupsetSuitable">適用:鋁罐怪獸</string>
+
+    <string name="pullringName">拉環</string>
+    <string name="pullringEffect">效果:攻擊力提升300</string>
+    <string name="pullringSuitable">適用:鋁罐怪獸</string>
+
+    <string name="chopsticksName">竹筷</string>
+    <string name="chopsticksEffect">效果:攻擊力提升300</string>
+    <string name="chopsticksSuitable">適用:便當怪獸</string>
+
+    <string name="chickenlegsName">雞腿</string>
+    <string name="chickenlegsEffect">效果:攻擊力提升300</string>
+    <string name="chickenlegsSuitable">適用:便當怪獸</string>
+
+
+    <string name="coasterName">杯墊</string>
+    <string name="coasterEffect">效果:攻擊力提升300</string>
+    <string name="coasterSuitable">適用:馬克杯怪</string>
+
+    <string name="instantdrinkName">沖泡包</string>
+    <string name="instantdrinkEffect">效果:提升攻擊力300</string>
+    <string name="instantdrinkSuitable">適用:馬克杯怪</string>
+
+
+</resources>

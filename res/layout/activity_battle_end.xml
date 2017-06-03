@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_battle_scene"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/battlescenebackground">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="戰鬥結算"
+        android:textSize = "40sp"
+        android:textColor="@color/white"
+        android:id="@+id/textView"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:id="@+id/battleEndBattleResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize = "25sp"
+        android:text="戰鬥結果"
+        android:textStyle="bold"
+        android:layout_marginLeft="51dp"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="41dp"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/battleEndFastBattle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize = "25sp"
+        android:textStyle="bold"
+        android:text="快速戰鬥"
+        android:layout_below="@+id/battleEndBattleResult"
+        android:layout_alignLeft="@+id/battleEndBattleResult"
+        android:layout_alignStart="@+id/battleEndBattleResult"
+        android:layout_marginTop="24dp" />
+
+    <TextView
+        android:id="@+id/battleEndNoDamage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize = "25sp"
+        android:textStyle="bold"
+        android:text="體力無損"
+        android:layout_below="@+id/battleEndFastBattle"
+        android:layout_alignLeft="@+id/battleEndFastBattle"
+        android:layout_alignStart="@+id/battleEndFastBattle"
+        android:layout_marginTop="24dp" />
+
+    <TextView
+        android:id="@+id/battleEndLevel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize = "25sp"
+        android:textStyle="bold"
+        android:text="高等對手"
+        android:layout_below="@+id/battleEndNoDamage"
+        android:layout_alignLeft="@+id/battleEndNoDamage"
+        android:layout_alignStart="@+id/battleEndNoDamage"
+        android:layout_marginTop="17dp" />
+
+    <TextView
+        android:id="@+id/battleEndBonus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize = "25sp"
+        android:textStyle="bold"
+        android:text="額外獎勵"
+        android:layout_below="@+id/battleEndLevel"
+        android:layout_alignLeft="@+id/battleEndLevel"
+        android:layout_alignStart="@+id/battleEndLevel"
+        android:layout_marginTop="17dp" />
+
+
+    <TextView
+        android:id="@+id/battleEndLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize = "25sp"
+        android:textStyle="bold"
+        android:text="--------------------------"
+        android:layout_below="@+id/battleEndBonus"
+        android:layout_alignLeft="@+id/battleEndBonus"
+        android:layout_alignStart="@+id/battleEndBonus" />
+
+
+    <TextView
+        android:id="@+id/battleEndEXP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize = "25sp"
+        android:text="EXP"
+        android:textStyle="bold"
+        android:layout_below="@+id/battleEndLine"
+        android:layout_alignLeft="@+id/battleEndLine"
+        android:layout_alignStart="@+id/battleEndLine" />
+
+    <TextView
+        android:id="@+id/battleEndBattleResultValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize = "25sp"
+        android:text="----"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:layout_alignBaseline="@+id/battleEndBattleResult"
+        android:layout_alignBottom="@+id/battleEndBattleResult"
+        android:layout_toRightOf="@+id/battleEndBattleResult"
+        android:layout_toEndOf="@+id/battleEndBattleResult"
+        android:layout_marginLeft="38dp"
+        android:layout_marginStart="38dp" />
+
+    <TextView
+        android:id="@+id/battleEndFastBattleValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize = "25sp"
+        android:text="----"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:layout_alignBaseline="@+id/battleEndFastBattle"
+        android:layout_alignBottom="@+id/battleEndFastBattle"
+        android:layout_alignLeft="@+id/battleEndBattleResultValue"
+        android:layout_alignStart="@+id/battleEndBattleResultValue" />
+
+    <TextView
+        android:id="@+id/battleEndNoDamageValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize = "25sp"
+        android:text="----"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:layout_alignBaseline="@+id/battleEndNoDamage"
+        android:layout_alignBottom="@+id/battleEndNoDamage"
+        android:layout_alignLeft="@+id/battleEndFastBattleValue"
+        android:layout_alignStart="@+id/battleEndFastBattleValue" />
+
+    <TextView
+        android:id="@+id/battleEndLevelValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize = "25sp"
+        android:text="----"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:layout_alignBaseline="@+id/battleEndLevel"
+        android:layout_alignBottom="@+id/battleEndLevel"
+        android:layout_alignLeft="@+id/battleEndNoDamageValue"
+        android:layout_alignStart="@+id/battleEndNoDamageValue" />
+
+    <TextView
+        android:id="@+id/battleEndBonusValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize = "25sp"
+        android:textColor="@color/white"
+        android:text="----"
+        android:textStyle="bold"
+        android:layout_above="@+id/battleEndLine"
+        android:layout_alignLeft="@+id/battleEndLevelValue"
+        android:layout_alignStart="@+id/battleEndLevelValue" />
+
+    <TextView
+        android:id="@+id/battleEndMyXEP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize = "25sp"
+        android:textColor="@color/white"
+        android:text="----"
+        android:textStyle="bold"
+        android:layout_below="@+id/battleEndLine"
+        android:layout_toLeftOf="@+id/battleEndBonusValue"
+        android:layout_toStartOf="@+id/battleEndBonusValue"
+        android:layout_marginRight="15dp"
+        android:layout_marginEnd="15dp" />
+
+    <TextView
+        android:id="@+id/battleEndLine2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize = "25sp"
+        android:text="/"
+        android:textStyle="bold"
+        android:layout_below="@+id/battleEndLine"
+        android:layout_toRightOf="@+id/battleEndMyXEP"
+        android:layout_toEndOf="@+id/battleEndMyXEP"
+        android:layout_marginLeft="11dp"
+        android:layout_marginStart="11dp" />
+
+    <TextView
+        android:id="@+id/battleEndTotalEXP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize = "25sp"
+        android:textColor="@color/white"
+        android:text="------"
+        android:textStyle="bold"
+        android:layout_below="@+id/battleEndLine"
+        android:layout_toRightOf="@+id/battleEndBonusValue"
+        android:layout_toEndOf="@+id/battleEndBonusValue" />
+
+
+    <Button
+        android:id="@+id/battleEndLevelUpButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LevelUp"
+        android:layout_below="@+id/battleEndEXP"
+        android:layout_toLeftOf="@+id/battleEndMyXEP"
+        android:layout_toStartOf="@+id/battleEndMyXEP"
+        android:layout_marginTop="23dp" />
+
+    <Button
+        android:id="@+id/battleEndExitButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="確認"
+        android:layout_alignBaseline="@+id/battleEndLevelUpButton"
+        android:layout_alignBottom="@+id/battleEndLevelUpButton"
+        android:layout_toRightOf="@+id/battleEndLine2"
+        android:layout_toEndOf="@+id/battleEndLine2" />
+
+
+
+
+
+</RelativeLayout>

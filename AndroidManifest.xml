@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.barcomon">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:largeHeap="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".BarCoMonMain" />
+        <activity android:name=".BarCoReview" />
+        <activity android:name=".DrawBarCoMon" />
+        <activity android:name=".BarCoMonBox" />
+        <activity android:name=".BarCoSearch" />
+        <activity android:name=".ProductPage" />
+        <activity android:name=".BattleSetUp" />
+        <activity android:name=".CardStore" />
+        <activity android:name=".BattleScene" />
+        <activity android:name=".BarCoMonGameConsole" />
+        <activity android:name=".BarCoMonsterInformation" />
+        <activity android:name=".BottleMonsterCard" />
+        <activity android:name=".CanMonsterCard" />
+        <activity android:name=".MugMonsterCard" />
+        <activity android:name=".BattleEnd"></activity>
+    </application>
+
+</manifest>
