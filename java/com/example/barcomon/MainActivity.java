@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_b);
         firebaseAuth = FirebaseAuth.getInstance();
         if(firebaseAuth.getCurrentUser()!=null){
             finish();
