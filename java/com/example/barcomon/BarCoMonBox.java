@@ -18,6 +18,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+/*886688*/
+
 public class BarCoMonBox extends AppCompatActivity implements View.OnClickListener {
 
     private DatabaseReference databaseReference;
