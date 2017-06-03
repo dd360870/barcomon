@@ -220,7 +220,12 @@ public class BattleSetUp extends  FragmentActivity implements ViewPager.OnPageCh
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        if(v.getId()==R.id.equipmentTextView) {
+            myViewPager.setCurrentItem(0);
+        } else if(v.getId()==R.id.skillTextView) {
+            myViewPager.setCurrentItem(1);
+        }
+        /*switch (v.getId()){
             case R.id.equipmentTextView:
                 myViewPager.setCurrentItem(0);
                 break;
@@ -234,7 +239,7 @@ public class BattleSetUp extends  FragmentActivity implements ViewPager.OnPageCh
                 break;
 
 
-        }
+        }*/
 
 
     }

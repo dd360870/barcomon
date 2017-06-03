@@ -24,6 +24,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.example.barcomon.Equipment.*;
+import com.example.barcomon.Skill.*;
 import com.example.barcomon.battleMonster.BattleMonster;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;

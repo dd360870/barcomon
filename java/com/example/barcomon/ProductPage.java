@@ -202,7 +202,13 @@ public class ProductPage extends FragmentActivity implements ViewPager.OnPageCha
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        if(v.getId()==R.id.tv_tab0) {
+            myViewPager.setCurrentItem(0);
+        } else if(v.getId()==R.id.tv_tab1) {
+            myViewPager.setCurrentItem(1);
+        }
+        /*switch (v.getId()){
+
             case R.id.tv_tab0:
                 myViewPager.setCurrentItem(0);
                 break;
@@ -216,7 +222,7 @@ public class ProductPage extends FragmentActivity implements ViewPager.OnPageCha
                 break;
 
 
-        }
+        }*/
 
 
     }
