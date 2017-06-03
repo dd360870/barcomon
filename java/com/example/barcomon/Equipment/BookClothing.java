@@ -6,11 +6,11 @@ package com.example.barcomon.Equipment;
 
 public class BookClothing extends Equipment{
     public BookClothing(){
-        this.upgradeAttack=0;
-        this.upgradeDefense=500;
+        this.upgradeAttack=300;
+        this.upgradeDefense=700;
         this.uniqueMonster="Book";
         this.uniqueMonsterExtraAttck=0;
-        this.uniqueMonsterExtraDefense=100;
+        this.uniqueMonsterExtraDefense=500;
         this.equipmentName="BookClothing";
     }
 }

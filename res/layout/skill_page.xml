@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/holo_blue_dark"
     android:orientation="vertical">
     <ScrollView
         android:layout_width="match_parent"
@@ -14,6 +15,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:paddingLeft="@dimen/activity_horizontal_margin"
                 android:paddingRight="@dimen/activity_horizontal_margin">
                 <ImageView
@@ -46,59 +48,19 @@
 
 
 
+            <ImageView
+                android:id="@+id/skillPageNoSkillLayout"
+                android:layout_width="match_parent"
+                android:layout_height="450dip"
+                android:src="@drawable/noskill"/>
 
-            <LinearLayout
+            <ImageView
                 android:id="@+id/skillPageStrongWaterLayout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:color/black"
+                android:layout_height="450dip"
+                android:src="@drawable/strongwater"
                 >
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <ImageView
-                        android:id="@+id/strongWaterImageView"
-                        android:layout_width="75dip"
-                        android:layout_height="100dip"
-                        android:src="@drawable/strongwater"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="@android:color/white"
-                        android:text="@string/strongWaterName"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="@android:color/white"
-                        android:text="@string/strongWaterEffect"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="@android:color/white"
-                        android:text="@string/strongWaterSuitable"/>
-
-                    <TextView
-                        android:id="@+id/skillPageStrongWaterQuantity"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="@color/white"
-                        android:text="數量:"/>
-
-                </LinearLayout>
-            </LinearLayout>
+            </ImageView>
 
 
 
@@ -111,543 +73,128 @@
 
 
 
-            <LinearLayout
+            <ImageView
                 android:id="@+id/skillPageH2SO4Layout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:color/black"
+                android:layout_height="450dip"
+                android:src="@drawable/sulfuric"
                 >
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <ImageView
-                        android:layout_width="75dip"
-                        android:layout_height="100dip"
-                        android:src="@drawable/sulfuric"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="@android:color/white"
-                        android:text="@string/h2so4Name"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="@android:color/white"
-                        android:text="@string/h2so4Effect"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="@android:color/white"
-                        android:text="@string/h2so4Suitable"/>
-
-                    <TextView
-                        android:id="@+id/skillPageH2SO4Quantity"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="@color/white"
-                        android:text="數量:"/>
-
-                </LinearLayout>
-            </LinearLayout>
+            </ImageView>
 
 
 
 
-            <LinearLayout
+            <ImageView
                 android:id="@+id/skillPagePaperPlaneLayout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:color/black"
+                android:layout_height="450dip"
+                android:src="@drawable/paperplane"
                 >
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <ImageView
-                        android:layout_width="75dip"
-                        android:layout_height="100dip"
-                        android:src="@drawable/paperplane"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="@android:color/white"
-                        android:text="@string/paperPlaneName"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="@android:color/white"
-                        android:text="@string/paperPlaneEffect"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="@android:color/white"
-                        android:text="@string/paperPlaneSuitable"/>
-
-                    <TextView
-                        android:id="@+id/skillPagePaperPlaneQuantity"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="@color/white"
-                        android:text="數量:"/>
-
-                </LinearLayout>
-            </LinearLayout>
+            </ImageView>
 
 
 
-
-
-
-
-            <LinearLayout
+            <ImageView
                 android:id="@+id/skillPageEncyclopediaLayout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:color/black"
+                android:layout_height="450dip"
+                android:src="@drawable/encyclopedia"
                 >
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <ImageView
-                        android:layout_width="75dip"
-                        android:layout_height="100dip"
-                        android:src="@drawable/encyclopedia"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="@android:color/white"
-                        android:text="@string/encyclopediaName"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="@android:color/white"
-                        android:text="@string/encyclopediaEffect"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="@android:color/white"
-                        android:text="@string/encyclopediaSuitable"/>
-
-                    <TextView
-                        android:id="@+id/skillPageEncyclopediaQuantity"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="@color/white"
-                        android:text="數量:"/>
-
-                </LinearLayout>
-            </LinearLayout>
+            </ImageView>
 
 
 
 
-            <LinearLayout
+            <ImageView
                 android:id="@+id/skillPageCompressionLayout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:color/black"
+                android:layout_height="450dip"
+                android:src="@drawable/compression"
                 >
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <ImageView
-                        android:layout_width="75dip"
-                        android:layout_height="100dip"
-                        android:src="@drawable/compression"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="@android:color/white"
-                        android:text="@string/compressionName"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="@android:color/white"
-                        android:text="@string/compressionEffect"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="@android:color/white"
-                        android:text="@string/compressionSuitable"/>
-
-                    <TextView
-                        android:id="@+id/skillPageCompressionQuantity"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="@color/white"
-                        android:text="數量:"/>
-
-                </LinearLayout>
-            </LinearLayout>
+            </ImageView>
 
 
 
 
 
-            <LinearLayout
+            <ImageView
                 android:id="@+id/skillPageCansScrollLayout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:color/black"
+                android:layout_height="450dip"
+                android:src="@drawable/cansscroll"
                 >
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <ImageView
-                        android:layout_width="75dip"
-                        android:layout_height="100dip"
-                        android:src="@drawable/cansscroll"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="@android:color/white"
-                        android:text="@string/cansScrollName"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="@android:color/white"
-                        android:text="@string/cansScrollEffect"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="@android:color/white"
-                        android:text="@string/cansScrollSuitable"/>
-
-                    <TextView
-                        android:id="@+id/skillPageCansScrollQuantity"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="@color/white"
-                        android:text="數量:"/>
-
-                </LinearLayout>
-            </LinearLayout>
+            </ImageView>
 
 
 
 
 
-            <LinearLayout
+            <ImageView
                 android:id="@+id/skillPageSweetSmellLayout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:color/black"
+                android:layout_height="450dip"
+                android:src="@drawable/sweetsmell"
                 >
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <ImageView
-                        android:layout_width="75dip"
-                        android:layout_height="100dip"
-                        android:src="@drawable/sweetsmell"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="@android:color/white"
-                        android:text="@string/sweetsmellName"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="@android:color/white"
-                        android:text="@string/sweetsmellEffect"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="@android:color/white"
-                        android:text="@string/sweetsmellSuitable"/>
-
-                    <TextView
-                        android:id="@+id/skillPageSweetSmellQuantity"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="@color/white"
-                        android:text="數量:"/>
-
-                </LinearLayout>
-            </LinearLayout>
+            </ImageView>
 
 
 
 
 
 
-            <LinearLayout
+            <ImageView
                 android:id="@+id/skillPageRottenFoodLayout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:color/black"
+                android:layout_height="450dip"
+                android:src="@drawable/rottenfood"
                 >
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <ImageView
-                        android:layout_width="75dip"
-                        android:layout_height="100dip"
-                        android:src="@drawable/rottenfood"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="@android:color/white"
-                        android:text="@string/rottenfoodName"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="@android:color/white"
-                        android:text="@string/rottenfoodEffect"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="@android:color/white"
-                        android:text="@string/rottenfoodSuitable"/>
-
-                    <TextView
-                        android:id="@+id/skillPageRottenFoodQuantity"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="@color/white"
-                        android:text="數量:"/>
-
-                </LinearLayout>
-            </LinearLayout>
+            </ImageView>
 
 
 
 
-            <LinearLayout
+            <ImageView
                 android:id="@+id/skillPageHotWaterLayout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:color/black"
+                android:layout_height="450dip"
+                android:src="@drawable/hotwater"
                 >
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <ImageView
-                        android:layout_width="75dip"
-                        android:layout_height="100dip"
-                        android:src="@drawable/hotwater"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="@android:color/white"
-                        android:text="@string/hotwaterName"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="@android:color/white"
-                        android:text="@string/hotwaterEffect"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="@android:color/white"
-                        android:text="@string/hotwaterSuitable"/>
-
-                    <TextView
-                        android:id="@+id/skillPageHotWaterQuantity"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="@color/white"
-                        android:text="數量:"/>
-
-                </LinearLayout>
-            </LinearLayout>
+            </ImageView>
 
 
 
-            <LinearLayout
+            <ImageView
                 android:id="@+id/skillPageCoffeeLayout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:color/black"
+                android:layout_height="450dip"
+                android:src="@drawable/coffee"
                 >
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <ImageView
-                        android:layout_width="75dip"
-                        android:layout_height="100dip"
-                        android:src="@drawable/coffee"/>
-                </LinearLayout>
+            </ImageView>
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="@android:color/white"
-                        android:text="@string/coffeeName"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="@android:color/white"
-                        android:text="@string/coffeEffect"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="@android:color/white"
-                        android:text="@string/coffeeSuitable"/>
-
-                    <TextView
-                        android:id="@+id/skillPageCoffeeQuantity"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="@color/white"
-                        android:text="數量:"/>
-
-                </LinearLayout>
-            </LinearLayout>
-
-
-
-
-
-
-
-
-            <LinearLayout
+            <ImageView
+                android:id="@+id/skillPageRespectOlder"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:layout_width="100dip"
-                    android:layout_height="150dip"
-                    android:maxHeight="50dp"
-                    android:maxWidth="50dp"
-                    android:src="@drawable/cardback"/>
-            </LinearLayout>
-
-            <LinearLayout
+                android:layout_height="450dip"
+                android:src="@drawable/respectolder"/>
+            <ImageView
+                android:id="@+id/skillPageLoveTeaching"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:layout_width="100dip"
-                    android:layout_height="150dip"
-                    android:maxHeight="50dp"
-                    android:maxWidth="50dp"
-                    android:src="@drawable/cardback"/>
-            </LinearLayout>
-
-            <LinearLayout
+                android:layout_height="450dip"
+                android:src="@drawable/loveteaching"/>
+            <ImageView
+                android:id="@+id/skillPageNotResigned"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:layout_width="100dip"
-                    android:layout_height="150dip"
-                    android:maxHeight="50dp"
-                    android:maxWidth="50dp"
-                    android:src="@drawable/cardback"/>
-            </LinearLayout>
+                android:layout_height="450dip"
+                android:src="@drawable/notresigned"/>
+            <ImageView
+                android:id="@+id/skillPageDeathAttack"
+                android:layout_width="match_parent"
+                android:layout_height="450dip"
+                android:src="@drawable/deathattack"/>
+
+
+
+
 
 
 

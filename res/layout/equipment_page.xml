@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/black"
+    android:background="@android:color/holo_blue_dark"
     android:orientation="vertical">
 <ScrollView
     android:layout_width="match_parent"
@@ -16,6 +16,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin">
     <ImageView
@@ -48,6 +49,11 @@
 
 
 
+        <ImageView
+            android:id="@+id/equipPagePlasticbagLayout"
+            android:layout_width="match_parent"
+            android:layout_height="450dip"
+            android:src="@drawable/noequip"/>
 
         <ImageView
             android:id="@+id/equipPageCapsuleLayout"
@@ -73,113 +79,25 @@
 
 
 
-        <LinearLayout
+        <ImageView
             android:id="@+id/equipPageBookmarkLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/black"
+            android:layout_height="450dip"
+            android:src="@drawable/bookmark"
             >
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <ImageView
-                    android:layout_width="75dip"
-                    android:layout_height="100dip"
-                    android:src="@drawable/bookmark"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:textColor="@android:color/white"
-                    android:text="@string/bookmarkName"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:textColor="@android:color/white"
-                    android:text="@string/bookmarkEffect"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:textColor="@android:color/white"
-                    android:text="@string/bookmarkSuitable"/>
-
-                <TextView
-                    android:id="@+id/equipmentPageBookmarkQuantity"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:textColor="@color/white"
-                    android:text="數量:"/>
-
-            </LinearLayout>
-        </LinearLayout>
+        </ImageView>
 
 
 
 
 
-        <LinearLayout
+        <ImageView
             android:id="@+id/equipPageBookClothingLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/black"
+            android:layout_height="450dip"
+            android:src="@drawable/bookclothing"
             >
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <ImageView
-                    android:layout_width="75dip"
-                    android:layout_height="100dip"
-                    android:src="@drawable/bookclothing"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:textColor="@android:color/white"
-                    android:text="@string/bookclothingName"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:textColor="@android:color/white"
-                    android:text="@string/bookclothingEffect"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:textColor="@android:color/white"
-                    android:text="@string/bookclothingSuitable"/>
-
-                <TextView
-                    android:id="@+id/equipmentPageBookClothingQuantity"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:textColor="@color/white"
-                    android:text="數量:"/>
-
-            </LinearLayout>
-        </LinearLayout>
+        </ImageView>
 
 
 

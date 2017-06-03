@@ -10,6 +10,7 @@ public class UserInformation {
     protected String MainMonster;
     protected int BarCoMonEnergy;
     protected String ownMonster;
+    protected String UID;
     //protected int[] ownMonster = new int[5];
 
     //protected int[] ownMonster = {12, 33, 65, 32, 11, 76, 98, 23, 55, 34, 76, 81, 54};

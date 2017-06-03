@@ -2,7 +2,9 @@ package com.example.barcomon;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.AudioManager;
 import android.media.Image;
+import android.media.SoundPool;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,18 +20,22 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-/*886688*/
-
 public class BarCoMonBox extends AppCompatActivity implements View.OnClickListener {
 
     private DatabaseReference databaseReference;
     private FirebaseAuth firebaseAuth;
 
 
-    private ImageView monsterBottle,monsterCan,monsterMug,monsterBento;
+    private ImageView monsterBottle,monsterCan,monsterMug,monsterBento,
+    monsterBook;
 
 
     public UserInformation userinformation;
+
+    private static final int SOUND_COUNT = 2;
+    private SoundPool soundPool;
+    private int ClickSoundID;
+    private int ChangeMonsterSoundID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +49,10 @@ public class BarCoMonBox extends AppCompatActivity implements View.OnClickListen
             startActivity(new Intent(this,LoginActivity.class));
         }
 
+        this.soundPool = new SoundPool(SOUND_COUNT, AudioManager.STREAM_MUSIC, 0);
+        ClickSoundID= this.soundPool.load(this, R.raw.consloebutton, 1);
+        ChangeMonsterSoundID=this.soundPool.load(this, R.raw.changemonster, 1);
+
         getUserInformation();
         //monster0 = (Button)findViewById(R.id.monster0_button);
 
@@ -53,17 +63,20 @@ public class BarCoMonBox extends AppCompatActivity implements View.OnClickListen
         monsterCan=(ImageView)findViewById(R.id.monsterBoxCans);
         monsterMug=(ImageView)findViewById(R.id.monsterBoxMug);
         monsterBento=(ImageView)findViewById(R.id.monsterBoxBento);
+        monsterBook=(ImageView)findViewById(R.id.monsterBoxBook);
 
 
         monsterBottle.setOnClickListener(this);
         monsterCan.setOnClickListener(this);
         monsterMug.setOnClickListener(this);
         monsterBento.setOnClickListener(this);
+        monsterBook.setOnClickListener(this);
 
 
         monsterBottle.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
+                soundPool.play(ClickSoundID, 1, 1, 0, 0, 1);
                 if(userinformation.ownMonster.charAt(0)=='1') {
                     confirmChangeMainMonster("000");
                 }
@@ -74,6 +87,7 @@ public class BarCoMonBox extends AppCompatActivity implements View.OnClickListen
         monsterCan.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
+                soundPool.play(ClickSoundID, 1, 1, 0, 0, 1);
                 if(userinformation.ownMonster.charAt(1)=='1') {
                     confirmChangeMainMonster("001");
                 }
@@ -84,6 +98,7 @@ public class BarCoMonBox extends AppCompatActivity implements View.OnClickListen
         monsterMug.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
+                soundPool.play(ClickSoundID, 1, 1, 0, 0, 1);
                 if(userinformation.ownMonster.charAt(2)=='1') {
                     confirmChangeMainMonster("002");
                 }
@@ -94,12 +109,25 @@ public class BarCoMonBox extends AppCompatActivity implements View.OnClickListen
         monsterBento.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
+                soundPool.play(ClickSoundID, 1, 1, 0, 0, 1);
                 if(userinformation.ownMonster.charAt(3)=='1') {
                     confirmChangeMainMonster("003");
                 }
                 return true;
             }
         });
+
+        monsterBook.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                soundPool.play(ClickSoundID, 1, 1, 0, 0, 1);
+                if(userinformation.ownMonster.charAt(4)=='1') {
+                    confirmChangeMainMonster("004");
+                }
+                return true;
+            }
+        });
+
 
 
 
@@ -111,6 +139,7 @@ public class BarCoMonBox extends AppCompatActivity implements View.OnClickListen
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        soundPool.play(ChangeMonsterSoundID, 1, 1, 0, 0, 1);
                         updateUserDatabase(mainMonster);
                     }
                 }).setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -127,6 +156,7 @@ public class BarCoMonBox extends AppCompatActivity implements View.OnClickListen
 
     @Override
     public void onClick(View v) {
+        soundPool.play(ClickSoundID, 1, 1, 0, 0, 1);
         if(v==monsterBottle){
             startActivity(new Intent(getApplicationContext(),BottleMonsterCard.class));
             //updateUserDatabase("000");
@@ -137,6 +167,12 @@ public class BarCoMonBox extends AppCompatActivity implements View.OnClickListen
         }
         if(v==monsterMug){
             startActivity(new Intent(getApplicationContext(),MugMonsterCard.class));
+        }
+        if(v==monsterBento){
+            startActivity(new Intent(getApplicationContext(),BentoMonsterCard.class));
+        }
+        if(v==monsterBook){
+            startActivity(new Intent(getApplicationContext(),BookMonsterCard.class));
         }
     }
 

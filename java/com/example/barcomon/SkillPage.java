@@ -1,6 +1,8 @@
 package com.example.barcomon;
 
 import android.content.DialogInterface;
+import android.media.AudioManager;
+import android.media.SoundPool;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
@@ -27,8 +29,10 @@ import com.google.firebase.database.ValueEventListener;
 public class SkillPage extends Fragment implements View.OnClickListener{
     public String[] provinces = new String[] { "第一張", "第二張", "第三張"};
     ImageView skillCard1,skillCard2,skillCard3;
-    LinearLayout strongWaterLayout,paperPlaneLayout,h2so4Layout,encyclopediaLayout,
-            compressionLayout,cansScrollLayout,sweetSmellLayout,rottenFoodLayout,hotWaterLayout,coffeeLayout;
+    ImageView strongWaterLayout,paperPlaneLayout,h2so4Layout,encyclopediaLayout,
+            compressionLayout,cansScrollLayout,sweetSmellLayout,rottenFoodLayout,hotWaterLayout,
+            coffeeLayout,noSkillLayout,deathAttackLayout,
+            loveTeachingLayout,notResignedLayout,respectOlderLayout;
 
     SkillInformation skillInformation;
 
@@ -44,6 +48,10 @@ public class SkillPage extends Fragment implements View.OnClickListener{
 
     private String skill1,skill2,skill3;
 
+    private static final int SOUND_COUNT = 2;
+    private SoundPool soundPool;
+    private int CardSoundID;
+    private int ClickCardID;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle saveInstanceState){
         View view = inflater.inflate(R.layout.skill_page,null);
@@ -56,20 +64,34 @@ public class SkillPage extends Fragment implements View.OnClickListener{
         skillCard2=(ImageView)view.findViewById(R.id.skillCard2);
         skillCard3=(ImageView)view.findViewById(R.id.skillCard3);
 
-        strongWaterLayout=(LinearLayout)view.findViewById(R.id.skillPageStrongWaterLayout);
-        paperPlaneLayout=(LinearLayout)view.findViewById(R.id.skillPagePaperPlaneLayout);
+        strongWaterLayout=(ImageView) view.findViewById(R.id.skillPageStrongWaterLayout);
+        paperPlaneLayout=(ImageView)view.findViewById(R.id.skillPagePaperPlaneLayout);
 
-        h2so4Layout=(LinearLayout)view.findViewById(R.id.skillPageH2SO4Layout);
-        encyclopediaLayout=(LinearLayout)view.findViewById(R.id.skillPageEncyclopediaLayout);
-        compressionLayout=(LinearLayout)view.findViewById(R.id.skillPageCompressionLayout);
-        cansScrollLayout=(LinearLayout)view.findViewById(R.id.skillPageCansScrollLayout);
-        sweetSmellLayout=(LinearLayout)view.findViewById(R.id.skillPageSweetSmellLayout);
-        rottenFoodLayout=(LinearLayout)view.findViewById(R.id.skillPageRottenFoodLayout);
-        hotWaterLayout=(LinearLayout)view.findViewById(R.id.skillPageHotWaterLayout);
-        coffeeLayout=(LinearLayout)view.findViewById(R.id.skillPageCoffeeLayout);
+        h2so4Layout=(ImageView)view.findViewById(R.id.skillPageH2SO4Layout);
+        encyclopediaLayout=(ImageView)view.findViewById(R.id.skillPageEncyclopediaLayout);
+        compressionLayout=(ImageView)view.findViewById(R.id.skillPageCompressionLayout);
+        cansScrollLayout=(ImageView)view.findViewById(R.id.skillPageCansScrollLayout);
+        sweetSmellLayout=(ImageView)view.findViewById(R.id.skillPageSweetSmellLayout);
+        rottenFoodLayout=(ImageView)view.findViewById(R.id.skillPageRottenFoodLayout);
+        hotWaterLayout=(ImageView)view.findViewById(R.id.skillPageHotWaterLayout);
+        coffeeLayout=(ImageView)view.findViewById(R.id.skillPageCoffeeLayout);
+
+        noSkillLayout=(ImageView)view.findViewById(R.id.skillPageNoSkillLayout);
+
+        deathAttackLayout=(ImageView)view.findViewById(R.id.skillPageDeathAttack);
+        loveTeachingLayout=(ImageView)view.findViewById(R.id.skillPageLoveTeaching);
+        notResignedLayout=(ImageView)view.findViewById(R.id.skillPageNotResigned);
+        respectOlderLayout=(ImageView)view.findViewById(R.id.skillPageRespectOlder);
+
+        this.soundPool = new SoundPool(SOUND_COUNT, AudioManager.STREAM_MUSIC, 0);
+        CardSoundID= this.soundPool.load(getActivity(), R.raw.cardsound, 1);
+        ClickCardID= this.soundPool.load(getActivity(), R.raw.battleset_selectcard, 1);
 
 
-
+        deathAttackLayout.setOnClickListener(this);
+        loveTeachingLayout.setOnClickListener(this);
+        notResignedLayout.setOnClickListener(this);
+        respectOlderLayout.setOnClickListener(this);
 
         strongWaterLayout.setOnClickListener(this);
         paperPlaneLayout.setOnClickListener(this);
@@ -82,6 +104,8 @@ public class SkillPage extends Fragment implements View.OnClickListener{
         hotWaterLayout.setOnClickListener(this);
         coffeeLayout.setOnClickListener(this);
 
+        noSkillLayout.setOnClickListener(this);
+
         return view;
     }
 
@@ -92,6 +116,7 @@ public class SkillPage extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
+        soundPool.play(ClickCardID, 1, 1, 0, 0, 1);
         if(v==strongWaterLayout){
             if(checkMonsterAndSkill("StrongWater")) {
                 if(useritem.StrongWater==1) {
@@ -222,8 +247,377 @@ public class SkillPage extends Fragment implements View.OnClickListener{
                 Toast.makeText(getActivity(), "此卡無法裝備在怪獸上", Toast.LENGTH_SHORT).show();
             }
         }
+        if(v==noSkillLayout){
+            noSkillChooseCardField(v);
+        }
+        if(v==deathAttackLayout){
+            if(useritem.DeathAttack==1) {
+                deathAttackChooseCardField(v);
+            }
+            else{
+                Toast.makeText(getActivity(), "你沒有這張技能卡", Toast.LENGTH_SHORT).show();
+            }
+        }
+        if(v==loveTeachingLayout){
+            if(useritem.LoveTeaching==1) {
+                loveTeachingChooseCardField(v);
+            }
+            else{
+                Toast.makeText(getActivity(), "你沒有這張技能卡", Toast.LENGTH_SHORT).show();
+            }
+        }
+        if(v==notResignedLayout){
+            if(useritem.NotResigned==1) {
+                notResignedChooseCardField(v);
+            }
+            else{
+                Toast.makeText(getActivity(), "你沒有這張技能卡", Toast.LENGTH_SHORT).show();
+            }
+        }
+        if(v==respectOlderLayout){
+            if(useritem.RespectOlder==1) {
+                respectOlderChooseCardField(v);
+            }
+            else{
+                Toast.makeText(getActivity(), "你沒有這張技能卡", Toast.LENGTH_SHORT).show();
+            }
+        }
 
     }
+
+    private void deathAttackChooseCardField(final View v) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
+        builder.setTitle("選擇卡片順序");
+        builder.setItems(provinces, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which){
+                    case 0:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
+                        if(skill1.equals("DeathAttack")){
+
+                        }
+                        else if(skill2.equals("DeathAttack")){
+                            updateSkillCard(new SkillInformation("100","NoSkill"),2);
+                            skillCard2.setImageDrawable(getResources().getDrawable(R.drawable.noskill));
+                            skill2="NoSkill";
+                        }
+                        else if(skill3.equals("DeathAttack")){
+                            updateSkillCard(new SkillInformation("100","NoSkill"),3);
+                            skillCard3.setImageDrawable(getResources().getDrawable(R.drawable.noskill));
+                            skill3="NoSkill";
+                        }
+                        updateSkillCard(new SkillInformation("010","DeathAttack"),1);
+                        skillCard1.setImageDrawable(getResources().getDrawable(R.drawable.deathattack));
+                        skill1="DeathAttack";
+                        break;
+                    case 1:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
+                        if(skill1.equals("DeathAttack")){
+                            updateSkillCard(new SkillInformation("100","NoSkill"),1);
+                            skillCard1.setImageDrawable(getResources().getDrawable(R.drawable.noskill));
+                            skill1="NoSkill";
+                        }
+                        else if(skill2.equals("DeathAttack")){
+
+                        }
+                        else if(skill3.equals("DeathAttack")){
+                            updateSkillCard(new SkillInformation("100","NoSkill"),3);
+                            skillCard3.setImageDrawable(getResources().getDrawable(R.drawable.noskill));
+                            skill3="NoSkill";
+                        }
+                        updateSkillCard(new SkillInformation("010","DeathAttack"),2);
+                        skillCard2.setImageDrawable(getResources().getDrawable(R.drawable.deathattack));
+                        skill2="DeathAttack";
+                        break;
+                    case 2:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
+                        if(skill1.equals("DeathAttack")){
+                            updateSkillCard(new SkillInformation("100","NoSkill"),1);
+                            skillCard1.setImageDrawable(getResources().getDrawable(R.drawable.noskill));
+                            skill1="NoSkill";
+                        }
+                        else if(skill2.equals("DeathAttack")){
+                            updateSkillCard(new SkillInformation("100","NoSkill"),2);
+                            skillCard2.setImageDrawable(getResources().getDrawable(R.drawable.noskill));
+                            skill2="NoSkill";
+                        }
+                        else if(skill3.equals("DeathAttack")){
+
+                        }
+                        updateSkillCard(new SkillInformation("010","DeathAttack"),3);
+                        skillCard3.setImageDrawable(getResources().getDrawable(R.drawable.deathattack));
+                        skill3="DeathAttack";
+                        break;
+                }
+                final AlertDialog ad = new AlertDialog.Builder(
+                        v.getContext()).setMessage(
+                        "選擇的順序為" +": " + provinces[which]).show();
+                Handler handler = new Handler();
+                Runnable runnable = new Runnable() {
+                    @Override
+                    public void run() {
+                        ad.dismiss();
+                    }
+
+                };
+                handler.postDelayed(runnable, 5 * 1000);
+            }
+
+        });
+        builder.create().show();
+    }
+
+    private void loveTeachingChooseCardField(final View v) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
+        builder.setTitle("選擇卡片順序");
+        builder.setItems(provinces, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which){
+                    case 0:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
+                        if(skill1.equals("LoveTeaching")){
+
+                        }
+                        else if(skill2.equals("LoveTeaching")){
+                            updateSkillCard(new SkillInformation("100","NoSkill"),2);
+                            skillCard2.setImageDrawable(getResources().getDrawable(R.drawable.noskill));
+                            skill2="NoSkill";
+                        }
+                        else if(skill3.equals("LoveTeaching")){
+                            updateSkillCard(new SkillInformation("100","NoSkill"),3);
+                            skillCard3.setImageDrawable(getResources().getDrawable(R.drawable.noskill));
+                            skill3="NoSkill";
+                        }
+                        updateSkillCard(new SkillInformation("011","LoveTeaching"),1);
+                        skillCard1.setImageDrawable(getResources().getDrawable(R.drawable.loveteaching));
+                        skill1="LoveTeaching";
+                        break;
+                    case 1:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
+                        if(skill1.equals("LoveTeaching")){
+                            updateSkillCard(new SkillInformation("100","NoSkill"),1);
+                            skillCard1.setImageDrawable(getResources().getDrawable(R.drawable.noskill));
+                            skill1="NoSkill";
+                        }
+                        else if(skill2.equals("LoveTeaching")){
+
+                        }
+                        else if(skill3.equals("LoveTeaching")){
+                            updateSkillCard(new SkillInformation("100","NoSkill"),3);
+                            skillCard3.setImageDrawable(getResources().getDrawable(R.drawable.noskill));
+                            skill3="NoSkill";
+                        }
+                        updateSkillCard(new SkillInformation("011","LoveTeaching"),2);
+                        skillCard2.setImageDrawable(getResources().getDrawable(R.drawable.loveteaching));
+                        skill2="LoveTeaching";
+                        break;
+                    case 2:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
+                        if(skill1.equals("LoveTeaching")){
+                            updateSkillCard(new SkillInformation("100","NoSkill"),1);
+                            skillCard1.setImageDrawable(getResources().getDrawable(R.drawable.noskill));
+                            skill1="NoSkill";
+                        }
+                        else if(skill2.equals("LoveTeaching")){
+                            updateSkillCard(new SkillInformation("100","NoSkill"),2);
+                            skillCard2.setImageDrawable(getResources().getDrawable(R.drawable.noskill));
+                            skill2="NoSkill";
+                        }
+                        else if(skill3.equals("LoveTeaching")){
+
+                        }
+                        updateSkillCard(new SkillInformation("011","LoveTeaching"),3);
+                        skillCard3.setImageDrawable(getResources().getDrawable(R.drawable.loveteaching));
+                        skill3="LoveTeaching";
+                        break;
+                }
+                final AlertDialog ad = new AlertDialog.Builder(
+                        v.getContext()).setMessage(
+                        "選擇的順序為" +": " + provinces[which]).show();
+                Handler handler = new Handler();
+                Runnable runnable = new Runnable() {
+                    @Override
+                    public void run() {
+                        ad.dismiss();
+                    }
+
+                };
+                handler.postDelayed(runnable, 5 * 1000);
+            }
+
+        });
+        builder.create().show();
+    }
+
+    private void notResignedChooseCardField(final View v) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
+        builder.setTitle("選擇卡片順序");
+        builder.setItems(provinces, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which){
+                    case 0:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
+                        if(skill1.equals("NotResigned")){
+
+                        }
+                        else if(skill2.equals("NotResigned")){
+                            updateSkillCard(new SkillInformation("100","NoSkill"),2);
+                            skillCard2.setImageDrawable(getResources().getDrawable(R.drawable.noskill));
+                            skill2="NoSkill";
+                        }
+                        else if(skill3.equals("NotResigned")){
+                            updateSkillCard(new SkillInformation("100","NoSkill"),3);
+                            skillCard3.setImageDrawable(getResources().getDrawable(R.drawable.noskill));
+                            skill3="NoSkill";
+                        }
+                        updateSkillCard(new SkillInformation("012","NotResigned"),1);
+                        skillCard1.setImageDrawable(getResources().getDrawable(R.drawable.notresigned));
+                        skill1="NotResigned";
+                        break;
+                    case 1:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
+                        if(skill1.equals("NotResigned")){
+                            updateSkillCard(new SkillInformation("100","NoSkill"),1);
+                            skillCard1.setImageDrawable(getResources().getDrawable(R.drawable.noskill));
+                            skill1="NoSkill";
+                        }
+                        else if(skill2.equals("NotResigned")){
+
+                        }
+                        else if(skill3.equals("NotResigned")){
+                            updateSkillCard(new SkillInformation("100","NoSkill"),3);
+                            skillCard3.setImageDrawable(getResources().getDrawable(R.drawable.noskill));
+                            skill3="NoSkill";
+                        }
+                        updateSkillCard(new SkillInformation("012","NotResigned"),2);
+                        skillCard2.setImageDrawable(getResources().getDrawable(R.drawable.notresigned));
+                        skill2="NotResigned";
+                        break;
+                    case 2:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
+                        if(skill1.equals("NotResigned")){
+                            updateSkillCard(new SkillInformation("100","NoSkill"),1);
+                            skillCard1.setImageDrawable(getResources().getDrawable(R.drawable.noskill));
+                            skill1="NoSkill";
+                        }
+                        else if(skill2.equals("NotResigned")){
+                            updateSkillCard(new SkillInformation("100","NoSkill"),2);
+                            skillCard2.setImageDrawable(getResources().getDrawable(R.drawable.noskill));
+                            skill2="NoSkill";
+                        }
+                        else if(skill3.equals("NotResigned")){
+
+                        }
+                        updateSkillCard(new SkillInformation("012","NotResigned"),3);
+                        skillCard3.setImageDrawable(getResources().getDrawable(R.drawable.notresigned));
+                        skill3="NotResigned";
+                        break;
+                }
+                final AlertDialog ad = new AlertDialog.Builder(
+                        v.getContext()).setMessage(
+                        "選擇的順序為" +": " + provinces[which]).show();
+                Handler handler = new Handler();
+                Runnable runnable = new Runnable() {
+                    @Override
+                    public void run() {
+                        ad.dismiss();
+                    }
+
+                };
+                handler.postDelayed(runnable, 5 * 1000);
+            }
+
+        });
+        builder.create().show();
+    }
+
+
+    private void respectOlderChooseCardField(final View v) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
+        builder.setTitle("選擇卡片順序");
+        builder.setItems(provinces, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which){
+                    case 0:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
+                        if(skill1.equals("RespectOlder")){
+
+                        }
+                        else if(skill2.equals("RespectOlder")){
+                            updateSkillCard(new SkillInformation("100","NoSkill"),2);
+                            skillCard2.setImageDrawable(getResources().getDrawable(R.drawable.noskill));
+                            skill2="NoSkill";
+                        }
+                        else if(skill3.equals("RespectOlder")){
+                            updateSkillCard(new SkillInformation("100","NoSkill"),3);
+                            skillCard3.setImageDrawable(getResources().getDrawable(R.drawable.noskill));
+                            skill3="NoSkill";
+                        }
+                        updateSkillCard(new SkillInformation("013","RespectOlder"),1);
+                        skillCard1.setImageDrawable(getResources().getDrawable(R.drawable.respectolder));
+                        skill1="RespectOlder";
+                        break;
+                    case 1:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
+                        if(skill1.equals("RespectOlder")){
+                            updateSkillCard(new SkillInformation("100","NoSkill"),1);
+                            skillCard1.setImageDrawable(getResources().getDrawable(R.drawable.noskill));
+                            skill1="NoSkill";
+                        }
+                        else if(skill2.equals("RespectOlder")){
+
+                        }
+                        else if(skill3.equals("RespectOlder")){
+                            updateSkillCard(new SkillInformation("100","NoSkill"),3);
+                            skillCard3.setImageDrawable(getResources().getDrawable(R.drawable.noskill));
+                            skill3="NoSkill";
+                        }
+                        updateSkillCard(new SkillInformation("013","RespectOlder"),2);
+                        skillCard2.setImageDrawable(getResources().getDrawable(R.drawable.respectolder));
+                        skill2="RespectOlder";
+                        break;
+                    case 2:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
+                        if(skill1.equals("RespectOlder")){
+                            updateSkillCard(new SkillInformation("100","NoSkill"),1);
+                            skillCard1.setImageDrawable(getResources().getDrawable(R.drawable.noskill));
+                            skill1="NoSkill";
+                        }
+                        else if(skill2.equals("RespectOlder")){
+                            updateSkillCard(new SkillInformation("100","NoSkill"),2);
+                            skillCard2.setImageDrawable(getResources().getDrawable(R.drawable.noskill));
+                            skill2="NoSkill";
+                        }
+                        else if(skill3.equals("RespectOlder")){
+
+                        }
+                        updateSkillCard(new SkillInformation("013","RespectOlder"),3);
+                        skillCard3.setImageDrawable(getResources().getDrawable(R.drawable.respectolder));
+                        skill3="RespectOlder";
+                        break;
+                }
+                final AlertDialog ad = new AlertDialog.Builder(
+                        v.getContext()).setMessage(
+                        "選擇的順序為" +": " + provinces[which]).show();
+                Handler handler = new Handler();
+                Runnable runnable = new Runnable() {
+                    @Override
+                    public void run() {
+                        ad.dismiss();
+                    }
+
+                };
+                handler.postDelayed(runnable, 5 * 1000);
+            }
+
+        });
+        builder.create().show();
+    }
+
 
     private  boolean checkMonsterAndSkill(String skill){
 
@@ -240,6 +634,50 @@ public class SkillPage extends Fragment implements View.OnClickListener{
         else return false;
     }
 
+    private void noSkillChooseCardField(final View v){
+        AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
+        builder.setTitle("選擇卡片順序");
+        builder.setItems(provinces, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which){
+                    case 0:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
+                        updateSkillCard(new SkillInformation("100","NoSkill"),1);
+                        skillCard1.setImageDrawable(getResources().getDrawable(R.drawable.noskill));
+                        skill1="NoSkill";
+                        break;
+                    case 1:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
+                        updateSkillCard(new SkillInformation("100","NoSkill"),2);
+                        skillCard2.setImageDrawable(getResources().getDrawable(R.drawable.noskill));
+                        skill2="NoSkill";
+                        break;
+                    case 2:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
+                        updateSkillCard(new SkillInformation("100","NoSkill"),3);
+                        skillCard3.setImageDrawable(getResources().getDrawable(R.drawable.noskill));
+                        skill3="NoSkill";
+                        break;
+                }
+                final AlertDialog ad = new AlertDialog.Builder(
+                        v.getContext()).setMessage(
+                        "選擇的順序為" +": " + provinces[which]).show();
+                Handler handler = new Handler();
+                Runnable runnable = new Runnable() {
+                    @Override
+                    public void run() {
+                        ad.dismiss();
+                    }
+
+                };
+                handler.postDelayed(runnable, 5 * 1000);
+            }
+
+        });
+        builder.create().show();
+    }
+
     private void strongWaterChooseCardField(final View v) {
         AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
         builder.setTitle("選擇卡片順序");
@@ -248,6 +686,7 @@ public class SkillPage extends Fragment implements View.OnClickListener{
             public void onClick(DialogInterface dialog, int which) {
                 switch (which){
                     case 0:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(skill1.equals("StrongWater")){
 
                         }
@@ -266,6 +705,7 @@ public class SkillPage extends Fragment implements View.OnClickListener{
                         skill1="StrongWater";
                         break;
                     case 1:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(skill1.equals("StrongWater")){
                             updateSkillCard(new SkillInformation("100","NoSkill"),1);
                             skillCard1.setImageDrawable(getResources().getDrawable(R.drawable.noskill));
@@ -284,6 +724,7 @@ public class SkillPage extends Fragment implements View.OnClickListener{
                         skill2="StrongWater";
                         break;
                     case 2:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(skill1.equals("StrongWater")){
                             updateSkillCard(new SkillInformation("100","NoSkill"),1);
                             skillCard1.setImageDrawable(getResources().getDrawable(R.drawable.noskill));
@@ -328,6 +769,7 @@ public class SkillPage extends Fragment implements View.OnClickListener{
             public void onClick(DialogInterface dialog, int which) {
                 switch (which){
                     case 0:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(skill1.equals("H2SO4")){
 
                         }
@@ -346,6 +788,7 @@ public class SkillPage extends Fragment implements View.OnClickListener{
                         skill1="H2SO4";
                         break;
                     case 1:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(skill1.equals("H2SO4")){
                             updateSkillCard(new SkillInformation("100","NoSkill"),1);
                             skillCard1.setImageDrawable(getResources().getDrawable(R.drawable.noskill));
@@ -364,6 +807,7 @@ public class SkillPage extends Fragment implements View.OnClickListener{
                         skill2="H2SO4";
                         break;
                     case 2:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(skill1.equals("H2SO4")){
                             updateSkillCard(new SkillInformation("100","NoSkill"),1);
                             skillCard1.setImageDrawable(getResources().getDrawable(R.drawable.noskill));
@@ -408,6 +852,7 @@ public class SkillPage extends Fragment implements View.OnClickListener{
             public void onClick(DialogInterface dialog, int which) {
                 switch (which){
                     case 0:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(skill1.equals("PaperPlane")){
 
                         }
@@ -426,6 +871,7 @@ public class SkillPage extends Fragment implements View.OnClickListener{
                         skill1="PaperPlane";
                         break;
                     case 1:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(skill1.equals("PaperPlane")){
                             updateSkillCard(new SkillInformation("100","NoSkill"),1);
                             skillCard1.setImageDrawable(getResources().getDrawable(R.drawable.noskill));
@@ -444,6 +890,7 @@ public class SkillPage extends Fragment implements View.OnClickListener{
                         skill2="PaperPlane";
                         break;
                     case 2:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(skill1.equals("PaperPlane")){
                             updateSkillCard(new SkillInformation("100","NoSkill"),1);
                             skillCard1.setImageDrawable(getResources().getDrawable(R.drawable.noskill));
@@ -489,6 +936,7 @@ public class SkillPage extends Fragment implements View.OnClickListener{
             public void onClick(DialogInterface dialog, int which) {
                 switch (which){
                     case 0:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(skill1.equals("Encyclopedia")){
 
                         }
@@ -507,6 +955,7 @@ public class SkillPage extends Fragment implements View.OnClickListener{
                         skill1="Encyclopedia";
                         break;
                     case 1:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(skill1.equals("Encyclopedia")){
                             updateSkillCard(new SkillInformation("100","NoSkill"),1);
                             skillCard1.setImageDrawable(getResources().getDrawable(R.drawable.noskill));
@@ -525,6 +974,7 @@ public class SkillPage extends Fragment implements View.OnClickListener{
                         skill2="Encyclopedia";
                         break;
                     case 2:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(skill1.equals("Encyclopedia")){
                             updateSkillCard(new SkillInformation("100","NoSkill"),1);
                             skillCard1.setImageDrawable(getResources().getDrawable(R.drawable.noskill));
@@ -570,6 +1020,7 @@ public class SkillPage extends Fragment implements View.OnClickListener{
             public void onClick(DialogInterface dialog, int which) {
                 switch (which){
                     case 0:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(skill1.equals("Compression")){
 
                         }
@@ -588,6 +1039,7 @@ public class SkillPage extends Fragment implements View.OnClickListener{
                         skill1="Compression";
                         break;
                     case 1:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(skill1.equals("Compression")){
                             updateSkillCard(new SkillInformation("100","NoSkill"),1);
                             skillCard1.setImageDrawable(getResources().getDrawable(R.drawable.noskill));
@@ -606,6 +1058,7 @@ public class SkillPage extends Fragment implements View.OnClickListener{
                         skill2="Compression";
                         break;
                     case 2:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(skill1.equals("Compression")){
                             updateSkillCard(new SkillInformation("100","NoSkill"),1);
                             skillCard1.setImageDrawable(getResources().getDrawable(R.drawable.noskill));
@@ -650,6 +1103,7 @@ public class SkillPage extends Fragment implements View.OnClickListener{
             public void onClick(DialogInterface dialog, int which) {
                 switch (which){
                     case 0:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(skill1.equals("CansScroll")){
 
                         }
@@ -668,6 +1122,7 @@ public class SkillPage extends Fragment implements View.OnClickListener{
                         skill1="CansScroll";
                         break;
                     case 1:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(skill1.equals("CansScroll")){
                             updateSkillCard(new SkillInformation("100","NoSkill"),1);
                             skillCard1.setImageDrawable(getResources().getDrawable(R.drawable.noskill));
@@ -686,6 +1141,7 @@ public class SkillPage extends Fragment implements View.OnClickListener{
                         skill2="CansScroll";
                         break;
                     case 2:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(skill1.equals("CansScroll")){
                             updateSkillCard(new SkillInformation("100","NoSkill"),1);
                             skillCard1.setImageDrawable(getResources().getDrawable(R.drawable.noskill));
@@ -731,6 +1187,7 @@ public class SkillPage extends Fragment implements View.OnClickListener{
             public void onClick(DialogInterface dialog, int which) {
                 switch (which){
                     case 0:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(skill1.equals("SweetSmell")){
 
                         }
@@ -749,6 +1206,7 @@ public class SkillPage extends Fragment implements View.OnClickListener{
                         skill1="SweetSmell";
                         break;
                     case 1:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(skill1.equals("SweetSmell")){
                             updateSkillCard(new SkillInformation("100","NoSkill"),1);
                             skillCard1.setImageDrawable(getResources().getDrawable(R.drawable.noskill));
@@ -767,6 +1225,7 @@ public class SkillPage extends Fragment implements View.OnClickListener{
                         skill2="SweetSmell";
                         break;
                     case 2:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(skill1.equals("SweetSmell")){
                             updateSkillCard(new SkillInformation("100","NoSkill"),1);
                             skillCard1.setImageDrawable(getResources().getDrawable(R.drawable.noskill));
@@ -813,6 +1272,7 @@ public class SkillPage extends Fragment implements View.OnClickListener{
             public void onClick(DialogInterface dialog, int which) {
                 switch (which){
                     case 0:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(skill1.equals("RottenFood")){
 
                         }
@@ -831,6 +1291,7 @@ public class SkillPage extends Fragment implements View.OnClickListener{
                         skill1="RottenFood";
                         break;
                     case 1:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(skill1.equals("RottenFood")){
                             updateSkillCard(new SkillInformation("100","NoSkill"),1);
                             skillCard1.setImageDrawable(getResources().getDrawable(R.drawable.noskill));
@@ -849,6 +1310,7 @@ public class SkillPage extends Fragment implements View.OnClickListener{
                         skill2="RottenFood";
                         break;
                     case 2:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(skill1.equals("RottenFood")){
                             updateSkillCard(new SkillInformation("100","NoSkill"),1);
                             skillCard1.setImageDrawable(getResources().getDrawable(R.drawable.noskill));
@@ -894,6 +1356,7 @@ public class SkillPage extends Fragment implements View.OnClickListener{
             public void onClick(DialogInterface dialog, int which) {
                 switch (which){
                     case 0:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(skill1.equals("HotWater")){
 
                         }
@@ -912,6 +1375,7 @@ public class SkillPage extends Fragment implements View.OnClickListener{
                         skill1="HotWater";
                         break;
                     case 1:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(skill1.equals("HotWater")){
                             updateSkillCard(new SkillInformation("100","NoSkill"),1);
                             skillCard1.setImageDrawable(getResources().getDrawable(R.drawable.noskill));
@@ -930,6 +1394,7 @@ public class SkillPage extends Fragment implements View.OnClickListener{
                         skill2="HotWater";
                         break;
                     case 2:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(skill1.equals("HotWater")){
                             updateSkillCard(new SkillInformation("100","NoSkill"),1);
                             skillCard1.setImageDrawable(getResources().getDrawable(R.drawable.noskill));
@@ -976,6 +1441,7 @@ public class SkillPage extends Fragment implements View.OnClickListener{
             public void onClick(DialogInterface dialog, int which) {
                 switch (which){
                     case 0:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(skill1.equals("Coffee")){
 
                         }
@@ -994,6 +1460,7 @@ public class SkillPage extends Fragment implements View.OnClickListener{
                         skill1="Coffee";
                         break;
                     case 1:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(skill1.equals("Coffee")){
                             updateSkillCard(new SkillInformation("100","NoSkill"),1);
                             skillCard1.setImageDrawable(getResources().getDrawable(R.drawable.noskill));
@@ -1012,6 +1479,7 @@ public class SkillPage extends Fragment implements View.OnClickListener{
                         skill2="Coffee";
                         break;
                     case 2:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(skill1.equals("Coffee")){
                             updateSkillCard(new SkillInformation("100","NoSkill"),1);
                             skillCard1.setImageDrawable(getResources().getDrawable(R.drawable.noskill));
@@ -1136,6 +1604,22 @@ public class SkillPage extends Fragment implements View.OnClickListener{
                                 skillCard1.setImageDrawable(getResources().getDrawable(R.drawable.noskill));
                                 skill1=skillInformation.Name;
                             }
+                            if(skillInformation.Name.equals("DeathAttack")){
+                                skillCard1.setImageDrawable(getResources().getDrawable(R.drawable.deathattack));
+                                skill1=skillInformation.Name;
+                            }
+                            if(skillInformation.Name.equals("LoveTeaching")){
+                                skillCard1.setImageDrawable(getResources().getDrawable(R.drawable.loveteaching));
+                                skill1=skillInformation.Name;
+                            }
+                            if(skillInformation.Name.equals("NotResigned")){
+                                skillCard1.setImageDrawable(getResources().getDrawable(R.drawable.notresigned));
+                                skill1=skillInformation.Name;
+                            }
+                            if(skillInformation.Name.equals("RespectOlder")){
+                                skillCard1.setImageDrawable(getResources().getDrawable(R.drawable.respectolder));
+                                skill1=skillInformation.Name;
+                            }
                         }
                         //snapshot.getRef().removeValue();
                     }
@@ -1195,6 +1679,22 @@ public class SkillPage extends Fragment implements View.OnClickListener{
                                 skillCard2.setImageDrawable(getResources().getDrawable(R.drawable.noskill));
                                 skill2=skillInformation.Name;
                             }
+                            if(skillInformation.Name.equals("DeathAttack")){
+                                skillCard2.setImageDrawable(getResources().getDrawable(R.drawable.deathattack));
+                                skill2=skillInformation.Name;
+                            }
+                            if(skillInformation.Name.equals("LoveTeaching")){
+                                skillCard2.setImageDrawable(getResources().getDrawable(R.drawable.loveteaching));
+                                skill2=skillInformation.Name;
+                            }
+                            if(skillInformation.Name.equals("NotResigned")){
+                                skillCard2.setImageDrawable(getResources().getDrawable(R.drawable.notresigned));
+                                skill2=skillInformation.Name;
+                            }
+                            if(skillInformation.Name.equals("RespectOlder")){
+                                skillCard2.setImageDrawable(getResources().getDrawable(R.drawable.respectolder));
+                                skill2=skillInformation.Name;
+                            }
                         }
                         //snapshot.getRef().removeValue();
                     }
@@ -1251,6 +1751,22 @@ public class SkillPage extends Fragment implements View.OnClickListener{
                             }
                             if(skillInformation.Name.equals("NoSkill")){
                                 skillCard3.setImageDrawable(getResources().getDrawable(R.drawable.noskill));
+                                skill3=skillInformation.Name;
+                            }
+                            if(skillInformation.Name.equals("DeathAttack")){
+                                skillCard3.setImageDrawable(getResources().getDrawable(R.drawable.deathattack));
+                                skill3=skillInformation.Name;
+                            }
+                            if(skillInformation.Name.equals("LoveTeaching")){
+                                skillCard3.setImageDrawable(getResources().getDrawable(R.drawable.loveteaching));
+                                skill3=skillInformation.Name;
+                            }
+                            if(skillInformation.Name.equals("NotResigned")){
+                                skillCard3.setImageDrawable(getResources().getDrawable(R.drawable.notresigned));
+                                skill3=skillInformation.Name;
+                            }
+                            if(skillInformation.Name.equals("RespectOlder")){
+                                skillCard3.setImageDrawable(getResources().getDrawable(R.drawable.respectolder));
                                 skill3=skillInformation.Name;
                             }
                         }

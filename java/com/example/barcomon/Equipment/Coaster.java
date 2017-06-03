@@ -6,8 +6,8 @@ package com.example.barcomon.Equipment;
 
 public class Coaster extends Equipment{
     public Coaster(){
-        this.upgradeAttack=100;
-        this.upgradeDefense=400;
+        this.upgradeAttack=400;
+        this.upgradeDefense=700;
         this.uniqueMonster="Mug";
         this.uniqueMonsterExtraAttck=0;
         this.uniqueMonsterExtraDefense=300;

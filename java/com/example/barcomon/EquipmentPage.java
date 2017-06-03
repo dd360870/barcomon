@@ -1,6 +1,8 @@
 package com.example.barcomon;
 
 import android.content.DialogInterface;
+import android.media.AudioManager;
+import android.media.SoundPool;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
@@ -27,12 +29,12 @@ import com.google.firebase.database.ValueEventListener;
 public class EquipmentPage extends Fragment implements View.OnClickListener{
     public String[] provinces = new String[] { "第一張", "第二張", "第三張"};
     ImageView equipmentCard1,equipmentCard2,equipmentCard3;
-    LinearLayout bookmarkLayout,bookClothingLayout;
+
 
     UserItem useritem;
 
     ImageView capsuleLayout,bottleLogoLayout,cupSetLayout,pullRingLayout,coasterLayout,instantDrinkLayout
-            ,chopsticksLayout,chickenLegsLayout;
+            ,chopsticksLayout,chickenLegsLayout,bookmarkLayout,bookClothingLayout,plasticbagLayout;
 
     EquipmentInformation equipmentInformation;
 
@@ -43,6 +45,11 @@ public class EquipmentPage extends Fragment implements View.OnClickListener{
     private DatabaseReference databaseReference;
 
     private String equip1,equip2,equip3;
+
+    private static final int SOUND_COUNT = 2;
+    private SoundPool soundPool;
+    private int CardSoundID;
+    private int ClickCardID;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle saveInstanceState){
@@ -56,12 +63,14 @@ public class EquipmentPage extends Fragment implements View.OnClickListener{
         equipmentCard2=(ImageView)view.findViewById(R.id.equipmentCard2);
         equipmentCard3=(ImageView)view.findViewById(R.id.equipmentCard3);
 
+        plasticbagLayout=(ImageView)view.findViewById(R.id.equipPagePlasticbagLayout);
+
         capsuleLayout=(ImageView) view.findViewById(R.id.equipPageCapsuleLayout);
         //cartonLayout=(LinearLayout)view.findViewById(R.id.equipPageCartonLayout);
 
         bottleLogoLayout=(ImageView) view.findViewById(R.id.equipPageBottleLogoLayout);
-        bookmarkLayout=(LinearLayout)view.findViewById(R.id.equipPageBookmarkLayout);
-        bookClothingLayout=(LinearLayout)view.findViewById(R.id.equipPageBookClothingLayout);
+        bookmarkLayout=(ImageView) view.findViewById(R.id.equipPageBookmarkLayout);
+        bookClothingLayout=(ImageView) view.findViewById(R.id.equipPageBookClothingLayout);
 
         cupSetLayout=(ImageView) view.findViewById(R.id.equipPageCupSetLayout);
         pullRingLayout=(ImageView) view.findViewById(R.id.equipPagePullRingLayout);
@@ -72,8 +81,13 @@ public class EquipmentPage extends Fragment implements View.OnClickListener{
         coasterLayout=(ImageView) view.findViewById(R.id.equipPageCoasterLayout);
         instantDrinkLayout=(ImageView) view.findViewById(R.id.equipPageInstantDrinkLayout);
 
+        this.soundPool = new SoundPool(SOUND_COUNT, AudioManager.STREAM_MUSIC, 0);
+        CardSoundID= this.soundPool.load(getActivity(), R.raw.cardsound, 1);
+        ClickCardID= this.soundPool.load(getActivity(), R.raw.battleset_selectcard, 1);
 
 
+
+        plasticbagLayout.setOnClickListener(this);
         capsuleLayout.setOnClickListener(this);
         //cartonLayout.setOnClickListener(this);
 
@@ -93,6 +107,7 @@ public class EquipmentPage extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
+        soundPool.play(ClickCardID, 1, 1, 0, 0, 1);
         if(v==capsuleLayout){
             if(useritem.Capsule==1) {
                 capSuleChooseCardField(v);
@@ -174,9 +189,61 @@ public class EquipmentPage extends Fragment implements View.OnClickListener{
                 Toast.makeText(getActivity(), "你沒有這張裝備卡", Toast.LENGTH_SHORT).show();
             }
         }
+        if(v==plasticbagLayout){
+            plasticChooseCardField(v);
+        }
 
     }
 
+    private void plasticChooseCardField(final View v){
+        AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
+        builder.setTitle("選擇卡片順序");
+        builder.setItems(provinces, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which){
+
+                    case 0:
+
+                        updateEquipmentCard(new EquipmentInformation("100","NoEquip"),1);
+                        equipmentCard1.setImageDrawable(getResources().getDrawable(R.drawable.noequip));
+                        equip1="NoEquip";
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
+                        break;
+                    case 1:
+
+                        updateEquipmentCard(new EquipmentInformation("100","NoEquip"),2);
+                        equipmentCard2.setImageDrawable(getResources().getDrawable(R.drawable.noequip));
+                        equip2="NoEquip";
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
+                        break;
+                    case 2:
+
+                        updateEquipmentCard(new EquipmentInformation("100","NoEquip"),3);
+                        equipmentCard3.setImageDrawable(getResources().getDrawable(R.drawable.noequip));
+                        equip3="NoEquip";
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
+                        break;
+
+
+                }
+                final AlertDialog ad = new AlertDialog.Builder(
+                        v.getContext()).setMessage(
+                        "選擇的順序為" + ": " + provinces[which]).show();
+                Handler handler = new Handler();
+                Runnable runnable = new Runnable() {
+                    @Override
+                    public void run() {
+                        ad.dismiss();
+                    }
+
+                };
+                handler.postDelayed(runnable, 5 * 1000);
+            }
+
+        });
+        builder.create().show();
+    }
 
 
     private void capSuleChooseCardField(final View v) {
@@ -187,6 +254,7 @@ public class EquipmentPage extends Fragment implements View.OnClickListener{
             public void onClick(DialogInterface dialog, int which) {
                 switch (which){
                     case 0:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(equip1.equals("Capsule")){
 
                         }
@@ -207,7 +275,7 @@ public class EquipmentPage extends Fragment implements View.OnClickListener{
 
                         break;
                     case 1:
-
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(equip1.equals("Capsule")){
                             updateEquipmentCard(new EquipmentInformation("100","NoEquip"),1);
                             equipmentCard1.setImageDrawable(getResources().getDrawable(R.drawable.noequip));
@@ -227,7 +295,7 @@ public class EquipmentPage extends Fragment implements View.OnClickListener{
                         equip2="Capsule";
                         break;
                     case 2:
-
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(equip1.equals("Capsule")){
                             updateEquipmentCard(new EquipmentInformation("100","NoEquip"),1);
                             equipmentCard1.setImageDrawable(getResources().getDrawable(R.drawable.noequip));
@@ -277,6 +345,7 @@ public class EquipmentPage extends Fragment implements View.OnClickListener{
             public void onClick(DialogInterface dialog, int which) {
                 switch (which){
                     case 0:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(equip1.equals("BottleLogo")){
 
                         }
@@ -295,6 +364,7 @@ public class EquipmentPage extends Fragment implements View.OnClickListener{
                         equip1="BottleLogo";
                         break;
                     case 1:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(equip1.equals("BottleLogo")){
                             updateEquipmentCard(new EquipmentInformation("100","NoEquip"),1);
                             equipmentCard1.setImageDrawable(getResources().getDrawable(R.drawable.noequip));
@@ -313,6 +383,7 @@ public class EquipmentPage extends Fragment implements View.OnClickListener{
                         equip2="BottleLogo";
                         break;
                     case 2:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(equip1.equals("BottleLogo")){
                             updateEquipmentCard(new EquipmentInformation("100","NoEquip"),1);
                             equipmentCard1.setImageDrawable(getResources().getDrawable(R.drawable.noequip));
@@ -357,6 +428,7 @@ public class EquipmentPage extends Fragment implements View.OnClickListener{
             public void onClick(DialogInterface dialog, int which) {
                 switch (which){
                     case 0:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(equip1.equals("Bookmark")){
 
                         }
@@ -375,6 +447,7 @@ public class EquipmentPage extends Fragment implements View.OnClickListener{
                         equip1="Bookmark";
                         break;
                     case 1:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(equip1.equals("Bookmark")){
                             updateEquipmentCard(new EquipmentInformation("100","NoEquip"),1);
                             equipmentCard1.setImageDrawable(getResources().getDrawable(R.drawable.noequip));
@@ -393,6 +466,7 @@ public class EquipmentPage extends Fragment implements View.OnClickListener{
                         equip2="Bookmark";
                         break;
                     case 2:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(equip1.equals("Bookmark")){
                             updateEquipmentCard(new EquipmentInformation("100","NoEquip"),1);
                             equipmentCard1.setImageDrawable(getResources().getDrawable(R.drawable.noequip));
@@ -440,6 +514,7 @@ public class EquipmentPage extends Fragment implements View.OnClickListener{
             public void onClick(DialogInterface dialog, int which) {
                 switch (which){
                     case 0:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(equip1.equals("BookClothing")){
 
                         }
@@ -458,6 +533,7 @@ public class EquipmentPage extends Fragment implements View.OnClickListener{
                         equip1="BookClothing";
                         break;
                     case 1:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(equip1.equals("BookClothing")){
                             updateEquipmentCard(new EquipmentInformation("100","NoEquip"),1);
                             equipmentCard1.setImageDrawable(getResources().getDrawable(R.drawable.noequip));
@@ -476,6 +552,7 @@ public class EquipmentPage extends Fragment implements View.OnClickListener{
                         equip2="BookClothing";
                         break;
                     case 2:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(equip1.equals("BookClothing")){
                             updateEquipmentCard(new EquipmentInformation("100","NoEquip"),1);
                             equipmentCard1.setImageDrawable(getResources().getDrawable(R.drawable.noequip));
@@ -522,6 +599,7 @@ public class EquipmentPage extends Fragment implements View.OnClickListener{
             public void onClick(DialogInterface dialog, int which) {
                 switch (which){
                     case 0:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(equip1.equals("CupSet")){
 
                         }
@@ -540,6 +618,7 @@ public class EquipmentPage extends Fragment implements View.OnClickListener{
                         equip1="CupSet";
                         break;
                     case 1:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(equip1.equals("CupSet")){
                             updateEquipmentCard(new EquipmentInformation("100","NoEquip"),1);
                             equipmentCard1.setImageDrawable(getResources().getDrawable(R.drawable.noequip));
@@ -558,6 +637,7 @@ public class EquipmentPage extends Fragment implements View.OnClickListener{
                         equip2="CupSet";
                         break;
                     case 2:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(equip1.equals("CupSet")){
                             updateEquipmentCard(new EquipmentInformation("100","NoEquip"),1);
                             equipmentCard1.setImageDrawable(getResources().getDrawable(R.drawable.noequip));
@@ -604,6 +684,7 @@ public class EquipmentPage extends Fragment implements View.OnClickListener{
             public void onClick(DialogInterface dialog, int which) {
                 switch (which){
                     case 0:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(equip1.equals("PullRing")){
 
                         }
@@ -622,6 +703,7 @@ public class EquipmentPage extends Fragment implements View.OnClickListener{
                         equip1="PullRing";
                         break;
                     case 1:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(equip1.equals("PullRing")){
                             updateEquipmentCard(new EquipmentInformation("100","NoEquip"),1);
                             equipmentCard1.setImageDrawable(getResources().getDrawable(R.drawable.noequip));
@@ -640,6 +722,7 @@ public class EquipmentPage extends Fragment implements View.OnClickListener{
                         equip2="PullRing";
                         break;
                     case 2:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(equip1.equals("PullRing")){
                             updateEquipmentCard(new EquipmentInformation("100","NoEquip"),1);
                             equipmentCard1.setImageDrawable(getResources().getDrawable(R.drawable.noequip));
@@ -685,6 +768,7 @@ public class EquipmentPage extends Fragment implements View.OnClickListener{
             public void onClick(DialogInterface dialog, int which) {
                 switch (which){
                     case 0:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(equip1.equals("Chopsticks")){
 
                         }
@@ -703,6 +787,7 @@ public class EquipmentPage extends Fragment implements View.OnClickListener{
                         equip1="Chopsticks";
                         break;
                     case 1:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(equip1.equals("Chopsticks")){
                             updateEquipmentCard(new EquipmentInformation("100","NoEquip"),1);
                             equipmentCard1.setImageDrawable(getResources().getDrawable(R.drawable.noequip));
@@ -721,6 +806,7 @@ public class EquipmentPage extends Fragment implements View.OnClickListener{
                         equip2="Chopsticks";
                         break;
                     case 2:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(equip1.equals("Chopsticks")){
                             updateEquipmentCard(new EquipmentInformation("100","NoEquip"),1);
                             equipmentCard1.setImageDrawable(getResources().getDrawable(R.drawable.noequip));
@@ -765,6 +851,7 @@ public class EquipmentPage extends Fragment implements View.OnClickListener{
             public void onClick(DialogInterface dialog, int which) {
                 switch (which){
                     case 0:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(equip1.equals("ChickenLegs")){
 
                         }
@@ -783,6 +870,7 @@ public class EquipmentPage extends Fragment implements View.OnClickListener{
                         equip1="ChickenLegs";
                         break;
                     case 1:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(equip1.equals("ChickenLegs")){
                             updateEquipmentCard(new EquipmentInformation("100","NoEquip"),1);
                             equipmentCard1.setImageDrawable(getResources().getDrawable(R.drawable.noequip));
@@ -801,6 +889,7 @@ public class EquipmentPage extends Fragment implements View.OnClickListener{
                         equip2="ChickenLegs";
                         break;
                     case 2:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(equip1.equals("ChickenLegs")){
                             updateEquipmentCard(new EquipmentInformation("100","NoEquip"),1);
                             equipmentCard1.setImageDrawable(getResources().getDrawable(R.drawable.noequip));
@@ -846,6 +935,7 @@ public class EquipmentPage extends Fragment implements View.OnClickListener{
             public void onClick(DialogInterface dialog, int which) {
                 switch (which){
                     case 0:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(equip1.equals("Coaster")){
 
                         }
@@ -864,6 +954,7 @@ public class EquipmentPage extends Fragment implements View.OnClickListener{
                         equip1="Coaster";
                         break;
                     case 1:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(equip1.equals("Coaster")){
                             updateEquipmentCard(new EquipmentInformation("100","NoEquip"),1);
                             equipmentCard1.setImageDrawable(getResources().getDrawable(R.drawable.noequip));
@@ -882,6 +973,7 @@ public class EquipmentPage extends Fragment implements View.OnClickListener{
                         equip2="Coaster";
                         break;
                     case 2:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(equip1.equals("Coaster")){
                             updateEquipmentCard(new EquipmentInformation("100","NoEquip"),1);
                             equipmentCard1.setImageDrawable(getResources().getDrawable(R.drawable.noequip));
@@ -927,6 +1019,7 @@ public class EquipmentPage extends Fragment implements View.OnClickListener{
             public void onClick(DialogInterface dialog, int which) {
                 switch (which){
                     case 0:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(equip1.equals("InstantDrink")){
 
                         }
@@ -945,6 +1038,7 @@ public class EquipmentPage extends Fragment implements View.OnClickListener{
                         equip1="InstantDrink";
                         break;
                     case 1:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(equip1.equals("InstantDrink")){
                             updateEquipmentCard(new EquipmentInformation("100","NoEquip"),1);
                             equipmentCard1.setImageDrawable(getResources().getDrawable(R.drawable.noequip));
@@ -963,6 +1057,7 @@ public class EquipmentPage extends Fragment implements View.OnClickListener{
                         equip2="InstantDrink";
                         break;
                     case 2:
+                        soundPool.play(CardSoundID, 1, 1, 0, 0, 1);
                         if(equip1.equals("InstantDrink")){
                             updateEquipmentCard(new EquipmentInformation("100","NoEquip"),1);
                             equipmentCard1.setImageDrawable(getResources().getDrawable(R.drawable.noequip));

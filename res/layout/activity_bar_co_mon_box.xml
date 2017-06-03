@@ -47,6 +47,13 @@
             android:paddingLeft="30dip"
             android:src="@drawable/monsterbox_bento"/>
 
+        <ImageView
+            android:id="@+id/monsterBoxBook"
+            android:layout_width="wrap_content"
+            android:layout_height="98dp"
+            android:paddingLeft="30dip"
+            android:src="@drawable/monsterbox_book"/>
+
 
     </LinearLayout>
 </RelativeLayout>

@@ -1,9 +1,13 @@
 package com.example.barcomon;
 
 import android.animation.ValueAnimator;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.AudioManager;
+import android.media.SoundPool;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -30,6 +34,11 @@ public class BattleEnd extends AppCompatActivity implements View.OnClickListener
 
     private Monster monster;
     private Button levelUpButton,exitButton;
+
+    private static final int SOUND_COUNT = 2;
+    private SoundPool soundPool;
+    private int ClickSoundID;
+    private int LevelUpSoundID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +60,10 @@ public class BattleEnd extends AppCompatActivity implements View.OnClickListener
 
         levelUpButton.setOnClickListener(this);
         exitButton.setOnClickListener(this);
+
+        this.soundPool = new SoundPool(SOUND_COUNT, AudioManager.STREAM_MUSIC, 0);
+        ClickSoundID= this.soundPool.load(this, R.raw.consloebutton, 1);
+        LevelUpSoundID=this.soundPool.load(this, R.raw.levelup, 1);
 
 
         //Intent intent = this.getIntent();
@@ -325,12 +338,14 @@ public class BattleEnd extends AppCompatActivity implements View.OnClickListener
             levelUp();
         }
         if(v==exitButton){
+            soundPool.play(ClickSoundID, 1, 1, 0, 0, 1);
             finish();
             startActivity(new Intent(getApplicationContext(),BarCoMonGameConsole.class));
         }
     }
     public void levelUp(){
         if(myEXP>=totalEXP){
+            soundPool.play(LevelUpSoundID, 1, 1, 0, 0, 1);
             int myEXPbefore=myEXP;
             int  totalEXPbefore=totalEXP;
 
@@ -367,6 +382,7 @@ public class BattleEnd extends AppCompatActivity implements View.OnClickListener
             Toast.makeText(this, "等級提升", Toast.LENGTH_SHORT).show();
         }
         else {
+            soundPool.play(ClickSoundID, 1, 1, 0, 0, 1);
             Toast.makeText(this, "經驗值不足", Toast.LENGTH_SHORT).show();
         }
     }
@@ -410,4 +426,21 @@ public class BattleEnd extends AppCompatActivity implements View.OnClickListener
         });
 
     }
+
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+
+        if ((keyCode == KeyEvent.KEYCODE_BACK)) {   //確定按下退出鍵
+
+            //ConfirmExit(); //呼叫ConfirmExit()函數
+            Toast.makeText(this, "無法返回", Toast.LENGTH_SHORT).show();
+
+            return true;
+
+        }
+
+        return super.onKeyDown(keyCode, event);
+
+    }
+
+
 }

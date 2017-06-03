@@ -115,27 +115,40 @@ public class Monster{
     }
 
     public void trainingAttack(){
-        int usedStrength=100;
-        Attack+=UpgradeAttackValue;
+        int usedStrength=200;
+
+        if((Attack+UpgradeAttackValue)>9999) Attack=9999;
+        else Attack+=UpgradeAttackValue;
         Strength-=usedStrength;
+
     }
 
     public void traningDefense() {
         int usedStrength=200;
-        Defense+=UpgradeDefenseValue;
+        if((Defense+UpgradeDefenseValue)>9999) Defense=9999;
+        else Defense+=UpgradeDefenseValue;
         Strength-=usedStrength;
     }
     public void Feeding(){
-        Strength+=UpgradeStrength/2;
-        LoveLevel+=UpgradePlayLoveLevelValue/2;
+
+        if((Strength+UpgradeStrength/2)>9999) Strength=9999;
+        else Strength+=UpgradeStrength/2;
+
+        if((LoveLevel+UpgradePlayLoveLevelValue/2)>9999) LoveLevel=9999;
+        else LoveLevel+=UpgradePlayLoveLevelValue/2;
     }
     public void Play(){
-        LoveLevel+=UpgradePlayLoveLevelValue;
+        if((LoveLevel+UpgradePlayLoveLevelValue)>9999)LoveLevel=9999;
+        else LoveLevel+=UpgradePlayLoveLevelValue;
     }
     public void Chat(){
-        LoveLevel+=UpgradeChatLoveLevelValue;
+        if((LoveLevel+UpgradeChatLoveLevelValue)>9999)LoveLevel=9999;
+        else LoveLevel+=UpgradeChatLoveLevelValue;
     }
-    public void Sleep(){Strength+=UpgradeStrength;}
+    public void Sleep(){
+        if((Strength+UpgradeStrength)>9999) Strength=9999;
+        else Strength+=UpgradeStrength;
+    }
 
     public void upgradeLevel(){
         if(EXP>=100){
@@ -148,33 +161,52 @@ public class Monster{
     public void bottleTrainingAttack(){
         int usedStrength=200;
         if(LoveLevel>=0 && LoveLevel<100){
-            Attack+=UpgradeAttackValue;
+
+            if((Attack+UpgradeAttackValue)>9999) Attack=9999;
+            else Attack+=UpgradeAttackValue;
+
             Strength-=usedStrength;
+
         }
         else if(LoveLevel>=100){
-            Attack+=UpgradeAttackValue;
-            Attack+=LoveLevel/10;
+
+            if((Attack+UpgradeAttackValue+(LoveLevel/10))>9999) Attack=9999;
+            else {
+                Attack += UpgradeAttackValue;
+                Attack += LoveLevel / 10;
+            }
+
             Strength-=usedStrength;
         }
     }
     public void bottleTrainingDefense(){
         int usedStrength=200;
         if(LoveLevel>=0 && LoveLevel<100){
-            Defense+=UpgradeDefenseValue;
+
+            if((Defense+UpgradeDefenseValue)>9999) Defense=9999;
+            else Defense+=UpgradeDefenseValue;
+
             Strength-=usedStrength;
         }
         else if(LoveLevel>=100){
-            Defense+=UpgradeDefenseValue;
-            Defense+=LoveLevel/10;
+            if((Defense+UpgradeDefenseValue+(LoveLevel/10))>9999) Defense=9999;
+            else {
+                Defense += UpgradeDefenseValue;
+                Defense += LoveLevel / 10;
+            }
             Strength-=usedStrength;
         }
     }
 
 
     public void bentoFeeding(){
-        Strength+=800;
-        Strength+=UpgradeStrength/2;
-        LoveLevel+=UpgradePlayLoveLevelValue/2;
+        if(Strength+800+(UpgradeStrength/2)>9999) Strength=9999;
+        else {
+            Strength += 800;
+            Strength += UpgradeStrength / 2;
+        }
+        if(LoveLevel+(UpgradePlayLoveLevelValue/2)>9999) LoveLevel=9999;
+        else LoveLevel+=UpgradePlayLoveLevelValue/2;
     }
 
 

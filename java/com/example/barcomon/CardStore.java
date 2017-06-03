@@ -4,6 +4,8 @@ package com.example.barcomon;
 import android.content.DialogInterface;
 import android.content.Intent;
 
+import android.media.AudioManager;
+import android.media.SoundPool;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -37,6 +39,11 @@ public class CardStore extends AppCompatActivity implements View.OnClickListener
     private UserInformation userInformation;
 
     private  int usedEnegy=20;
+
+    private static final int SOUND_COUNT = 2;
+    private SoundPool soundPool;
+    private int BuyCardSoundID;
+    private int ClickSoundID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +81,10 @@ public class CardStore extends AppCompatActivity implements View.OnClickListener
         coaster=(ImageView)findViewById(R.id.cardStoreCoaster);
         instantDrink=(ImageView)findViewById(R.id.cardStoreInstantdrink);
 
+        this.soundPool = new SoundPool(SOUND_COUNT, AudioManager.STREAM_MUSIC, 0);
+        BuyCardSoundID= this.soundPool.load(this, R.raw.buycard, 1);
+        ClickSoundID=this.soundPool.load(this, R.raw.consloebutton, 1);
+
         capsule.setOnClickListener(this);
         bottleLogo.setOnClickListener(this);
         bookmark.setOnClickListener(this);
@@ -90,7 +101,7 @@ public class CardStore extends AppCompatActivity implements View.OnClickListener
 
     @Override
     public void onClick(View v) {
-
+        soundPool.play(ClickSoundID, 1, 1, 0, 0, 1);
         if(v==capsule){
             if(userItem.Capsule==0) {
                 if(userInformation.BarCoMonEnergy>=usedEnegy) {
@@ -280,6 +291,7 @@ public class CardStore extends AppCompatActivity implements View.OnClickListener
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        soundPool.play(BuyCardSoundID, 1, 1, 0, 0, 1);
                         userInformation.BarCoMonEnergy-=usedEnegy;
 
                         if(item.equals("Capsule")) userItem.Capsule++;

@@ -38,7 +38,7 @@
         android:id="@+id/battleSceneEnemyMonsterImageView"
         android:layout_width="80dip"
         android:layout_height="80dip"
-        android:src="@drawable/can"
+
         android:layout_alignBottom="@+id/battleSceneEnemyMonsterScreen"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/battleSceneEnemyMonsterTopBar" />
@@ -237,7 +237,7 @@
         android:id="@+id/battleSceneMyMonsterImageView"
         android:layout_width="80dip"
         android:layout_height="80dip"
-        android:src="@drawable/cupfairy"
+
         android:layout_alignBottom="@+id/battleSceneMyMonsterScreen"
         android:layout_alignLeft="@+id/battleSceneEnemyMonsterImageView"
         android:layout_alignStart="@+id/battleSceneEnemyMonsterImageView"
@@ -451,5 +451,31 @@
         android:layout_alignTop="@+id/battleSceneEnemyDialog"
         android:layout_alignLeft="@+id/battleSceneEnemyDialog"
         android:layout_alignStart="@+id/battleSceneEnemyDialog" />
+
+    <TextView
+        android:id="@+id/battleSceneEnemyMonsterName"
+        android:layout_width="80dip"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="10sp"
+        android:text="MonsterName"
+        android:gravity="left"
+        android:layout_alignBaseline="@+id/battleSceneEnemyMonsterlevelTextView"
+        android:layout_alignBottom="@+id/battleSceneEnemyMonsterlevelTextView"
+        android:layout_alignRight="@+id/battleSceneEnemyMonsterTopBar"
+        android:layout_alignEnd="@+id/battleSceneEnemyMonsterTopBar" />
+
+    <TextView
+        android:id="@+id/battleSceneMyMonsterName"
+        android:layout_width="80dip"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="10sp"
+        android:text="MonsterName"
+        android:gravity="left"
+        android:layout_alignBaseline="@+id/battleSceneMyMonsterLevelTextView"
+        android:layout_alignBottom="@+id/battleSceneMyMonsterLevelTextView"
+        android:layout_alignRight="@+id/battleSceneMyMonsterTopBar"
+        android:layout_alignEnd="@+id/battleSceneMyMonsterTopBar" />
 
 </RelativeLayout>

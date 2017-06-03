@@ -6,10 +6,10 @@ package com.example.barcomon.Equipment;
 
 public class Bookmark extends  Equipment{
     public Bookmark(){
-        this.upgradeAttack=300;
-        this.upgradeDefense=200;
+        this.upgradeAttack=700;
+        this.upgradeDefense=300;
         this.uniqueMonster="Book";
-        this.uniqueMonsterExtraAttck=100;
+        this.uniqueMonsterExtraAttck=500;
         this.uniqueMonsterExtraDefense=0;
         this.equipmentName="Bookmark";
     }

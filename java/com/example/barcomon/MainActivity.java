@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_main);
         firebaseAuth = FirebaseAuth.getInstance();
         if(firebaseAuth.getCurrentUser()!=null){
             finish();
@@ -97,7 +98,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         databaseReference= FirebaseDatabase.getInstance().getReference("users");
         FirebaseUser user = firebaseAuth.getCurrentUser();
 
-        UserItem item=new UserItem(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+        UserItem item=new UserItem(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
 
         databaseReference.child(user.getUid()).child("Item").setValue(item);
 

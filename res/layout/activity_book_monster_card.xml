@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_book_monster_card"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/monstercardbackground"
+    >
+
+    <ImageView
+        android:id="@+id/bookMonsterCardTopBar"
+        android:layout_width="300dip"
+        android:layout_height="75dip"
+        android:src="@drawable/monstercardtopbar"
+        android:layout_marginTop="24dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/bookMonsterCardBlueBackground"
+        android:layout_width="275dip"
+        android:layout_height="375dip"
+        android:src="@drawable/monstercardbackground_blue"
+        android:layout_marginTop="11dp"
+        android:layout_below="@+id/bookMonsterCardTopBar"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/bookMonsterCardDetail"
+        android:layout_width="250dip"
+        android:layout_height="75dip"
+        android:src="@drawable/monstercardbookdetail"
+        android:layout_below="@+id/bookMonsterCardScreen"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/bookMonsterCardScreen"
+        android:layout_width="220dip"
+        android:layout_height="200dip"
+        android:src="@drawable/monstercardscreen"
+        android:layout_marginTop="11dp"
+        android:layout_alignTop="@+id/bookMonsterCardBlueBackground"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/bookMonsterCardAttackImageView"
+        android:layout_width="80dip"
+        android:layout_height="35dip"
+        android:src="@drawable/gameboy_attack"
+        android:layout_marginTop="11dp"
+        android:layout_below="@+id/bookMonsterCardDetail"
+        android:layout_alignLeft="@+id/bookMonsterCardScreen"
+        android:layout_alignStart="@+id/bookMonsterCardScreen" />
+
+    <ImageView
+        android:id="@+id/bookMonsterCardDefenseImageView"
+        android:layout_width="80dip"
+        android:layout_height="35dip"
+        android:src="@drawable/gameboy_defense"
+        android:layout_alignTop="@+id/bookMonsterCardAttackImageView"
+        android:layout_alignRight="@+id/bookMonsterCardScreen"
+        android:layout_alignEnd="@+id/bookMonsterCardScreen" />
+
+    <ImageView
+        android:id="@+id/bookMonsterCardLoveLevelImageView"
+        android:layout_width="80dip"
+        android:layout_height="35dip"
+        android:src="@drawable/gameboy_lovelevel"
+        android:layout_alignBottom="@+id/bookMonsterCardBlueBackground"
+        android:layout_alignLeft="@+id/bookMonsterCardAttackImageView"
+        android:layout_alignStart="@+id/bookMonsterCardAttackImageView" />
+
+    <ImageView
+        android:id="@+id/bookMonsterCardStrengthImageView"
+        android:layout_width="80dip"
+        android:layout_height="35dip"
+        android:src="@drawable/gameboy_strength"
+        android:layout_alignBottom="@+id/bookMonsterCardBlueBackground"
+        android:layout_alignLeft="@+id/bookMonsterCardDefenseImageView"
+        android:layout_alignStart="@+id/bookMonsterCardDefenseImageView" />
+
+    <ImageView
+        android:id="@+id/bookMonsterCardLevelImageView"
+        android:layout_width="60dip"
+        android:layout_height="60dip"
+        android:src="@drawable/monstercardlevel"
+        android:layout_alignBottom="@+id/bookMonsterCardTopBar"
+        android:layout_alignLeft="@+id/bookMonsterCardTopBar"
+        android:layout_alignStart="@+id/bookMonsterCardTopBar" />
+
+    <TextView
+        android:id="@+id/bookMonsterCardLevelTextView"
+        android:layout_width="50dip"
+        android:layout_height="50dip"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="99"
+        android:layout_alignBottom="@+id/bookMonsterCardTopBar"
+        android:layout_alignRight="@+id/bookMonsterCardLevelImageView"
+        android:layout_alignEnd="@+id/bookMonsterCardLevelImageView" />
+
+    <TextView
+        android:id="@+id/bookMonsterCardAttackTextView"
+        android:layout_width="75dip"
+        android:layout_height="35dip"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="9999"
+        android:layout_alignTop="@+id/bookMonsterCardAttackImageView"
+        android:layout_toRightOf="@+id/bookMonsterCardLevelImageView"
+        android:layout_toEndOf="@+id/bookMonsterCardLevelImageView" />
+
+
+    <TextView
+        android:id="@+id/bookMonsterCardDefenseTextView"
+        android:layout_width="75dip"
+        android:layout_height="35dip"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="9999"
+        android:layout_alignTop="@+id/bookMonsterCardDefenseImageView"
+        android:layout_alignRight="@+id/bookMonsterCardDetail"
+        android:layout_alignEnd="@+id/bookMonsterCardDetail" />
+
+    <TextView
+        android:id="@+id/bookMonsterCardLoveLevelTextView"
+        android:layout_width="75dip"
+        android:layout_height="35dip"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="9999"
+        android:layout_alignTop="@+id/bookMonsterCardLoveLevelImageView"
+        android:layout_alignLeft="@+id/bookMonsterCardAttackTextView"
+        android:layout_alignStart="@+id/bookMonsterCardAttackTextView" />
+
+    <TextView
+        android:id="@+id/bookMonsterCardStrength"
+        android:layout_width="75dip"
+        android:layout_height="35dip"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="9999"
+        android:layout_alignTop="@+id/bookMonsterCardStrengthImageView"
+        android:layout_alignLeft="@+id/bookMonsterCardDefenseTextView"
+        android:layout_alignStart="@+id/bookMonsterCardDefenseTextView" />
+
+    <ImageView
+        android:id="@+id/bookMonsterCardImageView"
+        android:layout_width="200dip"
+        android:layout_height="200dip"
+        android:src="@drawable/book"
+        android:layout_alignTop="@+id/bookMonsterCardScreen"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="11dp" />
+
+
+</RelativeLayout>

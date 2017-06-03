@@ -17,12 +17,6 @@ public class Bottle extends BattleMonster {
         this.Level=m.Level;
         this.HP=m.Strength;
         this.MonsterClass=monsterclass;
-        //this.equipmentList.add(new Capsule());
-        //this.equipmentList.add(new Capsule());
-        //this.equipmentList.add(new Capsule());
-        //this.skillList.add(new StrongWater());
-        //this.skillList.add(new StrongWater());
-        //this.skillList.add(new StrongWater());
     }
 /*
     public void SetUpEquipment(Equipment equip){

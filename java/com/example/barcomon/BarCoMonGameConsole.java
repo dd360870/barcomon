@@ -4,7 +4,9 @@ import android.animation.ValueAnimator;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.AudioManager;
 import android.media.Image;
+import android.media.SoundPool;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
@@ -80,6 +82,11 @@ public class BarCoMonGameConsole extends AppCompatActivity implements View.OnCli
     public DialogReply dialogreply=new DialogReply();
 
 
+    private static final int SOUND_COUNT = 2;
+    private SoundPool soundPool;
+    private int ConsoleSoundID;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -145,14 +152,11 @@ public class BarCoMonGameConsole extends AppCompatActivity implements View.OnCli
         */
 
 
-
-
-
-
-
         //ChatButton.setOnTouchListener(this);
 
 
+        this.soundPool = new SoundPool(SOUND_COUNT, AudioManager.STREAM_MUSIC, 0);
+        ConsoleSoundID= this.soundPool.load(this, R.raw.consloebutton, 1);
 
 
 
@@ -165,7 +169,6 @@ public class BarCoMonGameConsole extends AppCompatActivity implements View.OnCli
         InformationButton.setOnClickListener(this);
         BattleButton.setOnClickListener(this);
         BattleSetButton.setOnClickListener(this);
-
     }
 /*
     @Override
@@ -204,7 +207,7 @@ public class BarCoMonGameConsole extends AppCompatActivity implements View.OnCli
                 }
                 else if(userinformation.MainMonster.equals("004")){
                     mainmonster="004";
-                    BarCoMonImageView.setImageDrawable(getResources().getDrawable(R.drawable.bottle));
+                    BarCoMonImageView.setImageDrawable(getResources().getDrawable(R.drawable.book));
                 }
 
                 int enegy=userinformation.BarCoMonEnergy;
@@ -216,6 +219,7 @@ public class BarCoMonGameConsole extends AppCompatActivity implements View.OnCli
                 else if(enegy>=41 && enegy<=60) BarCoEnergyImageView.setImageDrawable(getResources().getDrawable(R.drawable.barcoenergy3));
                 else if(enegy>=61 && enegy<=80) BarCoEnergyImageView.setImageDrawable(getResources().getDrawable(R.drawable.barcoenergy4));
                 else if(enegy>=81 && enegy<=100) BarCoEnergyImageView.setImageDrawable(getResources().getDrawable(R.drawable.barcoenergy5));
+                else if(enegy>100)BarCoEnergyImageView.setImageDrawable(getResources().getDrawable(R.drawable.barcoenergy5));
 
                 setBarCoEnergyValue(0,userinformation.BarCoMonEnergy,AnimationDuration);
                 //BarCoEnergyTextView.setText(userinformation.BarCoMonEnergy+"");
@@ -355,67 +359,98 @@ public class BarCoMonGameConsole extends AppCompatActivity implements View.OnCli
     }
 
     public void onClick(View v){
+        soundPool.play(ConsoleSoundID, 1, 1, 0, 0, 1);
         DialogBoxTextView.setText("");
         if(v==ChatButton){
-            if(mainmonster.equals("000")) setDialog(dialogreply.BottleChat());
-            if(mainmonster.equals("001")) setDialog(dialogreply.CanChat());
-            if(mainmonster.equals("002")) setDialog(dialogreply.MugChat());
-            ChatAction();
-            updateMonsterDatabase();
-            updateUserInfoDatabase();
 
+            if(userinformation.BarCoMonEnergy>=5) {
+
+                if (mainmonster.equals("000")) setDialog(dialogreply.BottleChat());
+                if (mainmonster.equals("001")) setDialog(dialogreply.CanChat());
+                if (mainmonster.equals("002")) setDialog(dialogreply.MugChat());
+                ChatAction();
+                updateMonsterDatabase();
+                updateUserInfoDatabase();
+
+            }
+            else{setDialog("能量不足了，快點去賺取能量吧~");}
         }
 
         else if(v==PlayButton){
-            if(mainmonster.equals("000")) setDialog(dialogreply.BottlePlay());
-            if(mainmonster.equals("001")) setDialog(dialogreply.CanPlay());
-            if(mainmonster.equals("002")) setDialog(dialogreply.MugPlay());
+            if(userinformation.BarCoMonEnergy>=5) {
+                if (mainmonster.equals("000")) setDialog(dialogreply.BottlePlay());
+                if (mainmonster.equals("001")) setDialog(dialogreply.CanPlay());
+                if (mainmonster.equals("002")) setDialog(dialogreply.MugPlay());
 
-            //setDialog(dialogreply.BottlePlay());
-            PlayAction();
-            updateMonsterDatabase();
-            updateUserInfoDatabase();
+                //setDialog(dialogreply.BottlePlay());
+                PlayAction();
+                updateMonsterDatabase();
+                updateUserInfoDatabase();
+            }
+            else{
+                setDialog("能量不足了，快點去賺取能量吧~");
+            }
         }
 
         else if(v==FeedButton){
-            //setDialog(dialogreply.BottleFeed());
-            if(mainmonster.equals("000")) setDialog(dialogreply.BottleFeed());
-            if(mainmonster.equals("001")) setDialog(dialogreply.CanFeed());
-            if(mainmonster.equals("002")) setDialog(dialogreply.MugFeed());
+            if(userinformation.BarCoMonEnergy>=5) {
+                //setDialog(dialogreply.BottleFeed());
+                if (mainmonster.equals("000")) setDialog(dialogreply.BottleFeed());
+                if (mainmonster.equals("001")) setDialog(dialogreply.CanFeed());
+                if (mainmonster.equals("002")) setDialog(dialogreply.MugFeed());
 
-            FeedingAction();
-            updateMonsterDatabase();
-            updateUserInfoDatabase();
+                FeedingAction();
+                updateMonsterDatabase();
+                updateUserInfoDatabase();
+            }
+            else{
+                setDialog("能量不足了，快點去賺取能量吧~");
+            }
         }
 
         else if(v==SleepButton){
-            //setDialog(dialogreply.BottleSleep());
-            if(mainmonster.equals("000")) setDialog(dialogreply.BottleSleep());
-            if(mainmonster.equals("001")) setDialog(dialogreply.CanSleep());
-            if(mainmonster.equals("002")) setDialog(dialogreply.MugSleep());
+            if(userinformation.BarCoMonEnergy>=5) {
+                //setDialog(dialogreply.BottleSleep());
+                if (mainmonster.equals("000")) setDialog(dialogreply.BottleSleep());
+                if (mainmonster.equals("001")) setDialog(dialogreply.CanSleep());
+                if (mainmonster.equals("002")) setDialog(dialogreply.MugSleep());
 
-            SleepAction();
-            updateMonsterDatabase();
-            updateUserInfoDatabase();
+                SleepAction();
+                updateMonsterDatabase();
+                updateUserInfoDatabase();
+            }
+            else{
+                setDialog("能量不足了，快點去賺取能量吧~");
+            }
         }
 
         else if(v==TraningAttackButton){
 
+            if(userinformation.BarCoMonEnergy>=10) {
 
 
-            setDialog("我要打爆對手~");
+                setDialog("我要打爆對手~");
 
 
-            TraningAttackAction();
-            updateMonsterDatabase();
-            updateUserInfoDatabase();
+                TraningAttackAction();
+                updateMonsterDatabase();
+                updateUserInfoDatabase();
+            }
+            else{
+                setDialog("能量不足了，快點去賺取能量吧~");
+            }
         }
 
         else if(v==TraningDefenseButton){
-            setDialog("防禦是最好的攻擊...");
-            TraningDefenseAction();
-            updateMonsterDatabase();
-            updateUserInfoDatabase();
+            if(userinformation.BarCoMonEnergy>=10) {
+                setDialog("防禦是最好的攻擊...");
+                TraningDefenseAction();
+                updateMonsterDatabase();
+                updateUserInfoDatabase();
+            }
+            else{
+                setDialog("能量不足了，快點去賺取能量吧~");
+            }
         }
 
         else if(v==InformationButton){
@@ -429,7 +464,14 @@ public class BarCoMonGameConsole extends AppCompatActivity implements View.OnCli
             startActivity(new Intent(getApplicationContext(),BarCoMonBox.class));
         }
         else if(v==BattleButton){
-            startActivity(new Intent(getApplicationContext(),BattleScene.class));
+            if(userinformation.BarCoMonEnergy>=10) {
+                userinformation.UserBattle(10);
+                updateUserInfoDatabase();
+                startActivity(new Intent(getApplicationContext(), BattleScene.class));
+            }
+            else{
+                setDialog("能量不足了，快點去賺取能量吧~");
+            }
         }
         else if(v==BattleSetButton){
             finish();

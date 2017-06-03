@@ -9,10 +9,10 @@ package com.example.barcomon.Equipment;
 public class Capsule extends Equipment {
 
     public Capsule(){
-        this.upgradeAttack=100;
-        this.upgradeDefense=300;
+        this.upgradeAttack=500;
+        this.upgradeDefense=500;
         this.uniqueMonster="Bottle";
-        this.uniqueMonsterExtraAttck=0;
+        this.uniqueMonsterExtraAttck=300;
         this.uniqueMonsterExtraDefense=200;
         this.equipmentName="Capsule";
     }

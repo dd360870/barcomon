@@ -1,6 +1,7 @@
 package com.example.barcomon;
 
 
+
 import java.util.Calendar;
 
 /**
@@ -215,7 +216,11 @@ public class DialogReply {
         else if(skillName.equals("HotWater"))return str+"熱水攻擊";
         else if(skillName.equals("Coffee"))return str+"咖啡醒腦";
         else if(skillName.equals("NoSkill")) return str+"衝撞";
-        else return str+"???";
+        else if(skillName.equals("DeathAttack")) return str+"死亡反擊";
+        else if(skillName.equals("LoveTeaching")) return str+"愛的教育";
+        else if(skillName.equals("NotResigned")) return str+"不甘示弱";
+        else if(skillName.equals("RespectOlder")) return str+"敬老尊賢";
+        else return str+"硫酸水柱";
     }
 
     public String setEnemySkill(String skillName){
@@ -231,7 +236,11 @@ public class DialogReply {
         else if(skillName.equals("HotWater"))return str+"熱水攻擊";
         else if(skillName.equals("Coffee"))return str+"咖啡醒腦";
         else if(skillName.equals("NoSkill"))return str+"衝撞";
-        else return str+"???";
+        else if(skillName.equals("DeathAttack")) return str+"死亡反擊";
+        else if(skillName.equals("LoveTeaching")) return str+"愛的教育";
+        else if(skillName.equals("NotResigned")) return str+"不甘示弱";
+        else if(skillName.equals("RespectOlder")) return str+"敬老尊賢";
+        else return str+"硫酸水柱";
 
     }
 

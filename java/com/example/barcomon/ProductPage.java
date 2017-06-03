@@ -202,18 +202,21 @@ public class ProductPage extends FragmentActivity implements ViewPager.OnPageCha
 
     @Override
     public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.tv_tab0:
+                myViewPager.setCurrentItem(0);
+                break;
+            case R.id.tv_tab1:
+                myViewPager.setCurrentItem(1);
+                break;
+            //case R.id.tv_tab2:
+            //    myViewPager.setCurrentItem(2);
+            //    break;
+            default:
+                break;
 
-        if(v==tv_tab0){
-            myViewPager.setCurrentItem(0);
+
         }
-        if(v==tv_tab1){
-            myViewPager.setCurrentItem(1);
-        }
-
-
-
-
-
 
 
     }

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_bento_monster_card"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/monstercardbackground"
+    >
+
+    <ImageView
+        android:id="@+id/bentoMonsterCardTopBar"
+        android:layout_width="300dip"
+        android:layout_height="75dip"
+        android:src="@drawable/monstercardtopbar"
+        android:layout_marginTop="24dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/bentoMonsterCardBlueBackground"
+        android:layout_width="275dip"
+        android:layout_height="375dip"
+        android:src="@drawable/monstercardbackground_blue"
+        android:layout_marginTop="11dp"
+        android:layout_below="@+id/bentoMonsterCardTopBar"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/bentoMonsterCardDetail"
+        android:layout_width="250dip"
+        android:layout_height="75dip"
+        android:src="@drawable/monstercardbentodetail"
+        android:layout_below="@+id/bentoMonsterCardScreen"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/bentoMonsterCardScreen"
+        android:layout_width="220dip"
+        android:layout_height="200dip"
+        android:src="@drawable/monstercardscreen"
+        android:layout_marginTop="11dp"
+        android:layout_alignTop="@+id/bentoMonsterCardBlueBackground"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/bentoMonsterCardAttackImageView"
+        android:layout_width="80dip"
+        android:layout_height="35dip"
+        android:src="@drawable/gameboy_attack"
+        android:layout_marginTop="11dp"
+        android:layout_below="@+id/bentoMonsterCardDetail"
+        android:layout_alignLeft="@+id/bentoMonsterCardScreen"
+        android:layout_alignStart="@+id/bentoMonsterCardScreen" />
+
+    <ImageView
+        android:id="@+id/bentoMonsterCardDefenseImageView"
+        android:layout_width="80dip"
+        android:layout_height="35dip"
+        android:src="@drawable/gameboy_defense"
+        android:layout_alignTop="@+id/bentoMonsterCardAttackImageView"
+        android:layout_alignRight="@+id/bentoMonsterCardScreen"
+        android:layout_alignEnd="@+id/bentoMonsterCardScreen" />
+
+    <ImageView
+        android:id="@+id/bentoMonsterCardLoveLevelImageView"
+        android:layout_width="80dip"
+        android:layout_height="35dip"
+        android:src="@drawable/gameboy_lovelevel"
+        android:layout_alignBottom="@+id/bentoMonsterCardBlueBackground"
+        android:layout_alignLeft="@+id/bentoMonsterCardAttackImageView"
+        android:layout_alignStart="@+id/bentoMonsterCardAttackImageView" />
+
+    <ImageView
+        android:id="@+id/bentoMonsterCardStrengthImageView"
+        android:layout_width="80dip"
+        android:layout_height="35dip"
+        android:src="@drawable/gameboy_strength"
+        android:layout_alignBottom="@+id/bentoMonsterCardBlueBackground"
+        android:layout_alignLeft="@+id/bentoMonsterCardDefenseImageView"
+        android:layout_alignStart="@+id/bentoMonsterCardDefenseImageView" />
+
+    <ImageView
+        android:id="@+id/bentoMonsterCardLevelImageView"
+        android:layout_width="60dip"
+        android:layout_height="60dip"
+        android:src="@drawable/monstercardlevel"
+        android:layout_alignBottom="@+id/bentoMonsterCardTopBar"
+        android:layout_alignLeft="@+id/bentoMonsterCardTopBar"
+        android:layout_alignStart="@+id/bentoMonsterCardTopBar" />
+
+    <TextView
+        android:id="@+id/bentoMonsterCardLevelTextView"
+        android:layout_width="50dip"
+        android:layout_height="50dip"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="99"
+        android:layout_alignBottom="@+id/bentoMonsterCardTopBar"
+        android:layout_alignRight="@+id/bentoMonsterCardLevelImageView"
+        android:layout_alignEnd="@+id/bentoMonsterCardLevelImageView" />
+
+    <TextView
+        android:id="@+id/bentoMonsterCardAttackTextView"
+        android:layout_width="75dip"
+        android:layout_height="35dip"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="9999"
+        android:layout_alignTop="@+id/bentoMonsterCardAttackImageView"
+        android:layout_toRightOf="@+id/bentoMonsterCardLevelImageView"
+        android:layout_toEndOf="@+id/bentoMonsterCardLevelImageView" />
+
+
+    <TextView
+        android:id="@+id/bentoMonsterCardDefenseTextView"
+        android:layout_width="75dip"
+        android:layout_height="35dip"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="9999"
+        android:layout_alignTop="@+id/bentoMonsterCardDefenseImageView"
+        android:layout_alignRight="@+id/bentoMonsterCardDetail"
+        android:layout_alignEnd="@+id/bentoMonsterCardDetail" />
+
+    <TextView
+        android:id="@+id/bentoMonsterCardLoveLevelTextView"
+        android:layout_width="75dip"
+        android:layout_height="35dip"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="9999"
+        android:layout_alignTop="@+id/bentoMonsterCardLoveLevelImageView"
+        android:layout_alignLeft="@+id/bentoMonsterCardAttackTextView"
+        android:layout_alignStart="@+id/bentoMonsterCardAttackTextView" />
+
+    <TextView
+        android:id="@+id/bentoMonsterCardStrength"
+        android:layout_width="75dip"
+        android:layout_height="35dip"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="9999"
+        android:layout_alignTop="@+id/bentoMonsterCardStrengthImageView"
+        android:layout_alignLeft="@+id/bentoMonsterCardDefenseTextView"
+        android:layout_alignStart="@+id/bentoMonsterCardDefenseTextView" />
+
+    <ImageView
+        android:id="@+id/bentoMonsterCardImageView"
+        android:layout_width="150dip"
+        android:layout_height="150dip"
+        android:src="@drawable/bento"
+        android:layout_above="@+id/bentoMonsterCardDetail"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="21dp" />
+
+
+</RelativeLayout>

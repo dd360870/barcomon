@@ -7,11 +7,11 @@ package com.example.barcomon.Equipment;
 public class BottleLogo extends Equipment {
 
     public BottleLogo(){
-        this.upgradeAttack=100;
-        this.upgradeDefense=400;
+        this.upgradeAttack=500;
+        this.upgradeDefense=500;
         this.uniqueMonster="Bottle";
         this.uniqueMonsterExtraAttck=0;
-        this.uniqueMonsterExtraDefense=100;
+        this.uniqueMonsterExtraDefense=300;
         this.equipmentName="BottleLogo";
     }
 }

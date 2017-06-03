@@ -5,6 +5,8 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.media.AudioManager;
+import android.media.SoundPool;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -29,7 +31,7 @@ import java.util.List;
 
 public class BattleSetUp extends  FragmentActivity implements ViewPager.OnPageChangeListener,View.OnClickListener {
 
-    FloatingActionButton fab_plus,fab_store;
+    FloatingActionButton /*fab_plus*/fab_store;
     Animation FabOpen,FabClose,FabRClockwise,FabRanticlockwise;
     boolean isOpen =false;
 
@@ -45,12 +47,15 @@ public class BattleSetUp extends  FragmentActivity implements ViewPager.OnPageCh
     private long startTime=0;
     private long currentTime=0;
 
+    private static final int SOUND_COUNT = 2;
+    private SoundPool soundPool;
+    private int ClickSoundID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_battle_set_up);
 
-        fab_plus = (FloatingActionButton)findViewById(R.id.fab_plus_battleSetUp);
+        //fab_plus = (FloatingActionButton)findViewById(R.id.fab_plus_battleSetUp);
         fab_store=(FloatingActionButton)findViewById(R.id.fab_store);
 
 
@@ -59,9 +64,9 @@ public class BattleSetUp extends  FragmentActivity implements ViewPager.OnPageCh
         FabRClockwise=AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_clockwise);
         FabRanticlockwise=AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_anticlockwise);
 
-
-
-
+        this.soundPool = new SoundPool(SOUND_COUNT, AudioManager.STREAM_MUSIC, 0);
+        ClickSoundID= this.soundPool.load(this, R.raw.consloebutton, 1);
+/*
         fab_plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,11 +88,13 @@ public class BattleSetUp extends  FragmentActivity implements ViewPager.OnPageCh
                     isOpen = true;
                 }
             }
-        });
+        });*/
+
         fab_store.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View v) {
+                soundPool.play(ClickSoundID, 1, 1, 0, 0, 1);
                 startActivity(new Intent(getApplicationContext(),CardStore.class));
             }
         });
@@ -213,16 +220,21 @@ public class BattleSetUp extends  FragmentActivity implements ViewPager.OnPageCh
 
     @Override
     public void onClick(View v) {
-        if(v.getId()==R.id.equipmentTextView){
-            myViewPager.setCurrentItem(0);
+        switch (v.getId()){
+            case R.id.equipmentTextView:
+                myViewPager.setCurrentItem(0);
+                break;
+            case R.id.skillTextView:
+                myViewPager.setCurrentItem(1);
+                break;
+            //case R.id.trapTextView:
+                //myViewPager.setCurrentItem(2);
+                //break;
+            default:
+                break;
+
+
         }
-        if(v.getId()==R.id.skillTextView){
-            myViewPager.setCurrentItem(1);
-        }
-
-
-
-
 
 
     }

@@ -7,11 +7,11 @@ package com.example.barcomon.Equipment;
 public class PullRing extends Equipment{
 
     public PullRing(){
-        this.upgradeAttack=400;
-        this.upgradeDefense=100;
+        this.upgradeAttack=800;
+        this.upgradeDefense=200;
         this.uniqueMonster="Cans";
-        this.uniqueMonsterExtraAttck=100;
-        this.uniqueMonsterExtraDefense=0;
+        this.uniqueMonsterExtraAttck=0;
+        this.uniqueMonsterExtraDefense=500;
         this.equipmentName="PullRing";
     }
 }

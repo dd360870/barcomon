@@ -40,25 +40,13 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|end"
                 android:layout_marginRight="@dimen/fab_margin_right"
-                android:layout_marginBottom="80dp"
+                android:layout_marginBottom="16dp"
                 android:src="@drawable/ic_action_price"
                 android:elevation="6dp"
                 android:id="@+id/fab_store"
                 app:pressedTranslationZ="12dp"
                 app:backgroundTint="@color/fab1_color"
-                android:visibility="invisible"
-                />
 
-            <android.support.design.widget.FloatingActionButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|end"
-                android:layout_marginRight="@dimen/fab_margin_right"
-                android:layout_marginBottom="16dp"
-                android:src="@drawable/ic_action_plus"
-                android:elevation="6dp"
-                android:id="@+id/fab_plus_battleSetUp"
-                app:pressedTranslationZ="12dp"
                 />
 
 
