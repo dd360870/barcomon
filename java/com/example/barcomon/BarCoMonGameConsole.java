@@ -736,7 +736,6 @@ public class BarCoMonGameConsole extends AppCompatActivity implements View.OnCli
         ad.setPositiveButton("是", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int i) {
                 finish();
-                startActivity(new Intent(getApplicationContext(),ProfileActivity.class));
             }
         });
 
