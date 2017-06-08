@@ -3,6 +3,7 @@
     package="com.example.barcomon">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ORIENTATION" />
 
     <application
         android:allowBackup="true"
@@ -11,26 +12,67 @@
         android:largeHeap="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".ProfileActivity" />
-        <activity android:name=".BarCoMonMain" />
-        <activity android:name=".BarCoReview" />
-        <activity android:name=".DrawBarCoMon" />
-        <activity android:name=".BarCoMonBox" />
-        <activity android:name=".BarCoSearch" />
-        <activity android:name=".ProductPage" />
-        <activity android:name=".BattleSetUp" />
-        <activity android:name=".CardStore" />
-        <activity android:name=".BattleScene" />
-        <activity android:name=".BarCoMonGameConsole" />
-        <activity android:name=".BarCoMonsterInformation" />
-        <activity android:name=".BottleMonsterCard" />
-        <activity android:name=".CanMonsterCard" />
-        <activity android:name=".MugMonsterCard" />
-        <activity android:name=".BattleEnd" />
-        <activity android:name=".BentoMonsterCard" />
-        <activity android:name=".BookMonsterCard"></activity>
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".LoginActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ProfileActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".BarCoMonMain"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".BarCoReview"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".DrawBarCoMon"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".BarCoMonBox"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".BarCoSearch"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ProductPage"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".BattleSetUp"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".CardStore"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".BattleScene"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".BarCoMonGameConsole"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".BarCoMonsterInformation"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".BottleMonsterCard"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".CanMonsterCard"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".MugMonsterCard"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".BattleEnd"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".BentoMonsterCard"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".BookMonsterCard"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

@@ -8,7 +8,7 @@
 
 
     android:background="@drawable/monsterbox_background"
-    tools:context="com.example.boan.firebasep.BarCoMonBox">
+    >
 
     <LinearLayout
         android:orientation="vertical"
@@ -31,28 +31,28 @@
             android:id="@+id/monsterBoxCans"
             android:layout_width="wrap_content"
             android:layout_height="98dp"
-            android:src="@drawable/monsterbox_can"
+            android:src="@drawable/monsterbox_can_dark"
             />
         <ImageView
             android:id="@+id/monsterBoxMug"
             android:layout_width="wrap_content"
             android:layout_height="98dp"
             android:paddingLeft="30dip"
-            android:src="@drawable/monsterbox_mug"/>
+            android:src="@drawable/monsterbox_mug_dark"/>
 
         <ImageView
             android:id="@+id/monsterBoxBento"
             android:layout_width="wrap_content"
             android:layout_height="98dp"
             android:paddingLeft="30dip"
-            android:src="@drawable/monsterbox_bento"/>
+            android:src="@drawable/monsterbox_bento_dark"/>
 
         <ImageView
             android:id="@+id/monsterBoxBook"
             android:layout_width="wrap_content"
             android:layout_height="98dp"
             android:paddingLeft="30dip"
-            android:src="@drawable/monsterbox_book"/>
+            android:src="@drawable/monsterbox_book_dark"/>
 
 
     </LinearLayout>

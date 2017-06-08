@@ -65,12 +65,12 @@ public class BarCoMonBox extends AppCompatActivity implements View.OnClickListen
         monsterBento=(ImageView)findViewById(R.id.monsterBoxBento);
         monsterBook=(ImageView)findViewById(R.id.monsterBoxBook);
 
-
+/*
         monsterBottle.setOnClickListener(this);
         monsterCan.setOnClickListener(this);
         monsterMug.setOnClickListener(this);
         monsterBento.setOnClickListener(this);
-        monsterBook.setOnClickListener(this);
+        monsterBook.setOnClickListener(this);*/
 
 
         monsterBottle.setOnLongClickListener(new View.OnLongClickListener() {
@@ -179,7 +179,7 @@ public class BarCoMonBox extends AppCompatActivity implements View.OnClickListen
     public void updateUserDatabase(String main){
         databaseReference = FirebaseDatabase.getInstance().getReference("users");
         FirebaseUser user = firebaseAuth.getCurrentUser();
-        UserInformation userinfo = new UserInformation(userinformation.name,main,userinformation.BarCoMonEnergy,userinformation.ownMonster);
+        UserInformation userinfo = new UserInformation(userinformation.name,main,userinformation.BarCoMonEnergy,userinformation.ownMonster,user.getUid());
         databaseReference.child(user.getUid()).child("userinformation").setValue(userinfo);
     }
 
@@ -192,6 +192,29 @@ public class BarCoMonBox extends AppCompatActivity implements View.OnClickListen
                 userinformation = snapshot.getValue(UserInformation.class);
                 //str+="OwnMonster: "+userinformation.ownMonster+"\n"+"Energy: "+userinformation.BarCoMonEnergy;
                 //TextViewuseremail.setText("OwnMonster: "+userinformation.ownMonster+"\n"+"Energy: "+userinformation.BarCoMonEnergy);
+
+                if(userinformation.ownMonster.charAt(0)=='1') {
+                    monsterBottle.setImageDrawable(getResources().getDrawable(R.drawable.monsterbox_bottle));
+                    monsterBottle.setOnClickListener(BarCoMonBox.this);
+                }
+                if(userinformation.ownMonster.charAt(1)=='1'){
+                    monsterCan.setImageDrawable(getResources().getDrawable(R.drawable.monsterbox_can));
+                    monsterCan.setOnClickListener(BarCoMonBox.this);
+                }
+                if(userinformation.ownMonster.charAt(2)=='1'){
+                    monsterMug.setImageDrawable(getResources().getDrawable(R.drawable.monsterbox_mug));
+                    monsterMug.setOnClickListener(BarCoMonBox.this);
+                }
+                if(userinformation.ownMonster.charAt(3)=='1'){
+                    monsterBento.setImageDrawable(getResources().getDrawable(R.drawable.monsterbox_bento));
+                    monsterBento.setOnClickListener(BarCoMonBox.this);
+                }
+                if(userinformation.ownMonster.charAt(4)=='1'){
+                    monsterBook.setImageDrawable(getResources().getDrawable(R.drawable.monsterbox_book));
+                    monsterBook.setOnClickListener(BarCoMonBox.this);
+                }
+
+
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {

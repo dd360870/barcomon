@@ -30,8 +30,6 @@ public class DialogReply {
                 "標籤可以額外提升我的守備力~",
                 "瓶蓋可從商店購買取得~",
                 "標籤可從商店購買取得~",
-                "同時裝備瓶蓋和強力水柱可觸發隱藏能力",
-                "同時裝備瓶蓋和硫酸水柱可觸發隱藏能力",
                 "需評價5種飲料類商品才可解鎖強力水柱",
                 "需評價10種飲料類商品才可解鎖硫酸水柱",
                 "我想成為寶特瓶之王!!",
@@ -83,8 +81,6 @@ public class DialogReply {
                 "拉環可額外提升攻擊力~",
                 "快點去商店買杯套給我啦",
                 "我的拉環掉了，幫我去商店買",
-                "同時裝備杯套和滾動可觸發隱藏能力",
-                "同時裝備拉環和自我壓縮可觸發隱藏能力",
                 "需評價10種飲料類商品才可解鎖自我壓縮",
                 "需評價20種飲料類商品才可解鎖滾動",
                 "我想要戰鬥!",
@@ -134,8 +130,6 @@ public class DialogReply {
                 "杯墊可額外提升守備力喲~",
                 "我想喝茶，去商店買茶包給我~",
                 "擁有杯墊，桌上才不會濕濕的喲~",
-                "同時裝備茶包和咖啡醒腦可觸發隱藏能力",
-                "同時裝備杯墊和沸水攻擊可觸發隱藏能力",
                 "需評價15種日用品類商品才可解鎖沸水攻擊",
                 "需評價20種日用品類商品才可解鎖咖啡醒腦",
                 "需要我泡杯茶嗎~",
@@ -170,6 +164,125 @@ public class DialogReply {
 
     }
 
+    public String BentoPlay(){
+        String[] str={
+                "咬住別人的腳是我的樂趣!!",
+                "噓...我正在埋伏敵人...",
+                "拿雞腿砸頭好好玩~"
+        };
+        Calendar c=Calendar.getInstance();
+        int num = Math.abs((int)c.getTimeInMillis()%str.length);
+        return str[num];
+    }
+
+    public String BentoChat(){
+        String[] str={
+                "使用環保筷可額外提升攻擊力~",
+                "啃雞腿可額外提升攻擊力~",
+                "可以買雞腿給我吃嗎?",
+                "平時該隨身攜帶環保筷，快買!",
+                "評價50個食品類商品可解鎖香味四溢",
+                "評價70個食品類商品可解鎖臭酸",
+                "請你吃雞腿要不要>0<",
+                "我真的是一肚子食物...",
+                "我要去散散步順便咬人..."
+        };
+        Calendar c=Calendar.getInstance();
+        int num = Math.abs((int)c.getTimeInMillis()%str.length);
+        return str[num];
+    }
+    public String BentoFeed(){
+        String[] str={
+                "我可以自給自足，少餵我一點",
+                "我想要減肥...吃太多了...",
+                "不要只餵雞腿...多一點蔬菜"
+        };
+        Calendar c=Calendar.getInstance();
+        int num = Math.abs((int)c.getTimeInMillis()%str.length);
+        return str[num];
+    }
+    public String BentoSleep(){
+        String[] str={
+                "zzz...zzz...",
+                "睡前禁止吃宵夜!!",
+                "咬一口雞腿再睡好了..餓死了.."
+        };
+        Calendar c=Calendar.getInstance();
+        int num = Math.abs((int)c.getTimeInMillis()%str.length);
+        return str[num];
+    }
+
+    public String BookPlay(){
+        String[] str={
+                "咻咻咻~接好我的紙飛機~",
+                "書店很多有趣的書...",
+                "我在圖書館能待上整整一天~"
+        };
+        Calendar c=Calendar.getInstance();
+        int num = Math.abs((int)c.getTimeInMillis()%str.length);
+        return str[num];
+    }
+    public String BookChat(){
+        String[] str={
+                "使用書籤可額外提升攻擊力",
+                "使用書衣可額外提供守備力",
+                "書籤是個方便好用的東西呢~",
+                "看漫畫用書衣就不怕被老師發現~",
+                "評價20個書類商品可解鎖紙飛機",
+                "評價40個書類商品可解鎖百科全書",
+                "我想多了解人類的世界~",
+                "多跟我聊天我就開心了~",
+                "我一天可以看完10本書呦~"
+        };
+        Calendar c=Calendar.getInstance();
+        int num = Math.abs((int)c.getTimeInMillis()%str.length);
+        return str[num];
+    }
+    public String BookFeed(){
+        String[] str={
+                "再生紙吃起來乾乾的...",
+                "衛生紙跟人類的棉花糖一樣好吃",
+                "茶泡紙別有一番風味呢~"
+        };
+        Calendar c=Calendar.getInstance();
+        int num = Math.abs((int)c.getTimeInMillis()%str.length);
+        return str[num];
+    }
+    public String BookSleep(){
+        String[] str={
+                "zzz...zzz...",
+                "念睡前故事給我聽~",
+                "讓我再看完一本書!!"
+        };
+        Calendar c=Calendar.getInstance();
+        int num = Math.abs((int)c.getTimeInMillis()%str.length);
+        return str[num];
+    }
+
+    public String UpgradeAttack(){
+        String[] str={
+                "我想要變得更強!!",
+                "訓練不只要快!還要更快!!",
+                "我要打爆對手~",
+                "訓練的好累哦~",
+                "以攻擊力壓制對手吧!"
+        };
+        Calendar c=Calendar.getInstance();
+        int num = Math.abs((int)c.getTimeInMillis()%str.length);
+        return str[num];
+    }
+    public String UpgradeDefense(){
+        String[] str={
+                "防禦是最好的攻擊",
+                "訓練不只要快!還要更快!!",
+                "我要變成銅牆鐵壁!",
+                "訓練的好累哦~",
+                "絕對防禦就不怕敵人的攻擊!"
+        };
+        Calendar c=Calendar.getInstance();
+        int num = Math.abs((int)c.getTimeInMillis()%str.length);
+        return str[num];
+    }
 
     public String setMyEquipment(String equipmentName){
         String str="我方怪獸裝備了";

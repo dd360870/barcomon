@@ -4,8 +4,10 @@ import android.animation.ValueAnimator;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.media.AudioManager;
 import android.media.Image;
+import android.media.MediaPlayer;
 import android.media.SoundPool;
 import android.os.Handler;
 import android.os.Message;
@@ -86,12 +88,15 @@ public class BarCoMonGameConsole extends AppCompatActivity implements View.OnCli
     private SoundPool soundPool;
     private int ConsoleSoundID;
 
+    MediaPlayer mPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_bar_co_mon_game_console);
+
 
 
         BarCoMonImageView=(ImageView)findViewById(R.id.gameboy_monsterOnScreen);
@@ -169,6 +174,14 @@ public class BarCoMonGameConsole extends AppCompatActivity implements View.OnCli
         InformationButton.setOnClickListener(this);
         BattleButton.setOnClickListener(this);
         BattleSetButton.setOnClickListener(this);
+        playBGM();
+    }
+
+    private void playBGM(){
+        mPlayer = MediaPlayer.create(this, R.raw.gameboy_bgm);
+        mPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+        mPlayer.setLooping(true);
+        mPlayer.start();
     }
 /*
     @Override
@@ -368,6 +381,8 @@ public class BarCoMonGameConsole extends AppCompatActivity implements View.OnCli
                 if (mainmonster.equals("000")) setDialog(dialogreply.BottleChat());
                 if (mainmonster.equals("001")) setDialog(dialogreply.CanChat());
                 if (mainmonster.equals("002")) setDialog(dialogreply.MugChat());
+                if(mainmonster.equals("003")) setDialog(dialogreply.BentoChat());
+                if(mainmonster.equals("004")) setDialog(dialogreply.BookChat());
                 ChatAction();
                 updateMonsterDatabase();
                 updateUserInfoDatabase();
@@ -381,6 +396,8 @@ public class BarCoMonGameConsole extends AppCompatActivity implements View.OnCli
                 if (mainmonster.equals("000")) setDialog(dialogreply.BottlePlay());
                 if (mainmonster.equals("001")) setDialog(dialogreply.CanPlay());
                 if (mainmonster.equals("002")) setDialog(dialogreply.MugPlay());
+                if(mainmonster.equals("003")) setDialog(dialogreply.BentoPlay());
+                if(mainmonster.equals("004")) setDialog(dialogreply.BookPlay());
 
                 //setDialog(dialogreply.BottlePlay());
                 PlayAction();
@@ -398,6 +415,8 @@ public class BarCoMonGameConsole extends AppCompatActivity implements View.OnCli
                 if (mainmonster.equals("000")) setDialog(dialogreply.BottleFeed());
                 if (mainmonster.equals("001")) setDialog(dialogreply.CanFeed());
                 if (mainmonster.equals("002")) setDialog(dialogreply.MugFeed());
+                if(mainmonster.equals("003")) setDialog(dialogreply.BentoFeed());
+                if(mainmonster.equals("004")) setDialog(dialogreply.BookFeed());
 
                 FeedingAction();
                 updateMonsterDatabase();
@@ -414,6 +433,8 @@ public class BarCoMonGameConsole extends AppCompatActivity implements View.OnCli
                 if (mainmonster.equals("000")) setDialog(dialogreply.BottleSleep());
                 if (mainmonster.equals("001")) setDialog(dialogreply.CanSleep());
                 if (mainmonster.equals("002")) setDialog(dialogreply.MugSleep());
+                if(mainmonster.equals("003")) setDialog(dialogreply.BentoSleep());
+                if(mainmonster.equals("004")) setDialog(dialogreply.BookSleep());
 
                 SleepAction();
                 updateMonsterDatabase();
@@ -429,7 +450,7 @@ public class BarCoMonGameConsole extends AppCompatActivity implements View.OnCli
             if(userinformation.BarCoMonEnergy>=10) {
 
 
-                setDialog("我要打爆對手~");
+                setDialog(dialogreply.UpgradeAttack());
 
 
                 TraningAttackAction();
@@ -443,7 +464,7 @@ public class BarCoMonGameConsole extends AppCompatActivity implements View.OnCli
 
         else if(v==TraningDefenseButton){
             if(userinformation.BarCoMonEnergy>=10) {
-                setDialog("防禦是最好的攻擊...");
+                setDialog(dialogreply.UpgradeDefense());
                 TraningDefenseAction();
                 updateMonsterDatabase();
                 updateUserInfoDatabase();
@@ -467,6 +488,7 @@ public class BarCoMonGameConsole extends AppCompatActivity implements View.OnCli
             if(userinformation.BarCoMonEnergy>=10) {
                 userinformation.UserBattle(10);
                 updateUserInfoDatabase();
+                mPlayer.pause();
                 startActivity(new Intent(getApplicationContext(), BattleScene.class));
             }
             else{
@@ -474,6 +496,7 @@ public class BarCoMonGameConsole extends AppCompatActivity implements View.OnCli
             }
         }
         else if(v==BattleSetButton){
+            mPlayer.pause();
             finish();
             startActivity(new Intent(getApplicationContext(),BattleSetUp.class));
         }

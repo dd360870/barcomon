@@ -4,6 +4,7 @@ import android.animation.ValueAnimator;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.media.SoundPool;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -39,6 +40,9 @@ public class BattleEnd extends AppCompatActivity implements View.OnClickListener
     private SoundPool soundPool;
     private int ClickSoundID;
     private int LevelUpSoundID;
+
+    MediaPlayer battleEndPlayer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,9 +88,15 @@ public class BattleEnd extends AppCompatActivity implements View.OnClickListener
         setValue();
         updataEXP();
         getMonster();
-
+        playBGM();
     }
 
+    private void playBGM(){
+        battleEndPlayer = MediaPlayer.create(this, R.raw.battle_end_bgm);
+        battleEndPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+        battleEndPlayer.setLooping(true);
+        battleEndPlayer.start();
+    }
 
     public void setValue(){
 
@@ -338,6 +348,7 @@ public class BattleEnd extends AppCompatActivity implements View.OnClickListener
             levelUp();
         }
         if(v==exitButton){
+            battleEndPlayer.release();
             soundPool.play(ClickSoundID, 1, 1, 0, 0, 1);
             finish();
             startActivity(new Intent(getApplicationContext(),BarCoMonGameConsole.class));

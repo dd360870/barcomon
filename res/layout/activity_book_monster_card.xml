@@ -153,5 +153,16 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="11dp" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:text="BookWizard"
+        android:gravity="left"
+        android:layout_alignTop="@+id/bookMonsterCardLevelTextView"
+        android:layout_alignRight="@+id/bookMonsterCardScreen"
+        android:layout_alignEnd="@+id/bookMonsterCardScreen" />
+
 
 </RelativeLayout>

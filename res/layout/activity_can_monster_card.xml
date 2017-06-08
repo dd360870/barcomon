@@ -152,4 +152,16 @@
         android:layout_alignTop="@+id/CanMonsterCardScreen"
         android:layout_centerHorizontal="true" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:text="DemonCan"
+        android:gravity="left"
+        android:layout_alignBaseline="@+id/CanMonsterCardLevelTextView"
+        android:layout_alignBottom="@+id/CanMonsterCardLevelTextView"
+        android:layout_alignRight="@+id/CanMonsterCardImageView"
+        android:layout_alignEnd="@+id/CanMonsterCardImageView" />
+
 </RelativeLayout>

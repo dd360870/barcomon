@@ -174,11 +174,11 @@
 
     <TextView
         android:id="@+id/battleEndMyXEP"
-        android:layout_width="wrap_content"
+        android:layout_width="80dip"
         android:layout_height="wrap_content"
         android:textSize = "25sp"
-
         android:text="----"
+        android:gravity="center"
         android:textStyle="bold"
         android:layout_below="@+id/battleEndLine"
         android:layout_toLeftOf="@+id/battleEndBonusValue"
@@ -201,7 +201,7 @@
 
     <TextView
         android:id="@+id/battleEndTotalEXP"
-        android:layout_width="wrap_content"
+        android:layout_width="100dip"
         android:layout_height="wrap_content"
         android:textSize = "25sp"
 
@@ -219,20 +219,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="LevelUp"
-        android:layout_below="@+id/battleEndEXP"
-        android:layout_toLeftOf="@+id/battleEndMyXEP"
-        android:layout_toStartOf="@+id/battleEndMyXEP"
-        android:layout_marginTop="23dp" />
+        android:layout_alignBaseline="@+id/battleEndExitButton"
+        android:layout_alignBottom="@+id/battleEndExitButton"
+        android:layout_toLeftOf="@+id/battleEndLine2"
+        android:layout_toStartOf="@+id/battleEndLine2" />
 
     <Button
         android:id="@+id/battleEndExitButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="確認"
-        android:layout_alignBaseline="@+id/battleEndLevelUpButton"
-        android:layout_alignBottom="@+id/battleEndLevelUpButton"
-        android:layout_toRightOf="@+id/battleEndLine2"
-        android:layout_toEndOf="@+id/battleEndLine2" />
+        android:layout_below="@+id/battleEndTotalEXP"
+        android:layout_toRightOf="@+id/battleEndBonusValue"
+        android:layout_toEndOf="@+id/battleEndBonusValue"
+        android:layout_marginTop="33dp" />
 
 
 

@@ -27,15 +27,17 @@ public class UserInformation {
         //for(int i=0;i<5;i++) this.ownMonster[i]=0;
         //System.arraycopy(this.ownMonster, 0, ownmonster, 0, this.ownMonster.length);
     }
-    public UserInformation(String name, String mainmonster,int barcomonenergy,String ownmonster) {
+    public UserInformation(String name, String mainmonster,int barcomonenergy,String ownmonster,String uid) {
         this.name = name;
         this.MainMonster = mainmonster;
         this.BarCoMonEnergy = barcomonenergy;
         ownMonster=ownmonster;
+        this.UID=uid;
         //this.ownMonster = new int[5];
         //for(int i=0;i<5;i++) this.ownMonster[i]=0;
         //System.arraycopy(this.ownMonster, 0, ownmonster, 0, this.ownMonster.length);
     }
+
 
     public void UserPlayWithMonster(int barCoEnergyConsume){
         this.BarCoMonEnergy-=barCoEnergyConsume;

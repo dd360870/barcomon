@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.AudioManager;
 import android.media.Image;
+import android.media.MediaPlayer;
 import android.media.SoundPool;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -37,6 +38,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import org.w3c.dom.Text;
 
+import java.util.Calendar;
 import java.util.Iterator;
 
 import me.trojx.dancingnumber.DancingNumberView;
@@ -122,7 +124,7 @@ public class BattleScene extends AppCompatActivity implements View.OnClickListen
     private int ChooseCardSoundID;
     private int AttackSoundID;
 
-
+    MediaPlayer battleScenePlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -200,7 +202,16 @@ public class BattleScene extends AppCompatActivity implements View.OnClickListen
         getMyMonster();
         //getEnemyMonster();
         getenemyMonster();
+        playBGM();
     }
+
+    private void playBGM(){
+        battleScenePlayer = MediaPlayer.create(this, R.raw.battle_scene_bgm);
+        battleScenePlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+        battleScenePlayer.setLooping(true);
+        battleScenePlayer.start();
+    }
+
     public void setMyMonsterName(String MonsterID){
         if(MonsterID.equals("000")) myMonsterName.setText("BottlePig");
         if(MonsterID.equals("001"))myMonsterName.setText("DemonCan");
@@ -490,9 +501,14 @@ public class BattleScene extends AppCompatActivity implements View.OnClickListen
             public void onDataChange(DataSnapshot dataSnapshot) {
                 //int questionCount = (int) dataSnapshot.getChildrenCount();
                 //int rand = random.nextInt(questionCount);
-                Iterator itr = dataSnapshot.getChildren().iterator();
 
-                for(int i = 0; i < 1; i++) {
+                long count=dataSnapshot.getChildrenCount();
+
+                Calendar c=Calendar.getInstance();
+                int num = Math.abs((int)c.getTimeInMillis()%((int)(count-1)));
+
+                Iterator itr = dataSnapshot.getChildren().iterator();
+                for(int i = 0; i < num; i++) {
                     itr.next();
                 }
                 //dataSnapshot.child("userinformation");
@@ -569,7 +585,7 @@ public class BattleScene extends AppCompatActivity implements View.OnClickListen
                             @Override
                             public void onDataChange(DataSnapshot snapshot) {
                                 enemyEquipmentInfo = snapshot.getValue(EquipmentInformation.class);
-                                enemyMonsterSetEquipmentCard1ImageView(enemyEquipmentInfo.Name);
+                                //enemyMonsterSetEquipmentCard1ImageView(enemyEquipmentInfo.Name);
 
                                 //if(myEquipmentInfo.Name.equals("Capsule"))myBattleMonster.equipmentList.add(new Capsule());
                                 //if(myEquipmentInfo.Name.equals("Carton"))myBattleMonster.equipmentList.add(n)
@@ -586,7 +602,7 @@ public class BattleScene extends AppCompatActivity implements View.OnClickListen
                             @Override
                             public void onDataChange(DataSnapshot snapshot) {
                                 enemyEquipmentInfo = snapshot.getValue(EquipmentInformation.class);
-                                enemyMonsterSetEquipmentCard2ImageView(enemyEquipmentInfo.Name);
+                                //enemyMonsterSetEquipmentCard2ImageView(enemyEquipmentInfo.Name);
                                 setEnemyMonsterEquipmentCard(enemyEquipmentInfo.Name);
                             }
                             @Override
@@ -599,7 +615,7 @@ public class BattleScene extends AppCompatActivity implements View.OnClickListen
                             @Override
                             public void onDataChange(DataSnapshot snapshot) {
                                 enemyEquipmentInfo = snapshot.getValue(EquipmentInformation.class);
-                                enemyMonsterSetEquipmentCard3ImageView(enemyEquipmentInfo.Name);
+                                //enemyMonsterSetEquipmentCard3ImageView(enemyEquipmentInfo.Name);
                                 //if(myEquipmentInfo.Name.equals("Capsule"))myBattleMonster.equipmentList.add(new Capsule());
                                 setEnemyMonsterEquipmentCard(enemyEquipmentInfo.Name);
                             }
@@ -613,7 +629,7 @@ public class BattleScene extends AppCompatActivity implements View.OnClickListen
                             @Override
                             public void onDataChange(DataSnapshot snapshot) {
                                 enemySkillInfo = snapshot.getValue(SkillInformation.class);
-                                enemyMonsterSetSkillCard1ImageView(enemySkillInfo.Name);
+                                //enemyMonsterSetSkillCard1ImageView(enemySkillInfo.Name);
                                 setEnemyMonsterSkillCard(enemySkillInfo.Name);
                             }
                             @Override
@@ -626,7 +642,7 @@ public class BattleScene extends AppCompatActivity implements View.OnClickListen
                             @Override
                             public void onDataChange(DataSnapshot snapshot) {
                                 enemySkillInfo = snapshot.getValue(SkillInformation.class);
-                                enemyMonsterSetSkillCard2ImageView(enemySkillInfo.Name);
+                                //enemyMonsterSetSkillCard2ImageView(enemySkillInfo.Name);
                                 setEnemyMonsterSkillCard(enemySkillInfo.Name);
                             }
                             @Override
@@ -639,7 +655,7 @@ public class BattleScene extends AppCompatActivity implements View.OnClickListen
                             @Override
                             public void onDataChange(DataSnapshot snapshot) {
                                 enemySkillInfo = snapshot.getValue(SkillInformation.class);
-                                enemyMonsterSetSkillCard3ImageView(enemySkillInfo.Name);
+                                //enemyMonsterSetSkillCard3ImageView(enemySkillInfo.Name);
                                 setEnemyMonsterSkillCard(enemySkillInfo.Name);
                             }
                             @Override
@@ -1760,6 +1776,7 @@ public class BattleScene extends AppCompatActivity implements View.OnClickListen
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        battleScenePlayer.release();
 
                         if(num==1){//平手
                             Intent i = new Intent(BattleScene.this, BattleEnd.class);
@@ -2221,6 +2238,7 @@ public class BattleScene extends AppCompatActivity implements View.OnClickListen
 
         ad.setPositiveButton("是", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int i) {
+                battleScenePlayer.release();
                 finish();
                 startActivity(new Intent(getApplicationContext(),BarCoMonGameConsole.class));
             }

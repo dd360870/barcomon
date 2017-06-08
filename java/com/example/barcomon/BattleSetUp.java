@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.media.SoundPool;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
@@ -50,6 +51,9 @@ public class BattleSetUp extends  FragmentActivity implements ViewPager.OnPageCh
     private static final int SOUND_COUNT = 2;
     private SoundPool soundPool;
     private int ClickSoundID;
+
+    MediaPlayer battleSetPlayer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -98,6 +102,7 @@ public class BattleSetUp extends  FragmentActivity implements ViewPager.OnPageCh
                 startActivity(new Intent(getApplicationContext(),CardStore.class));
             }
         });
+        playBGM();
         //initView();
         //initLineImage();
 
@@ -109,6 +114,13 @@ public class BattleSetUp extends  FragmentActivity implements ViewPager.OnPageCh
         initView();
         initLineImage();
 
+    }
+
+    private void playBGM(){
+        battleSetPlayer = MediaPlayer.create(this, R.raw.battle_set_bgm);
+        battleSetPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+        battleSetPlayer.setLooping(true);
+        battleSetPlayer.start();
     }
 
     private void initLineImage(){
@@ -283,6 +295,7 @@ public class BattleSetUp extends  FragmentActivity implements ViewPager.OnPageCh
 
         ad.setPositiveButton("是", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int i) {
+                battleSetPlayer.release();
                 finish();
                 startActivity(new Intent(getApplicationContext(),BarCoMonGameConsole.class));
             }
