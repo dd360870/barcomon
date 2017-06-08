@@ -481,6 +481,7 @@ public class BarCoMonGameConsole extends AppCompatActivity implements View.OnCli
         }
 
         else if(v==InformationButton){
+            mPlayer.pause();
             startActivity(new Intent(getApplicationContext(),BarCoMonBox.class));
             //MonsterInfoAction();
             //updateMonsterDatabase();

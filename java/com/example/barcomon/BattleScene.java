@@ -517,8 +517,15 @@ public class BattleScene extends AppCompatActivity implements View.OnClickListen
                 //enemyUserInformation= (((DataSnapshot) itr.next()).child("userinformation")).getValue(UserInformation.class);
                 enemyUserInformation= (((DataSnapshot) itr.next()).child("userinformation")).getValue(UserInformation.class);
 
-                enemyDialog.setText("UID"+enemyUserInformation.UID);
-                myDialog.setText("name: "+enemyUserInformation.BarCoMonEnergy);
+                FirebaseUser userr = firebaseAuth.getCurrentUser();
+
+                //if(enemyUserInformation.UID==userr.getUid()){
+                //    enemyUserInformation= (((DataSnapshot) itr.next()).child("userinformation")).getValue(UserInformation.class);
+                //}
+
+
+                //enemyDialog.setText("UID"+enemyUserInformation.UID);
+                //myDialog.setText("name: "+enemyUserInformation.BarCoMonEnergy);
 
 
 
