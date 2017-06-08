@@ -297,7 +297,7 @@ public class BattleSetUp extends  FragmentActivity implements ViewPager.OnPageCh
             public void onClick(DialogInterface dialog, int i) {
                 battleSetPlayer.release();
                 finish();
-                startActivity(new Intent(getApplicationContext(),BarCoMonGameConsole.class));
+                //startActivity(new Intent(getApplicationContext(),BarCoMonGameConsole.class));
             }
         });
 

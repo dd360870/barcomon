@@ -174,7 +174,7 @@ public class BarCoMonGameConsole extends AppCompatActivity implements View.OnCli
         InformationButton.setOnClickListener(this);
         BattleButton.setOnClickListener(this);
         BattleSetButton.setOnClickListener(this);
-        playBGM();
+        //playBGM();
     }
 
     private void playBGM(){
@@ -182,6 +182,12 @@ public class BarCoMonGameConsole extends AppCompatActivity implements View.OnCli
         mPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
         mPlayer.setLooping(true);
         mPlayer.start();
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        playBGM();
     }
 /*
     @Override
@@ -497,7 +503,7 @@ public class BarCoMonGameConsole extends AppCompatActivity implements View.OnCli
         }
         else if(v==BattleSetButton){
             mPlayer.pause();
-            finish();
+            //finish();
             startActivity(new Intent(getApplicationContext(),BattleSetUp.class));
         }
 

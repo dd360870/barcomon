@@ -351,7 +351,7 @@ public class BattleEnd extends AppCompatActivity implements View.OnClickListener
             battleEndPlayer.release();
             soundPool.play(ClickSoundID, 1, 1, 0, 0, 1);
             finish();
-            startActivity(new Intent(getApplicationContext(),BarCoMonGameConsole.class));
+            //startActivity(new Intent(getApplicationContext(),BarCoMonGameConsole.class));
         }
     }
     public void levelUp(){

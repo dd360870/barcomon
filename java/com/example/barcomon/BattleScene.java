@@ -1787,6 +1787,7 @@ public class BattleScene extends AppCompatActivity implements View.OnClickListen
                             i.putExtra("enemyLevel",enemyBattleMonster.Level);
                             i.putExtra("mainMonster",myMainMonster);
                             i.putExtra("EXP",myMonster.EXP);
+                            finish();
                             startActivity(i);
                         }
                         else if(num==2){//對手
@@ -1798,6 +1799,7 @@ public class BattleScene extends AppCompatActivity implements View.OnClickListen
                             i.putExtra("enemyLevel",enemyBattleMonster.Level);
                             i.putExtra("mainMonster",myMainMonster);
                             i.putExtra("EXP",myMonster.EXP);
+                            finish();
                             startActivity(i);
                         }
                         else if(num==3){//我方
@@ -1809,6 +1811,7 @@ public class BattleScene extends AppCompatActivity implements View.OnClickListen
                             i.putExtra("enemyLevel",enemyBattleMonster.Level);
                             i.putExtra("mainMonster",myMainMonster);
                             i.putExtra("EXP",myMonster.EXP);
+                            finish();
                             startActivity(i);
                         }
 
@@ -2240,7 +2243,7 @@ public class BattleScene extends AppCompatActivity implements View.OnClickListen
             public void onClick(DialogInterface dialog, int i) {
                 battleScenePlayer.release();
                 finish();
-                startActivity(new Intent(getApplicationContext(),BarCoMonGameConsole.class));
+                //startActivity(new Intent(getApplicationContext(),BarCoMonGameConsole.class));
             }
         });
 
