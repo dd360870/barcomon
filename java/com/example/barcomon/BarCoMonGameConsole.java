@@ -727,27 +727,16 @@ public class BarCoMonGameConsole extends AppCompatActivity implements View.OnCli
 
     public void ConfirmExit(){
 
-        AlertDialog.Builder ad=new AlertDialog.Builder(BarCoMonGameConsole.this);
-
-        ad.setTitle("離開");
-
-        ad.setMessage("確定離開?");
-
-        ad.setPositiveButton("是", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int i) {
-                finish();
-            }
-        });
-
-        ad.setNegativeButton("否",new DialogInterface.OnClickListener() {
-
-            public void onClick(DialogInterface dialog, int i) {
-
-            }
-
-        });
-
-        ad.show();//顯示訊息視窗
+        new AlertDialog.Builder(BarCoMonGameConsole.this)
+                .setTitle("離開")
+                .setMessage("確定離開?")
+                .setPositiveButton("是", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int i) {
+                        mPlayer.release();
+                        finish();
+                    }})
+                .setNegativeButton("否",null)
+                .show();//顯示訊息視窗
 
     }
 
